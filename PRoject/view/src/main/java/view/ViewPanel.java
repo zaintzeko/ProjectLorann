@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -15,6 +16,7 @@ class ViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
 	private ViewFrame					viewFrame;
+	private ArrayList<? extends IMotionElement> motionElement;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 
@@ -24,8 +26,9 @@ class ViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *          the view frame
 	 */
-	public ViewPanel(final ViewFrame viewFrame) {
+	public ViewPanel(final ViewFrame viewFrame, final ArrayList<? extends IMotionElement> motionElement) {
 		this.setViewFrame(viewFrame);
+		this.motionElement = motionElement;
 		viewFrame.getModel().getObservable().addObserver(this);
 	}
 
@@ -65,6 +68,9 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
+		for(final ArrayList<? extends IMotionElement> h : this.motionElement)
+		{
+			graphics.drawImage(h.getImage(), h.getX(), h.getY(), h.getWidth(), h.getHeight, this);
+		}
 	}
 }
