@@ -7,9 +7,15 @@ package contract;
  */
 public enum ControllerOrder {
 
+	/** The Deutch. */
+	Deutsch,
 	/** The English. */
-	English, /** The French. */
-	Francais, /** The Deutch. */
-	Deutsch, /** The Indonesia. */
-	Indonesia
+	English,
+	/** The French. */
+	Francais,
+	/** The Indonesia. */
+	Indonesia,
+	/** test */
+	lzlzlzl
+
 }
