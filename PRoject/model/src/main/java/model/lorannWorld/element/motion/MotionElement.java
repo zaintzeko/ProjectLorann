@@ -30,12 +30,12 @@ public abstract class MotionElement extends Element implements IMotionElement{
 
 	public int getX() {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.x;
 	}
 
 	public int getY() {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.y;
 	}
 
 	public int getWidth() {
