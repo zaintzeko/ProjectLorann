@@ -1,13 +1,13 @@
-package model.lorannWorld.element.motion;
+package model.lorannWorld.element.motionless;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class SpellTest {
+public class FactoryElementTest {
 
 	@Test
-	public void test() {
+	public void () {
 		fail("Not yet implemented");
 	}
 
