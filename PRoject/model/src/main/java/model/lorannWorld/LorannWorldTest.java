@@ -9,6 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class LorannWorldTest {
+	private LorannWorld testLoran;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -19,7 +20,7 @@ public class LorannWorldTest {
 
 	@Before
 	public void setUp() throws Exception {
-		
+		this.testLoran = new LorannWorld(1,10);
 	}
 
 	@After
@@ -28,27 +29,40 @@ public class LorannWorldTest {
 
 	@Test
 	public void testGetWidth() {
-		fail("Not yet implemented");
+		final int expected = 1;
+		assertEquals(expected, this.testLoran.getWidth());
 	}
 
 	@Test
 	public void testGetHeight() {
-		fail("Not yet implemented");
+		final int expected = 10;
+		assertEquals(expected, this.testLoran.getHeight());
 	}
 
 	@Test
 	public void testGetElement() {
-		fail("Not yet implemented");
+		for(int i =0; i < this.testLoran.getWidth(); i++){
+			for( int y = 0; y < this.testLoran.getHeight(); y++){
+				assertNotNull(this.testLoran.getElement(i, y));
+			}
+		}
+		
 	}
 
 	@Test
 	public void testGetMotionlessElements() {
-		fail("Not yet implemented");
+		for(int i =0; i < this.testLoran.getWidth(); i++){
+			for( int y = 0; y < this.testLoran.getHeight(); y++){
+				assertNotNull(this.testLoran.getMotionlessElements(i, y));
+			}
+		}
 	}
 
 	@Test
 	public void testGetMotionElements() {
-		fail("Not yet implemented");
+		int i = 0;
+		assertNotNull(this.testLoran.getMotionElements(i));
+			
 	}
 
 }

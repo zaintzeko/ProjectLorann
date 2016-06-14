@@ -43,16 +43,19 @@ public class LorannWorld implements ILorannWorld {
 		
 		
 	}
-	public IMotionlessElement[][] getMotionlessElements() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	public void addMotionElement(IMotionElement mobile, int x, int y) {
 		// TODO Auto-generated method stub
 		
+	}	
+	
+	public IMotionlessElement[][] getMotionlessElements(int x, int y) {
+		return this.elements;
 	}
-	public ArrayList<IMotionElement> getMotionElements() {
-		// TODO Auto-generated method stub
+	
+	public ArrayList<IMotionElement> getMotionElements(int x) {
+		
 		return null;
 	}
+
 }
