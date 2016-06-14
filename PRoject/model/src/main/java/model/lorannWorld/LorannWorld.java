@@ -49,11 +49,11 @@ public class LorannWorld implements ILorannWorld {
 		
 	}	
 	
-	public IMotionlessElement[][] getMotionlessElements(int x, int y) {
+	public IMotionlessElement[][] getMotionlessElements() {
 		return this.elements;
 	}
 	
-	public ArrayList<IMotionElement> getMotionElements(int x) {
+	public ArrayList<IMotionElement> getMotionElements() {
 		
 		return null;
 	}
