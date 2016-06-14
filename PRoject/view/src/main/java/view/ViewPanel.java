@@ -17,6 +17,7 @@ class ViewPanel extends JPanel implements Observer {
 	/** The view frame. */
 	private ViewFrame					viewFrame;
 	private ArrayList<? extends IMotionElement> motionElement;
+	private IMotionlessElement[][] motionlessElement[][];
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 
@@ -26,9 +27,10 @@ class ViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *          the view frame
 	 */
-	public ViewPanel(final ViewFrame viewFrame, final ArrayList<? extends IMotionElement> motionElement) {
+	public ViewPanel(final ViewFrame viewFrame, final ArrayList<? extends IMotionElement> motionElement, IMotionLessElement motionLessElements[][]) {
 		this.setViewFrame(viewFrame);
 		this.motionElement = motionElement;
+		this.motionlessElement = motionlessElement;
 		viewFrame.getModel().getObservable().addObserver(this);
 	}
 
@@ -68,6 +70,13 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+		for(int i = 0; i < this.viewFrame.getModel().getWidth; i++)
+		{
+			for(int j = 0; j < this.viewFrame.getModel().getWidth; j++)
+			{
+				graphics.drawImage(this.motionlessElement[j][j].getImage(), j, i, this.motionlessElement[j][j].getWidth(), this.motionlessElement[j][j].getHeight(), this);
+			}
+		}
 		for(final ArrayList<? extends IMotionElement> h : this.motionElement)
 		{
 			graphics.drawImage(h.getImage(), h.getX(), h.getY(), h.getWidth(), h.getHeight, this);
