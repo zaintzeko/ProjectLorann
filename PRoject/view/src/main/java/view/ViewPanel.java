@@ -77,11 +77,11 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.width, this.height);
-		for(int i = 0; i < this.width; i++)
+		for(int i = 0; i < this.width; i += 32)
 		{
-			for(int j = 0; j < this.height; j++)
+			for(int j = 0; j < this.height; j+=32)
 			{
-				graphics.drawImage(this.motionlessElements[j][j].getImage(), j, i, this.motionlessElements[j][j].getWidth(), this.motionlessElements[j][j].getHeight(), this);
+				graphics.drawImage(this.motionlessElements[j][i].getImage(), j, i, this.motionlessElements[j][i].getWidth(), this.motionlessElements[j][i].getHeight(), this);
 			}
 		}
 		for(final IMotionElement h : this.motionElements)
