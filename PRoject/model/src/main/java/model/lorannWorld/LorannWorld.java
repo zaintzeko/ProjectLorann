@@ -1,5 +1,7 @@
 package model.lorannWorld;
 
+import java.util.ArrayList;
+
 import contract.ILorannWorld;
 import contract.IMotionElement;
 import contract.IMotionlessElement;
@@ -40,5 +42,17 @@ public class LorannWorld implements ILorannWorld {
 	public void addElement(IMotionElement motionElement, int x, int y){ 
 		
 		
+	}
+	public IMotionlessElement[][] getMotionlessElements() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void addMotionElement(IMotionElement mobile, int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+	public ArrayList<IMotionElement> getMotionElements() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
