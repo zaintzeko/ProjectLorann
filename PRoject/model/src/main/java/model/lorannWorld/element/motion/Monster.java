@@ -1,4 +1,7 @@
-package model;
+package model.lorannWorld.element.motion;
+
+import model.lorannWorld.element.ISprite;
+import model.lorannWorld.element.MotionElement;
 
 public class Monster extends MotionElement implements IMonster{
 	private IBehaviorAnimate behaviorAnimate;

@@ -1,4 +1,4 @@
-package model;
+package model.lorannWorld.element;
 
 public enum Permeability {
 

@@ -1,6 +1,8 @@
-package model;
+package model.lorannWorld.element;
 
 import java.awt.Image;
+
+import contract.ILorannWorld;
 
 public abstract class Element {
 	

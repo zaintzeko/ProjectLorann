@@ -1,7 +1,5 @@
-package model;
+package contract;
 
-import contract.IMotionElement;
-import contract.IMotionlessElement;
 public interface ILorannWorld {
 
 	int getWidth();

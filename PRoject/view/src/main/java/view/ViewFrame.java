@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.GraphicsConfiguration;
+
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -10,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import contract.IController;
 import contract.IModel;
+import contract.ILorannWorld;
 
 /**
  * The Class ViewFrame.

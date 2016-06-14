@@ -1,4 +1,4 @@
-package model;
+package model.lorannWorld.element.motion;
 
 public class BehaviorMonsterGhost implements IBehaviorMonsterGhost {
 	/* (non-Javadoc)

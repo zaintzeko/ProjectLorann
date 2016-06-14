@@ -1,5 +1,6 @@
-package model;
+package model.lorannWorld;
 
+import contract.ILorannWorld;
 import contract.IMotionElement;
 import contract.IMotionlessElement;
 
