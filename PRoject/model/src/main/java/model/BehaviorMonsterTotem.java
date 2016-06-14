@@ -4,5 +4,8 @@ public class BehaviorMonsterTotem extends BehaviorAnimate implements IBehaviorMo
 	/* (non-Javadoc)
 	 * @see model.IBehaviorMonsterTotem#animate()
 	 */
-	public void animate();
+	public void animate()
+	{
+		
+	}
 }
