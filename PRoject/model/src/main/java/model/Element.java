@@ -23,11 +23,11 @@ public abstract class Element {
 		return null;
 	}
 	
-	public LorannWorld getLorannWorld(){
+	public ILorannWorld getLorannWorld(){
 		
 	}
 	
-	public LorannWorld setLorannWorld(final LorannWorld lorannWorld){
+	public ILorannWorld setLorannWorld(final ILorannWorld lorannWorld){
 		
 	}
 	
