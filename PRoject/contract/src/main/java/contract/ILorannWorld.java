@@ -12,9 +12,9 @@ public interface ILorannWorld {
 
 	public void addElement(IMotionElement motionElement, int x, int y);
 	
-	public IMotionlessElement[][] getMotionlessElements();
+	public IMotionlessElement[][] getMotionlessElements(int x, int y);
 	
 	public void addMotionElement(IMotionElement mobile, int x , int y);
 	
-	public ArrayList<IMotionElement> getMotionElements();
+	public ArrayList<IMotionElement> getMotionElements(int x);
 }
