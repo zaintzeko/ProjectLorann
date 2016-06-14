@@ -1,19 +1,18 @@
 package model;
 
+import java.awt.Image;
+
 public class Sprite {
 
-	private Sprite sprite;
+	private Image image;
 	
-	public Sprite(final String c){
+	
+	public Sprite(final String string){
 		
 	}
 	
-	public Sprite(final String c,final String string){
-		
-	}
-	
-	public Sprite getSprite(){
-		return this.sprite;
+	public Image getSprite(){
+		return this.image;
 	}
 	
 	
