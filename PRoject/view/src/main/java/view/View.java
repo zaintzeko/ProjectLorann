@@ -38,6 +38,8 @@ public class View implements IView, Runnable {
 	 * @return the controller order
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
+		System.out.println(keyCode);
+		System.out.println();
 		switch (keyCode) {
 			case KeyEvent.VK_G:
 				return ControllerOrder.English;

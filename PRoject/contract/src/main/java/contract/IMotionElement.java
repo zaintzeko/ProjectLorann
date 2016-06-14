@@ -3,10 +3,10 @@ package contract;
 import java.awt.Image;
 
 public interface IMotionElement {
-Image getImage();
-int getX();
-int getY();
-int getWidth();
-int getHeight();
+public Image getImage();
+public int getX();
+public int getY();
+public int getWidth();
+public int getHeight();
 
 }

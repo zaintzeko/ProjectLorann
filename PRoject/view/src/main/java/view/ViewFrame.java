@@ -23,6 +23,11 @@ class ViewFrame extends JFrame implements KeyListener {
 
 	/** The controller. */
 	private IController				controller;
+	private ILorannWorld lorannWorld;
+	public ILorannWorld getLorannWorld() {
+		return lorannWorld;
+	}
+
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -697358409737458175L;
 
@@ -34,8 +39,9 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @throws HeadlessException
 	 *           the headless exception
 	 */
-	public ViewFrame(final IModel model) throws HeadlessException {
+	public ViewFrame(final IModel model, final ILorannWorld lorannWorld) throws HeadlessException {
 		this.buildViewFrame(model);
+		this.lorannWorld = lorannWorld;
 	}
 
 	/**
