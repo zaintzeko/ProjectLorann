@@ -1,6 +1,6 @@
 package model;
 
-public class LorannWorld {
+public class LorannWorld implements ILorannWorld {
 	private int width;
 	private int height;
 	
@@ -9,10 +9,16 @@ public class LorannWorld {
 		this.height = height;
 		
 	}
+	/* (non-Javadoc)
+	 * @see model.ILorannWorld#getWidth()
+	 */
 	public int getWidth() {
 		return width;
 	}
 
+	/* (non-Javadoc)
+	 * @see model.ILorannWorld#getHeight()
+	 */
 	public int getHeight() {
 		return height;
 	}
