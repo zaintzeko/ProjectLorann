@@ -5,6 +5,7 @@ public enum Permeability {
 	BLOCKING,
 	PENETRABLE,
 	RAMASSABLE,
+	KILLING,
 	
 	
 }
