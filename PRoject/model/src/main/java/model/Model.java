@@ -3,6 +3,7 @@ package model;
 import java.sql.SQLException;
 import java.util.Observable;
 
+import contract.ILorannWorld;
 import contract.IModel;
 
 /**
@@ -64,5 +65,10 @@ public class Model extends Observable implements IModel {
 	 */
 	public Observable getObservable() {
 		return this;
+	}
+
+	public ILorannWorld getLorannWorld() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
