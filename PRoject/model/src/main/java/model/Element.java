@@ -1,34 +1,47 @@
 package model;
 
-public abstract class Element {
+import java.awt.Image;
 
+public abstract class Element {
+	
+	private ILorannWorld lorannWorld;
+	private Permeability permeability;
+	private ISprite sprite;
+	
 	public Element(){
 		
 	}
 	
-	public Sprite getSprite(){
-		return null;
+	public ISprite getSprite(){
+		return this.sprite;
 	}
 	
-	public Sprite setSprite(final Sprite sprite){
+	public ISprite setSprite(final ISprite sprite){
 		
-		return null;
+		return this.sprite = sprite;
 	}
 	
 	public Permeability getPermeability(){
-		return null;
+		return this.permeability;
 	}
 	
 	public Permeability setPermeability(final Permeability permeability){
-		return null;
+		return this.permeability=permeability;
 	}
 	
 	public ILorannWorld getLorannWorld(){
 		
+		return this.lorannWorld;
+		
 	}
 	
 	public ILorannWorld setLorannWorld(final ILorannWorld lorannWorld){
+		return this.lorannWorld = lorannWorld;
 		
+	}
+	
+	public Image getImage() {
+		return this.getSprite().getImage();
 	}
 	
 	
