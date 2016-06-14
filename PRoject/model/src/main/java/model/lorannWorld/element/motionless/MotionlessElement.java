@@ -1,4 +1,7 @@
-package model;
+package model.lorannWorld.element.motionless;
+
+import model.lorannWorld.element.ISprite;
+import model.lorannWorld.element.Permeability;
 
 public class MotionlessElement {
 	private Permeability permeability;

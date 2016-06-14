@@ -1,4 +1,4 @@
-package model;
+package model.lorannWorld.element.motion;
 
 public class BehaviorMonsterSkeleton extends BehaviorAnimate implements IBehaviorMonsterSkeleton{
 	/* (non-Javadoc)
