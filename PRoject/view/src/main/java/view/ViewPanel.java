@@ -1,6 +1,10 @@
 package view;
 
+import contract.IMotionElement;
+import contract.IMotionlessElement;
+
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -15,6 +19,8 @@ class ViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
 	private ViewFrame					viewFrame;
+	private ArrayList<? extends IMotionElement> motionElements;
+	private IMotionlessElement motionlessElements[][];
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 
@@ -24,8 +30,10 @@ class ViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *          the view frame
 	 */
-	public ViewPanel(final ViewFrame viewFrame) {
+	public ViewPanel(final ViewFrame viewFrame, final ArrayList<? extends IMotionElement> motionElements, IMotionlessElement motionlessElements[][]) {
 		this.setViewFrame(viewFrame);
+		this.motionElements = motionElements;
+		this.motionlessElements = motionlessElements;
 		viewFrame.getModel().getObservable().addObserver(this);
 	}
 
@@ -65,6 +73,16 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
+		for(int i = 0; i < this.viewFrame.getModel().getWidth(); i++)
+		{
+			for(int j = 0; j < this.viewFrame.getModel().getHeight(); j++)
+			{
+				graphics.drawImage(this.motionlessElements[j][j].getImage(), j, i, this.motionlessElements[j][j].getWidth(), this.motionlessElements[j][j].getHeight(), this);
+			}
+		}
+		for(final IMotionElement h : this.motionElements)
+		{
+			graphics.drawImage(h.getImage(), h.getX(), h.getY(), h.getWidth(), h.getHeight(), this);
+		}
 	}
 }
