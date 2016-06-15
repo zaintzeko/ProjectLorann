@@ -10,6 +10,7 @@ public abstract class MotionElement extends Element implements IMotionElement{
 	private int x;
 	private int y;
 	private ISprite sprite;
+	private Direction direction;
 	
 	public MotionElement(ISprite sprite)
 	{
