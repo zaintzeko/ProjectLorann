@@ -81,7 +81,7 @@ class ViewPanel extends JPanel implements Observer {
 		{
 			for(int j = 0; j < this.height; j+=32)
 			{
-				graphics.drawImage(this.motionlessElements[j][i].getImage(), j, i, this.motionlessElements[j][i].getWidth(), this.motionlessElements[j][i].getHeight(), this);
+				graphics.drawImage(this.motionlessElements[j][i].getImage(), j, i, 32, 32, this);
 			}
 		}
 		for(final IMotionElement h : this.motionElements)
