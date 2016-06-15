@@ -27,9 +27,6 @@ public class ViewTest {
 
 	@Before
 	public void setUp() throws Exception {
-		
-		//testView = new View(i);
-		key = KeyEvent.VK_E;
 	}
 
 	@After
@@ -39,7 +36,8 @@ public class ViewTest {
 	@Test
 	public void testKeyCodeToControllerOrder() {
 		int expected = 1 ;
-		assertEquals("La langue correspond à la touche utilisé", expected, this.testView.keyCodeToControllerOrder(key).ordinal());
+		key = KeyEvent.VK_E;
+		assertEquals(expected, this.testView.keyCodeToControllerOrder(key).ordinal());
 	}
 
 }

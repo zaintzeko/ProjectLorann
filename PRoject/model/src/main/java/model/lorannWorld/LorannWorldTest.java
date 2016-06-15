@@ -9,9 +9,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class LorannWorldTest {
-	private LorannWorld testLoran;
+	private static LorannWorld testLoran;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		testLoran = new LorannWorld(1,10);
 	}
 
 	@AfterClass
@@ -20,25 +21,27 @@ public class LorannWorldTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.testLoran = new LorannWorld(1,10);
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
 
+	@SuppressWarnings("static-access")
 	@Test
 	public void testGetWidth() {
 		final int expected = 1;
 		assertEquals(expected, this.testLoran.getWidth());
 	}
 
+	@SuppressWarnings("static-access")
 	@Test
 	public void testGetHeight() {
 		final int expected = 10;
 		assertEquals(expected, this.testLoran.getHeight());
 	}
 
+	@SuppressWarnings("static-access")
 	@Test
 	public void testGetElement() {
 		for(int i =0; i < this.testLoran.getWidth(); i++){
@@ -49,6 +52,7 @@ public class LorannWorldTest {
 		
 	}
 
+	@SuppressWarnings("static-access")
 	@Test
 	public void testGetMotionlessElements() {
 		for(int i =0; i < this.testLoran.getWidth(); i++){
@@ -58,6 +62,7 @@ public class LorannWorldTest {
 		}
 	}
 
+	@SuppressWarnings("static-access")
 	@Test
 	public void testGetMotionElements() {
 		assertNotNull(this.testLoran.getMotionElements());

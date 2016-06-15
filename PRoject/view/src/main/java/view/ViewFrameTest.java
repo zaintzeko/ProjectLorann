@@ -15,26 +15,24 @@ import contract.IController;
 import contract.IModel;
 public class ViewFrameTest {
 	private View testView;
-	private ViewFrame testFrame;
-	private KeyEvent e;
-	private int key;
+	private static ViewFrame testFrame;
+	private static KeyEvent e;
+	private static int key;
 	private IModel model;
 	private IController testController;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		
+		testFrame = new ViewFrame();
+		e = new KeyEvent(testFrame,KeyEvent.KEY_PRESSED,System.currentTimeMillis(),0,KeyEvent.VK_E,'e');
+		key = KeyEvent.VK_E;
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	@SuppressWarnings("deprecation")
 	@Before
-	public void setUp() throws Exception {
-		testFrame = new ViewFrame();
-		e = new KeyEvent(testFrame,KeyEvent.KEY_PRESSED,System.currentTimeMillis(),0,KeyEvent.VK_E,'e');
-		key = KeyEvent.VK_E;
+	public void setUp() throws Exception {	
 	}
 
 	@After

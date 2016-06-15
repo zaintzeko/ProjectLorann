@@ -11,9 +11,10 @@ import org.junit.Test;
 import model.lorannWorld.element.Permeability;
 
 public class MotionlessElementTest {
-	private MotionlessElement testME;
+	private static MotionlessElement testME;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		testME = new MotionlessElement(null, Permeability.BLOCKING);
 	}
 
 	@AfterClass
@@ -21,8 +22,7 @@ public class MotionlessElementTest {
 	}
 
 	@Before
-	public void setUp() throws Exception {
-		testME = new MotionlessElement(null, Permeability.BLOCKING);
+	public void setUp() throws Exception {	
 	}
 
 	@After

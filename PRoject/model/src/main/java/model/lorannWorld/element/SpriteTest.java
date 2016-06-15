@@ -9,9 +9,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class SpriteTest {
-	private Sprite testSprite;
+	private static Sprite testSprite;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		testSprite = new Sprite(null);
 	}
 
 	@AfterClass
@@ -20,13 +21,13 @@ public class SpriteTest {
 
 	@Before
 	public void setUp() throws Exception {
-		testSprite = new Sprite(null);
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
 
+	@SuppressWarnings("static-access")
 	@Test
 	public void testGetSprite() {
 		assertNotNull(this.testSprite.getSprite());
