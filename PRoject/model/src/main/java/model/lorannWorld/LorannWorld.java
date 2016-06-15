@@ -1,12 +1,13 @@
 package model.lorannWorld;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 import contract.ILorannWorld;
 import contract.IMotionElement;
 import contract.IMotionlessElement;
 
-public class LorannWorld implements ILorannWorld {
+public class LorannWorld extends Observable implements ILorannWorld {
 	private int width;
 	private int height;
 	private IMotionlessElement elements[][];
@@ -39,9 +40,9 @@ public class LorannWorld implements ILorannWorld {
 	/* (non-Javadoc)
 	 * @see model.ILorannWorld#addElement(model.Element, int, int)
 	 */
-	public void addElement(IMotionElement motionElement, int x, int y){ 
-		
-		
+	public void addMotionlessElement(IMotionElement motionlessElement, int x, int y){ 
+		this.elements[x][y] = (IMotionlessElement) motionlessElement;
+		//if (motionElement != null) {motionElement.setLorannWorld(this);}
 	}
 
 	public void addMotionElement(IMotionElement mobile, int x, int y) {
