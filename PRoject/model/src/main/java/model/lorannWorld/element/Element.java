@@ -18,7 +18,7 @@ public abstract class Element {
 		return this.sprite;
 	}
 	
-	public ISprite setSprite(final ISprite sprite){
+	public ISprite setSprite(final ISprite sprite,final Permeability permeability ){
 		
 		return this.sprite = sprite;
 	}

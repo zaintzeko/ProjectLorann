@@ -9,7 +9,7 @@ public abstract class MotionElement extends Element implements IMotionElement{
 	private int y;
 	private ISprite sprite;
 	
-	public MotionElement(ISprite sprite)
+	public MotionElement(ISprite sprite, Permeability permeability)
 	{
 		this.sprite = sprite;
 	}
