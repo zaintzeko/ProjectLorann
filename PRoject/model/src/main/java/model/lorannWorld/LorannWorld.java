@@ -11,7 +11,7 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	private int width;
 	private int height;
 	private IMotionlessElement elements[][];
-	
+	public ArrayList<IMotionElement> motionElements;
 	public LorannWorld(int width, int height) {
 		this.width = width;
 		this.height = height;
@@ -45,7 +45,10 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		//if (motionElement != null) {motionElement.setLorannWorld(this);}
 	}
 
-	public void addMotionElement(IMotionElement mobile, int x, int y) {
+	public void addMotionElement(IMotionElement motionELement, int x, int y) {
+		motionELement.setX(x);
+		motionELement.setY(y);
+		this.motionElements.add(motionELement);
 		// TODO Auto-generated method stub
 		
 	}	
@@ -56,7 +59,7 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	
 	public ArrayList<IMotionElement> getMotionElements() {
 		
-		return null;
+		return this.motionElements;
 	}
 
 }
