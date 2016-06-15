@@ -3,9 +3,10 @@
  */
 package model;
 
+import static org.junit.Assert.fail;
+
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -16,8 +17,6 @@ import org.junit.Test;
  * @author Jean-Aymeric Diet
  */
 public class ModelTest {
-	private Model model;
-
 	/**
 	 * Sets the up before class.
 	 *
@@ -37,6 +36,8 @@ public class ModelTest {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
+
+	private Model model;
 
 	/**
 	 * Sets the up.
@@ -64,7 +65,7 @@ public class ModelTest {
 	 */
 	@Test
 	public void testGetMessage() {
-		Assert.assertEquals("", this.model.getMessage());
+		fail("not implemented and not the good methode");
 	}
 
 	/**
@@ -72,14 +73,7 @@ public class ModelTest {
 	 */
 	@Test
 	public void testGetMessageString() {
-		this.model.loadMessage("GB");
-		Assert.assertEquals("Hello world", this.model.getMessage());
-		this.model.loadMessage("FR");
-		Assert.assertEquals("Bonjour le monde", this.model.getMessage());
-		this.model.loadMessage("DE");
-		Assert.assertEquals("Hallo Welt", this.model.getMessage());
-		this.model.loadMessage("ID");
-		Assert.assertEquals("Salamat pagi dunia", this.model.getMessage());
+		fail("not implemented and not the good methode");
 	}
 
 }

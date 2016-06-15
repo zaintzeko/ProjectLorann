@@ -45,13 +45,14 @@ public class DAO {
 		return this.statement;
 	}
 
-	public void insertNettleWorld(MotionlessElement elements[][], int level) {
+	public void insertNettleWorld(final MotionlessElement elements[][], final int level) {
 		try {
 			this.executeUpdate(Query.getQueryInsert2(level));
 			for (int y = 0; y < 12; y++) {
 				for (int x = 0; x < 20; x++) {
-					if(elements[y][x]!=null)
-					this.executeUpdate(Query.getQueryInsert1(level, elements[y][x], x, y));
+					if(elements[y][x]!=null) {
+						this.executeUpdate(Query.getQueryInsert1(level, elements[y][x], x, y));
+					}
 
 				}
 			}

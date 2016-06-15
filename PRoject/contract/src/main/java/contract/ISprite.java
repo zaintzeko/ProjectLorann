@@ -1,4 +1,4 @@
-package model.lorannWorld.element;
+package contract;
 
 import java.awt.Image;
 

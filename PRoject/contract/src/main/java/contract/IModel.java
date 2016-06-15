@@ -5,24 +5,11 @@ import java.util.Observable;
 /**
  * The Interface IModel.
  *
- * @author Jean-Aymeric Diet
+ * @author
  */
 public interface IModel {
 
-	/**
-	 * Gets the message.
-	 *
-	 * @return the message
-	 */
-	String getMessage();
-
-	/**
-	 * Load the message.
-	 *
-	 * @param key
-	 *          the key
-	 */
-	void loadMessage(String key);
+	public ILorannWorld getLorannWorld();
 
 	/**
 	 * Gets the observable.
@@ -30,6 +17,4 @@ public interface IModel {
 	 * @return the observable
 	 */
 	Observable getObservable();
-	
-	public ILorannWorld getLorannWorld();
 }

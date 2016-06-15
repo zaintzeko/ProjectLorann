@@ -29,15 +29,6 @@ abstract class DAOEntity<E> {
 	}
 
 	/**
-	 * Gets the connection.
-	 *
-	 * @return the connection
-	 */
-	protected Connection getConnection() {
-		return this.connection;
-	}
-
-	/**
 	 * Creates the.
 	 *
 	 * @param entity
@@ -56,6 +47,24 @@ abstract class DAOEntity<E> {
 	public abstract boolean delete(E entity);
 
 	/**
+	 * Find.
+	 *
+	 * @param level
+	 *          the leve
+	 * @return the e
+	 */
+	public abstract E find(int level);
+
+	/**
+	 * Gets the connection.
+	 *
+	 * @return the connection
+	 */
+	protected Connection getConnection() {
+		return this.connection;
+	}
+
+	/**
 	 * Update.
 	 *
 	 * @param entity
@@ -63,23 +72,5 @@ abstract class DAOEntity<E> {
 	 * @return true, if successful
 	 */
 	public abstract boolean update(E entity);
-
-	/**
-	 * Find.
-	 *
-	 * @param id
-	 *          the id
-	 * @return the e
-	 */
-	public abstract E find(int id);
-
-	/**
-	 * Find.
-	 *
-	 * @param key
-	 *          the key
-	 * @return the e
-	 */
-	public abstract E find(String key);
 
 }

@@ -1,20 +1,28 @@
 package contract;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 public interface ILorannWorld {
 
-	int getWidth();
+	public void addMotionElement(IMotionElement mobile, int x , int y);
+
+	public void addMotionlessElement(IMotionElement motionlessElement, int x, int y);
+
+	public IElement getElement(int x, int y);
 
 	int getHeight();
 
-	public IMotionlessElement getElement(int x, int y);
-
-	public void addMotionlessElement(IMotionElement motionlessElement, int x, int y);
-	
-	public IMotionlessElement[][] getMotionlessElements();
-	
-	public void addMotionElement(IMotionElement mobile, int x , int y);
-	
 	public ArrayList<IMotionElement> getMotionElements();
+
+	public IElement[][] getMotionlessElements();
+
+	/**
+	 * Gets the observable.
+	 *
+	 * @return the observable
+	 */
+	Observable getObservable();
+
+	int getWidth();
 }

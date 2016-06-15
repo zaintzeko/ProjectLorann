@@ -1,6 +1,6 @@
 package model.lorannWorld.element.motionless;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,7 +14,7 @@ public class MotionlessElementTest {
 	private static MotionlessElement testME;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		testME = new MotionlessElement(null, Permeability.BLOCKING);
+		testME = new MotionlessElement(null, Permeability.BLOCKING, 'o');
 	}
 
 	@AfterClass
@@ -22,7 +22,7 @@ public class MotionlessElementTest {
 	}
 
 	@Before
-	public void setUp() throws Exception {	
+	public void setUp() throws Exception {
 	}
 
 	@After
