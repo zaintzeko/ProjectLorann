@@ -5,20 +5,20 @@ import java.awt.Image;
 import contract.IMotionElement;
 import model.lorannWorld.element.Element;
 import model.lorannWorld.element.ISprite;
+import model.lorannWorld.element.Permeability;
 
 public abstract class MotionElement extends Element implements IMotionElement{
 	private int x;
 	private int y;
-	private ISprite sprite;
-	
-	public MotionElement(ISprite sprite)
+
+	public MotionElement( ISprite sprite, Permeability permeability)
 	{
-		this.sprite = sprite;
+		super(sprite, permeability);
 	}
 	
-	public MotionElement(ISprite sprite, int x, int y)
+	public MotionElement(ISprite sprite,Permeability permeability, int x, int y)
 	{
-		this.sprite = sprite;
+		super(sprite, permeability);
 		this.x = x;
 		this.y = y;
 	}

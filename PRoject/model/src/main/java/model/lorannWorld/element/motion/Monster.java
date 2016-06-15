@@ -1,12 +1,13 @@
 package model.lorannWorld.element.motion;
 
 import model.lorannWorld.element.ISprite;
+import model.lorannWorld.element.Permeability;
 
 public class Monster extends MotionElement implements IMonster{
 	private IBehaviorAnimate behaviorAnimate;
-	public Monster(ISprite sprite)
+	public Monster(ISprite sprite, Permeability permeability)
 	{
-		super(sprite);
+		super(sprite,permeability);
 		this.behaviorAnimate = new BehaviorAnimate();
 	}
 

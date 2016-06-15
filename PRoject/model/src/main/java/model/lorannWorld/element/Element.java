@@ -10,8 +10,9 @@ public abstract class Element {
 	private Permeability permeability;
 	private ISprite sprite;
 	
-	public Element(){
-		
+	public Element(final ISprite sprite, final Permeability permeability) {
+		this.setSprite(sprite);
+		this.setPermeability(permeability);
 	}
 	
 	public ISprite getSprite(){
