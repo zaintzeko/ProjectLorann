@@ -1,6 +1,8 @@
-package model.lorannWorld.element;
+package view;
 
 import static org.junit.Assert.*;
+
+import java.awt.event.KeyEvent;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -8,11 +10,15 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class SpriteTest {
-	private static Sprite testSprite;
+import contract.ControllerOrder;
+import contract.IModel;
+
+public class ViewTest {
+	private View testView;
+	private int key;
+	private IModel i;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		testSprite = new Sprite(null);
 	}
 
 	@AfterClass
@@ -27,10 +33,11 @@ public class SpriteTest {
 	public void tearDown() throws Exception {
 	}
 
-	@SuppressWarnings("static-access")
 	@Test
-	public void testGetSprite() {
-		assertNotNull(this.testSprite.getSprite());
+	public void testKeyCodeToControllerOrder() {
+		int expected = 1 ;
+		key = KeyEvent.VK_E;
+		assertEquals(expected, this.testView.keyCodeToControllerOrder(key).ordinal());
 	}
 
 }

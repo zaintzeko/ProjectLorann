@@ -1,4 +1,4 @@
-package model.lorannWorld.element;
+package view;
 
 import static org.junit.Assert.*;
 
@@ -8,11 +8,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class SpriteTest {
-	private static Sprite testSprite;
+public class ViewPanelTest {
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		testSprite = new Sprite(null);
+		
 	}
 
 	@AfterClass
@@ -27,10 +27,19 @@ public class SpriteTest {
 	public void tearDown() throws Exception {
 	}
 
-	@SuppressWarnings("static-access")
 	@Test
-	public void testGetSprite() {
-		assertNotNull(this.testSprite.getSprite());
+	public void testViewPanel() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testUpdateObservableObject() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testPaintComponentGraphics() {
+		fail("Not yet implemented");
 	}
 
 }

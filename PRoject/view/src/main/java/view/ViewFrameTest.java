@@ -3,6 +3,7 @@ package view;
 import static org.junit.Assert.*;
 
 import java.awt.event.KeyEvent;
+import java.util.Date;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -10,15 +11,20 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import contract.IController;
 import contract.IModel;
 public class ViewFrameTest {
-	private ViewFrame testFrame;
-	private KeyEvent e;
-	private int key;
+	private View testView;
+	private static ViewFrame testFrame;
+	private static KeyEvent e;
+	private static int key;
 	private IModel model;
+	private IController testController;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		
+		testFrame = new ViewFrame();
+		e = new KeyEvent(testFrame,KeyEvent.KEY_PRESSED,System.currentTimeMillis(),0,KeyEvent.VK_E,'e');
+		key = KeyEvent.VK_E;
 	}
 
 	@AfterClass
@@ -26,11 +32,7 @@ public class ViewFrameTest {
 	}
 
 	@Before
-	public void setUp() throws Exception {
-		//model = new IModel();
-		testFrame = new ViewFrame(model);
-		e = new KeyEvent(testFrame, KeyEvent.VK_A, 0, 0, 0);
-		key = KeyEvent.VK_A;
+	public void setUp() throws Exception {	
 	}
 
 	@After
@@ -39,21 +41,21 @@ public class ViewFrameTest {
 
 	@Test
 	public void testKeyTyped() {
-		testFrame.keyPressed(e);
-		assertEquals("La touche appuyé correspond à la touche renvoyé",key, e.getID());
+		testFrame.keyTyped(e);
+		assertEquals(key, e.getKeyCode());
 	}
 
 	@Test
 	public void testKeyPressed() {
-		testFrame.keyPressed(e);
-		assertEquals("La touche enfoncé correspond à la touche renvoyé",key, e.getID());
+		//testFrame.keyPressed(e);
+		assertEquals(key, e.getKeyCode());
 		
 	}
 
 	@Test
 	public void testKeyReleased() {
-		testFrame.keyPressed(e);
-		assertEquals("La touche relevé correspond à la touche renvoyé",key, e.getID());
+		testFrame.keyReleased(e);
+		assertEquals(key, e.getKeyCode());
 	}
 
 }
