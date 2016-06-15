@@ -32,12 +32,9 @@ public class ViewFrameTest {
 	@SuppressWarnings("deprecation")
 	@Before
 	public void setUp() throws Exception {
-		//model = new IModel();
 		testFrame = new ViewFrame();
-		//testView = new View(model);
 		e = new KeyEvent(testFrame,KeyEvent.KEY_PRESSED,System.currentTimeMillis(),0,KeyEvent.VK_E,'e');
 		key = KeyEvent.VK_E;
-		
 	}
 
 	@After
@@ -47,20 +44,20 @@ public class ViewFrameTest {
 	@Test
 	public void testKeyTyped() {
 		testFrame.keyTyped(e);
-		assertEquals("La touche appuyé correspond à la touche renvoyé",key, e.getKeyCode());
+		assertEquals(key, e.getKeyCode());
 	}
 
 	@Test
 	public void testKeyPressed() {
 		//testFrame.keyPressed(e);
-		assertEquals("La touche enfoncé correspond à la touche renvoyé",key, e.getKeyCode());
+		assertEquals(key, e.getKeyCode());
 		
 	}
 
 	@Test
 	public void testKeyReleased() {
 		testFrame.keyReleased(e);
-		assertEquals("La touche relevé correspond à la touche renvoyé",key, e.getKeyCode());
+		assertEquals(key, e.getKeyCode());
 	}
 
 }
