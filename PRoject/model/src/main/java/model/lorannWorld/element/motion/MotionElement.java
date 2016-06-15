@@ -8,6 +8,30 @@ import model.lorannWorld.element.ISprite;
 
 public abstract class MotionElement extends Element implements IMotionElement{
 	private int x;
+	public ISprite getSprite() {
+		return sprite;
+	}
+
+	public ISprite setSprite(ISprite sprite) {
+		return this.sprite = sprite;
+	}
+
+	public Direction getDirection() {
+		return direction;
+	}
+
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
 	private int y;
 	private ISprite sprite;
 	private Direction direction;

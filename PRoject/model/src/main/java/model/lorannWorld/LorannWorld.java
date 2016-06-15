@@ -6,6 +6,7 @@ import java.util.Observable;
 import contract.ILorannWorld;
 import contract.IMotionElement;
 import contract.IMotionlessElement;
+import model.lorannWorld.element.motionless.MotionlessElement;
 
 public class LorannWorld extends Observable implements ILorannWorld {
 	private int width;
@@ -60,6 +61,10 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	public ArrayList<IMotionElement> getMotionElements() {
 		
 		return this.motionElements;
+	}
+	public void addElement(MotionlessElement fromFileSymbol, int int1, int int2) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

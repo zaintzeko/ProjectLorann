@@ -1,16 +1,19 @@
 package model.lorannWorld.element.motionless;
 
 import model.lorannWorld.element.Permeability;
-import model.lorannWorld.element.motion.Lorann;
-import model.lorannWorld.element.motion.MotionElement;
 
 public abstract class  FactoryElement {
-public static  MotionElement LORANN = new Lorann(null, Permeability.BLOCKING);
-public static MotionElement SPELL = new MotionlessElement(null, Permeability.BLOCKING);
-public static MotionElement DOOR = new MotionlessElement(null, Permeability.BLOCKING);
-public static MotionlessElement HORIZONTALBONE = new MotionlessElement(null, Permeability.BLOCKING);
-public static MotionlessElement VERTICALBONE = new MotionlessElement(null, Permeability.BLOCKING);
-public static MotionlessElement KNEEPCAP = new MotionlessElement(null, Permeability.BLOCKING);
-public static MotionlessElement TREASURE = new MotionlessElement(null, Permeability.RAMASSABLE);
-public static MotionlessElement KEY = new MotionlessElement(null, Permeability.RAMASSABLE);
+public static MotionlessElement HORIZONTALBONE = new MotionlessElement(null, Permeability.BLOCKING, 'l');
+public static MotionlessElement VERTICALBONE = new MotionlessElement(null, Permeability.BLOCKING, '-');
+public static MotionlessElement KNEEPCAP = new MotionlessElement(null, Permeability.BLOCKING, 'o');
+private static MotionlessElement motionlessElements[] = { HORIZONTALBONE, VERTICALBONE, KNEEPCAP };
+
+public static MotionlessElement getFromFileSymbol(final char c) {
+	for (final MotionlessElement motionlessElement : motionlessElements) {
+		if (motionlessElement.getSymbole() == c) {
+			return motionlessElement;
+		}
+	}
+	return null;
+}
 }

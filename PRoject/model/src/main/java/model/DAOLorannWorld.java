@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import contract.ILorannWorld;
 import model.lorannWorld.LorannWorld;
+import model.lorannWorld.element.motionless.FactoryElement;
 
 /**
  * The Class DAOHelloWorld.
@@ -76,7 +77,7 @@ class DAOLorannWorld extends DAOEntity<LorannWorld> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.next()) {
-				lorannWorld.addElement(FactoryElement.getFromStringSymbol(resultSet.getString("nomElement")), resultSet.getInt("x"), resultSet.getInt("y"));
+				lorannWorld.addElement(FactoryElement.getFromFileSymbol(resultSet.getString("nomElement")), resultSet.getInt("x"), resultSet.getInt("y"));
 			}
 			return lorannWorld;
 		} catch (final SQLException e) {

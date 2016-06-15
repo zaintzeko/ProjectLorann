@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import contract.ILorannWorld;
-import contract.IMotionlessElement;
 import model.lorannWorld.element.motionless.MotionlessElement;
 
 
@@ -49,10 +47,11 @@ public class DAO {
 
 	public void insertNettleWorld(MotionlessElement elements[][], int level) {
 		try {
-			this.executeUpdate(Query.getQueryInsert(level));
-			for (int i = 0; i < 12; i++) {
-				for (int j = 0; j < 20; j++) {
-					this.executeUpdate(Query.getQueryInsert(elements[12][20], j, i));
+			this.executeUpdate(Query.getQueryInsert2(level));
+			for (int y = 0; y < 12; y++) {
+				for (int x = 0; x < 20; x++) {
+					if(elements[y][x]!=null)
+					this.executeUpdate(Query.getQueryInsert1(level, elements[y][x], x, y));
 
 				}
 			}

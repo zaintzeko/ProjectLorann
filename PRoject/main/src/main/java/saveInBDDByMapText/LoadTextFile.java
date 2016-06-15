@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import contract.ILorannWorld;
 import contract.IMotionlessElement;
 import model.lorannWorld.LorannWorld;
+import model.lorannWorld.element.motionless.FactoryElement;
 import model.lorannWorld.element.motionless.MotionlessElement;
 
 public class LoadTextFile {
@@ -25,17 +26,21 @@ public class LoadTextFile {
 	public LoadTextFile()
 	{
 		this.dao = new DAO();
-		elements = new MotionlessElement[20][12];
+		elements = new MotionlessElement[12][20];
 	}
 	
-	private void loadFile(final String fileName) throws IOException {
+	@SuppressWarnings("unused")
+	public void loadFile(final String fileName) throws IOException {
 		final BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
 		String line;
-		int numLine;
+		int numLine = 0;
 		while ((line = buffer.readLine()) != null) {
 			for (int x = 0; x < line.toCharArray().length; x++) {
-				elements[x][numLine] = FactoryElement.getFromStringSymbol(line.toCharArray()[x]);
+				this.elements[numLine][x] = FactoryElement.getFromFileSymbol(line.toCharArray()[x]);
+				if(elements[numLine][x]!= null)System.out.print(elements[numLine][x].getSymbole());
+				else System.out.print(" ");
 			}
+			System.out.println();
 			numLine++;
 		}
 		buffer.close();

@@ -1,19 +1,20 @@
 package saveInBDDByMapText;
 
 import contract.IMotionlessElement;
+import model.lorannWorld.element.motionless.MotionlessElement;
 
 public abstract class Query {
-	public static String getQueryInsert(int level, IMotionlessElement element, final int i, final int j) {
+	public static String getQueryInsert1(int level, MotionlessElement element, final int x, final int y) {
 		String a = "";
-
-		a += "INSERT INTO mapbyelement (x, y, IDMap, IDElement) SELECT " + j + ", " + i
-				+ ", IDNettleMap, IDElement FROM element, map WHERE level = "
-				+ level + "\" AND Object = \"" + element.toString() + "\";\n";
+		System.out.println(element);
+		a += "INSERT INTO mapbyelement (PosX, PosY, IDMap, IDElement) SELECT " + x + ", " + y
+				+ ", IDMap, IDElement FROM element, map WHERE numberlevel = "
+				+ level + " AND NameElement = \"" + element.getSymbole() + "\";\n";
 		System.out.println(a);
 		return a;
 	}
 	
-	public static String getQueryInsert(final String level) {
-		return "INSERT INTO Map(level) VALUES (" + level + ")";
+	public static String getQueryInsert2(final int level) {
+		return "INSERT INTO Map(numberlevel) VALUES (" + level + ")";
 	}
 }
