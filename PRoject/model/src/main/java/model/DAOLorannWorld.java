@@ -70,7 +70,7 @@ class DAOLorannWorld extends DAOEntity<LorannWorld> {
 		LorannWorld lorannWorld = new LorannWorld(20, 12);
 
 		try {
-			final String sql = "{call helloworldById(?)}";
+			final String sql = "{call LorannMap(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, level);
 			call.execute();
