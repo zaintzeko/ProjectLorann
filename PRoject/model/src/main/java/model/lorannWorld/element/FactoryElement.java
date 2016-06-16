@@ -13,17 +13,17 @@ import model.lorannWorld.element.motionless.MotionlessElement;
 
 public abstract class  FactoryElement {
 
-	public static MotionlessElement HORIZONTALBONE = new MotionlessElement(null, Permeability.BLOCKING, 'l');
-	public static MotionlessElement VERTICALBONE = new MotionlessElement(null, Permeability.BLOCKING, '-');
-	public static MotionlessElement KNEEPCAP = new MotionlessElement(null, Permeability.BLOCKING, 'o');
+	public static MotionlessElement HORIZONTALBONE = new MotionlessElement(new Sprite("HorizontalBone.png"), Permeability.BLOCKING, 'l');
+	public static MotionlessElement VERTICALBONE = new MotionlessElement(new Sprite("VerticalBone.png"), Permeability.BLOCKING, '-');
+	public static MotionlessElement KNEEPCAP = new MotionlessElement(new Sprite("Kneepcap.png"), Permeability.BLOCKING, 'o');
 
-	private static MotionElement MONSTERGOLD = new Mobile(null, Permeability.BLOCKING, 'T', new BehaviorMonsterGold());
-	private static MotionElement MONSTERSKELETON = new Mobile(null, Permeability.BLOCKING, 'T', new BehaviorMonsterSkeleton());
-	private static MotionElement MONSTERGHOST = new Mobile(null, Permeability.BLOCKING, 'T', new BehaviorMonsterTotem());
-	private static MotionElement MONSTERTOTEM = new Mobile(null, Permeability.BLOCKING, 'T', new BehaviorMonsterGhost());
-	private static MotionElement SPELL = new Mobile(null, Permeability.BLOCKING, 'T', new BehaviorSpell());
-	private static MotionElement TREASURE = new Mobile(null, Permeability.BLOCKING, 'T', new BehaviorTreasure());
-	private static MotionElement KEY = new Mobile(null, Permeability.BLOCKING, 'T', new BehaviorKey());
+	private static MotionElement MONSTERGOLD = new Mobile(new Sprite("MonsterGold.png"), Permeability.BLOCKING, 'T', new BehaviorMonsterGold());
+	private static MotionElement MONSTERSKELETON = new Mobile(new Sprite("MonsterSkeleton.png"), Permeability.BLOCKING, 'T', new BehaviorMonsterSkeleton());
+	private static MotionElement MONSTERGHOST = new Mobile(new Sprite("MonsterGhost.png"), Permeability.BLOCKING, 'T', new BehaviorMonsterTotem());
+	private static MotionElement MONSTERTOTEM = new Mobile(new Sprite("MonsterTotem.png"), Permeability.BLOCKING, 'T', new BehaviorMonsterGhost());
+	private static MotionElement SPELL = new Mobile(new Sprite("SpellCyan.png"), Permeability.BLOCKING, 'T', new BehaviorSpell());
+	private static MotionElement TREASURE = new Mobile(new Sprite("Treasure.png"), Permeability.BLOCKING, 'T', new BehaviorTreasure());
+	private static MotionElement KEY = new Mobile(new Sprite("Key.png"), Permeability.BLOCKING, 'T', new BehaviorKey());
 
 	private static MotionlessElement motionlessElements[] = { HORIZONTALBONE, VERTICALBONE, KNEEPCAP };
 
