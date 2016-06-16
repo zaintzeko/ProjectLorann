@@ -85,9 +85,20 @@ public class LorannWorld extends Observable implements ILorannWorld {
 
 	public void play()
 	{
+		try {
+			Thread.sleep(1000);
+		} catch (final InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.elements[0][3] = null;
-		//this.setChanged();
-		//this.notifyObservers();
+		this.setChanged();
+		this.notifyObservers();
+		for(;;)
+		{
+			//
+			//
+		}
 	}
 
 }
