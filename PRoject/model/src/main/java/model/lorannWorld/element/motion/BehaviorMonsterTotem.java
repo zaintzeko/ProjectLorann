@@ -1,13 +1,6 @@
 package model.lorannWorld.element.motion;
 
-import model.lorannWorld.element.ISprite;
-
-public class BehaviorMonsterTotem extends MotionElement implements IStrategy{
-	public BehaviorMonsterTotem(ISprite sprite) {
-		super(sprite);
-		// TODO Auto-generated constructor stub
-	}
-
+public class BehaviorMonsterTotem extends Monster implements IStrategy{
 	/* (non-Javadoc)
 	 * @see model.IBehaviorMonsterSkeleton#animate()
 	 */

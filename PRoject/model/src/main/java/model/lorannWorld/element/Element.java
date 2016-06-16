@@ -1,50 +1,53 @@
 package model.lorannWorld.element;
 
-import java.awt.Image;
-
+import contract.IElement;
 import contract.ILorannWorld;
+import contract.ISprite;
 
-public abstract class Element {
-	
+public abstract class Element implements IElement{
+
 	private ILorannWorld lorannWorld;
 	private Permeability permeability;
 	private ISprite sprite;
-	
-	public Element(){
-		
+	private final char symbole;
+
+	public Element(final ISprite sprite, final Permeability permeability, final char symbole){
+		this.sprite = sprite;
+		this.permeability = permeability;
+		this.symbole = symbole;
 	}
-	
-	public ISprite getSprite(){
-		return this.sprite;
+
+	public ILorannWorld getLorannWorld(){
+
+		return this.lorannWorld;
+
 	}
-	
-	public ISprite setSprite(final ISprite sprite){
-		
-		return this.sprite = sprite;
-	}
-	
+
 	public Permeability getPermeability(){
 		return this.permeability;
 	}
-	
+
+	public ISprite getSprite(){
+		return this.sprite;
+	}
+
+	public char getSymbole() {
+		return this.symbole;
+	}
+
+	public ILorannWorld setLorannWorld(final ILorannWorld lorannWorld){
+		return this.lorannWorld = lorannWorld;
+
+	}
+
 	public Permeability setPermeability(final Permeability permeability){
 		return this.permeability=permeability;
 	}
-	
-	public ILorannWorld getLorannWorld(){
-		
-		return this.lorannWorld;
-		
+
+	public ISprite setSprite(final ISprite sprite){
+
+		return this.sprite = sprite;
 	}
-	
-	public ILorannWorld setLorannWorld(final ILorannWorld lorannWorld){
-		return this.lorannWorld = lorannWorld;
-		
-	}
-	
-	public Image getImage() {
-		return this.getSprite().getImage();
-	}
-	
-	
+
+
 }

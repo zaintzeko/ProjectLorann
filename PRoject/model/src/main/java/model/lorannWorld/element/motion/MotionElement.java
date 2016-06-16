@@ -1,56 +1,30 @@
 package model.lorannWorld.element.motion;
 
-import java.awt.Image;
-
 import contract.IMotionElement;
+import contract.ISprite;
 import model.lorannWorld.element.Element;
-import model.lorannWorld.element.ISprite;
+import model.lorannWorld.element.Permeability;
 
 public abstract class MotionElement extends Element implements IMotionElement{
 	private int x;
-	public ISprite getSprite() {
-		return sprite;
+	private int y;
+	private Direction direction;
+
+	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole)
+	{
+		super(sprite, permeability, symbole);
+		this.direction = Direction.NONE;
 	}
 
-	public ISprite setSprite(ISprite sprite) {
-		return this.sprite = sprite;
+	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole, final int x, final int y)
+	{
+		super(sprite, permeability, symbole);
+		this.x = x;
+		this.y = y;
 	}
 
 	public Direction getDirection() {
-		return direction;
-	}
-
-	public void setDirection(Direction direction) {
-		this.direction = direction;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	private int y;
-	private ISprite sprite;
-	private Direction direction;
-	
-	public MotionElement(ISprite sprite)
-	{
-		this.sprite = sprite;
-	}
-	
-	public MotionElement(ISprite sprite, int x, int y)
-	{
-		this.sprite = sprite;
-		this.x = x;
-		this.y = y;
-	}
-	
-	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.direction;
 	}
 
 	public int getX() {
@@ -63,15 +37,17 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		return this.y;
 	}
 
-	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void setDirection(final Direction direction) {
+		this.direction = direction;
 	}
 
-	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void setX(final int x) {
+		this.x = x;
 	}
-	
+
+	public void setY(final int y) {
+		this.y = y;
+	}
+
 
 }
