@@ -1,6 +1,6 @@
-package model.lorannWorld.element.motionless;
+package model.lorannWorld.element;
 
-import model.lorannWorld.element.Permeability;
+import model.lorannWorld.element.motionless.MotionlessElement;
 
 public abstract class  FactoryElement {
 public static MotionlessElement HORIZONTALBONE = new MotionlessElement(null, Permeability.BLOCKING, 'l');

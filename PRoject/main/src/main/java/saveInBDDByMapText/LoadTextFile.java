@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import contract.ILorannWorld;
 import contract.IMotionlessElement;
 import model.lorannWorld.LorannWorld;
-import model.lorannWorld.element.motionless.FactoryElement;
+import model.lorannWorld.element.FactoryElement;
 import model.lorannWorld.element.motionless.MotionlessElement;
 
 public class LoadTextFile {

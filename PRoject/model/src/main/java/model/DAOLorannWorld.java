@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import contract.ILorannWorld;
 import model.lorannWorld.LorannWorld;
-import model.lorannWorld.element.motionless.FactoryElement;
+import model.lorannWorld.element.FactoryElement;
 
 /**
  * The Class DAOHelloWorld.
