@@ -25,8 +25,9 @@ public abstract class  FactoryElement {
 	private static MotionElement TREASURE = new Mobile(new Sprite("Treasure.png"), Permeability.BLOCKING, 't', new BehaviorTreasure());
 	private static MotionElement KEY = new Mobile(new Sprite("Key.png"), Permeability.BLOCKING, 'k', new BehaviorKey());
 
-	private static MotionlessElement motionlessElements[] = { HORIZONTALBONE, VERTICALBONE, KNEEPCAP };
-
+	private static MotionlessElement motionlessElements[] = { HORIZONTALBONE, VERTICALBONE, KNEEPCAP, };
+private static MotionElement motionElelements[]={MONSTERGOLD,MONSTERSKELETON,MONSTERGHOST,MONSTERTOTEM,SPELL,TREASURE,KEY,};
+	
 	public static MotionlessElement getFromFileSymbol(final char c) {
 		for (final MotionlessElement motionlessElement : motionlessElements) {
 			if (motionlessElement.getSymbole() == c) {
@@ -44,4 +45,23 @@ public abstract class  FactoryElement {
 		}
 		return null;
 	}
+
+
+public static MotionElement getFromFileSymbols(final char c) {
+	for (final MotionElement motionlessElement : motionElelements) {
+		if (motionlessElement.getSymbole() == c) {
+			return motionlessElement;
+		}
+	}
+	return null;
+}
+
+public static MotionElement getFromStringNames(final String c) {
+	for (final MotionElement motionlessElement : motionElelements) {
+		if (motionlessElement.toString() == c) {
+			return motionlessElement;
+		}
+	}
+	return null;
+}
 }
