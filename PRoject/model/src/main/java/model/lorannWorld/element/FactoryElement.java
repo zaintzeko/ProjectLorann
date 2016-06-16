@@ -48,7 +48,6 @@ public abstract class  FactoryElement {
 			break;
 		case 'L':
 			a = new Lorann(new Sprite("LorannUp.png"), Permeability.BLOCKING, c);
-			System.out.println(a);
 			break;
 		case 'd':
 			a = new Mobile(new Sprite("DoorClose.png"), Permeability.BLOCKING, c, new BehaviorDoor());
