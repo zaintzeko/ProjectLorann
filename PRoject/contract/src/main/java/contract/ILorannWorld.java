@@ -5,9 +5,9 @@ import java.util.Observable;
 
 public interface ILorannWorld {
 
-	public void addMotionElement(IMotionElement mobile, int x , int y);
+	public void addElement(IMotionElement motionElement, int x , int y);
 
-	public void addMotionlessElement(IMotionlessElement motionlessElement, int x, int y);
+	public void addElement(IMotionlessElement motionlessElement, int x, int y);
 
 	public IElement getElement(int x, int y);
 
