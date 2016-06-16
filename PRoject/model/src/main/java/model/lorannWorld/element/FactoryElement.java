@@ -1,5 +1,6 @@
 package model.lorannWorld.element;
 
+import contract.IElement;
 import model.lorannWorld.element.motion.BehaviorKey;
 import model.lorannWorld.element.motion.BehaviorMonsterGhost;
 import model.lorannWorld.element.motion.BehaviorMonsterGold;
@@ -26,10 +27,15 @@ public abstract class  FactoryElement {
 	private static MotionElement KEY = new Mobile(new Sprite("Key.png"), Permeability.BLOCKING, 'k', new BehaviorKey());
 
 	private static MotionlessElement motionlessElements[] = { HORIZONTALBONE, VERTICALBONE, KNEEPCAP, };
-private static MotionElement motionElelements[]={MONSTERGOLD,MONSTERSKELETON,MONSTERGHOST,MONSTERTOTEM,SPELL,TREASURE,KEY,};
-	
-	public static MotionlessElement getFromFileSymbol(final char c) {
+	private static MotionElement motionElelements[]={MONSTERGOLD,MONSTERSKELETON,MONSTERGHOST,MONSTERTOTEM,SPELL,TREASURE,KEY,};
+
+	public static IElement getFromFileSymbol(final char c) {
 		for (final MotionlessElement motionlessElement : motionlessElements) {
+			if (motionlessElement.getSymbole() == c) {
+				return motionlessElement;
+			}
+		}
+		for (final MotionElement motionlessElement : motionElelements) {
 			if (motionlessElement.getSymbole() == c) {
 				return motionlessElement;
 			}
@@ -37,8 +43,13 @@ private static MotionElement motionElelements[]={MONSTERGOLD,MONSTERSKELETON,MON
 		return null;
 	}
 
-	public static MotionlessElement getFromStringName(final String c) {
+	public static IElement getFromStringName(final String c) {
 		for (final MotionlessElement motionlessElement : motionlessElements) {
+			if (motionlessElement.toString() == c) {
+				return motionlessElement;
+			}
+		}
+		for (final MotionElement motionlessElement : motionElelements) {
 			if (motionlessElement.toString() == c) {
 				return motionlessElement;
 			}
@@ -46,22 +57,4 @@ private static MotionElement motionElelements[]={MONSTERGOLD,MONSTERSKELETON,MON
 		return null;
 	}
 
-
-public static MotionElement getFromFileSymbols(final char c) {
-	for (final MotionElement motionlessElement : motionElelements) {
-		if (motionlessElement.getSymbole() == c) {
-			return motionlessElement;
-		}
-	}
-	return null;
-}
-
-public static MotionElement getFromStringNames(final String c) {
-	for (final MotionElement motionlessElement : motionElelements) {
-		if (motionlessElement.toString() == c) {
-			return motionlessElement;
-		}
-	}
-	return null;
-}
 }

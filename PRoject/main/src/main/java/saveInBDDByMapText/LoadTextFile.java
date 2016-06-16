@@ -4,32 +4,26 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.ResultSet;
 
-import contract.ILorannWorld;
-import contract.IMotionlessElement;
-import model.lorannWorld.LorannWorld;
+import contract.IElement;
+import model.lorannWorld.element.Element;
 import model.lorannWorld.element.FactoryElement;
 import model.lorannWorld.element.motionless.MotionlessElement;
 
 public class LoadTextFile {
-	private DAO dao;
-	MotionlessElement[][] elements;
+	private final DAO dao;
+	IElement[][] elements;
 
-	
-	public MotionlessElement[][] getElements() {
-		return elements;
-	}
-	public void setElements(MotionlessElement[][] elements) {
-		this.elements = elements;
-	}
+
 	public LoadTextFile()
 	{
 		this.dao = new DAO();
-		elements = new MotionlessElement[12][20];
+		this.elements = new Element[12][20];
 	}
-	
-	@SuppressWarnings("unused")
+	public IElement[][] getElements() {
+		return this.elements;
+	}
+
 	public void loadFile(final String fileName) throws IOException {
 		final BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
 		String line;
@@ -37,8 +31,11 @@ public class LoadTextFile {
 		while ((line = buffer.readLine()) != null) {
 			for (int x = 0; x < line.toCharArray().length; x++) {
 				this.elements[numLine][x] = FactoryElement.getFromFileSymbol(line.toCharArray()[x]);
-				if(elements[numLine][x]!= null)System.out.print(elements[numLine][x].getSymbole());
-				else System.out.print(" ");
+				if(this.elements[numLine][x]!= null) {
+					System.out.print(this.elements[numLine][x].getSymbole());
+				} else {
+					System.out.print(" ");
+				}
 			}
 			System.out.println();
 			numLine++;
@@ -46,9 +43,13 @@ public class LoadTextFile {
 		buffer.close();
 		this.save();
 	}
+
 	public void save() {
 		this.dao.open();
 		this.dao.insertNettleWorld(this.elements, 1);
 		this.dao.close();
+	}
+	public void setElements(final MotionlessElement[][] elements) {
+		this.elements = elements;
 	}
 }
