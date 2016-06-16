@@ -7,12 +7,11 @@ import contract.IElement;
 import contract.ILorannWorld;
 import contract.IMotionElement;
 import contract.IMotionlessElement;
-import model.lorannWorld.element.motionless.MotionlessElement;
 
 public class LorannWorld extends Observable implements ILorannWorld {
 	private final int width;
 	private final int height;
-	private IElement elements[][];
+	private final IElement elements[][];
 	public ArrayList<IMotionElement> motionElements;
 
 	public LorannWorld() {
@@ -21,16 +20,12 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	}
 
 	public LorannWorld(final int width, final int height) {
+		this.elements = new IElement[width][height];
+		this.motionElements = new ArrayList<IMotionElement>();
 		this.width = width;
 		this.height = height;
-		
 
-	}
-	public void addElement(final IMotionlessElement motionlessElement, final int x, final int y) {
-		
-		this.elements[x][y] = motionlessElement;
-		this.setChanged();
-		this.notifyObservers();
+
 	}
 
 	public void addElement(final IMotionElement motionELement, final int x, final int y) {
@@ -38,9 +33,15 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		motionELement.setY(y);
 		this.motionElements.add(motionELement);
 		this.setChanged();
-		this.notifyObservers();
 
 	}
+	public void addElement(final IMotionlessElement motionlessElement, final int x, final int y) {
+
+		//System.out.println(motionlessElement.getSymbole());
+		this.elements[x][y] = motionlessElement;
+		this.setChanged();
+	}
+
 	/* (non-Javadoc)
 	 * @see model.ILorannWorld#addElement(model.Element, int, int)
 	 */
@@ -55,7 +56,6 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		return this.elements[x][y];
 
 	}
-
 	/* (non-Javadoc)
 	 * @see model.ILorannWorld#getHeight()
 	 */
@@ -81,6 +81,11 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	 */
 	public int getWidth() {
 		return this.width;
+	}
+
+	public void play()
+	{
+		//this.notifyObservers();
 	}
 
 }

@@ -14,22 +14,24 @@ import contract.IModel;
 public class Model implements IModel {
 
 	final DAOLorannWorld dao;
-	
-	private ILorannWorld lorannWorld;
+
+	private final ILorannWorld lorannWorld;
 	/**
 	 * Instantiates a new model.
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 	public Model() throws SQLException {
 		this.dao = new DAOLorannWorld(new DBConnection().getConnection());
-	
-		this.lorannWorld=dao.find(1);
-		
+
+		this.lorannWorld=this.dao.find(1);
+		//System.out.println(this.lorannWorld);
+		this.lorannWorld.play();
+
 	}
 
 	public ILorannWorld getLorannWorld() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.lorannWorld;
 	}
 
 	public Observable getObservable() {

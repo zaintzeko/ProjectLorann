@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.GraphicsConfiguration;
-
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -19,14 +18,14 @@ import contract.IModel;
  */
 class ViewFrame extends JFrame implements KeyListener {
 
+	/** The Constant serialVersionUID. */
+	private static final long	serialVersionUID	= -697358409737458175L;
+
 	/** The model. */
 	private IModel						model;
 
 	/** The controller. */
 	private IController	controller;
-
-	/** The Constant serialVersionUID. */
-	private static final long	serialVersionUID	= -697358409737458175L;
 
 	/**
 	 * Instantiates a new view frame.
@@ -37,7 +36,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *           the headless exception
 	 */
 	public ViewFrame() throws HeadlessException {
-		
+
 	}
 	public ViewFrame(final IModel model) throws HeadlessException {
 		this.buildViewFrame(model);
@@ -87,44 +86,6 @@ class ViewFrame extends JFrame implements KeyListener {
 	}
 
 	/**
-	 * Gets the controller.
-	 *
-	 * @return the controller
-	 */
-	private IController getController() {
-		return this.controller;
-	}
-
-	/**
-	 * Sets the controller.
-	 *
-	 * @param controller
-	 *          the new controller
-	 */
-	protected void setController(final IController controller) {
-		this.controller = controller;
-	}
-
-	/**
-	 * Gets the model.
-	 *
-	 * @return the model
-	 */
-	protected IModel getModel() {
-		return this.model;
-	}
-
-	/**
-	 * Sets the model.
-	 *
-	 * @param model
-	 *          the new model
-	 */
-	private void setModel(final IModel model) {
-		this.model = model;
-	}
-
-	/**
 	 * Builds the view frame.
 	 *
 	 * @param model
@@ -135,28 +96,30 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
-		this.setContentPane(new ViewPanel(this, model.getLorannWorld().getMotionElements(), model.getLorannWorld().getMotionlessElements(), model.getLorannWorld().getWidth(), model.getLorannWorld().getHeight()));
-		this.setSize(400 + this.getInsets().left + this.getInsets().right, 60 + this.getInsets().top + this.getInsets().bottom);
+		//System.out.println(model.getLorannWorld());
+		this.setContentPane(new ViewPanel(this, model.getLorannWorld().getMotionElements(), model.getLorannWorld().getMotionlessElements(), model.getLorannWorld().getWidth()*32, model.getLorannWorld().getHeight()*32));
+		//this.setSize(400 + this.getInsets().left + this.getInsets().right, 60 + this.getInsets().top + this.getInsets().bottom);
+		this.setSize((model.getLorannWorld().getWidth())*32, (model.getLorannWorld().getHeight())*32);
 		this.setLocationRelativeTo(null);
+		this.setVisible(true);
 	}
 
 	/**
-	 * Prints the message.
+	 * Gets the controller.
 	 *
-	 * @param message
-	 *          the message
+	 * @return the controller
 	 */
-	public void printMessage(final String message) {
-		JOptionPane.showMessageDialog(null, message);
+	private IController getController() {
+		return this.controller;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Gets the model.
 	 *
-	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+	 * @return the model
 	 */
-	public void keyTyped(final KeyEvent e) {
-
+	protected IModel getModel() {
+		return this.model;
 	}
 
 	/*
@@ -175,5 +138,44 @@ class ViewFrame extends JFrame implements KeyListener {
 	 */
 	public void keyReleased(final KeyEvent e) {
 
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+	 */
+	public void keyTyped(final KeyEvent e) {
+
+	}
+
+	/**
+	 * Prints the message.
+	 *
+	 * @param message
+	 *          the message
+	 */
+	public void printMessage(final String message) {
+		JOptionPane.showMessageDialog(null, message);
+	}
+
+	/**
+	 * Sets the controller.
+	 *
+	 * @param controller
+	 *          the new controller
+	 */
+	protected void setController(final IController controller) {
+		this.controller = controller;
+	}
+
+	/**
+	 * Sets the model.
+	 *
+	 * @param model
+	 *          the new model
+	 */
+	private void setModel(final IModel model) {
+		this.model = model;
 	}
 }

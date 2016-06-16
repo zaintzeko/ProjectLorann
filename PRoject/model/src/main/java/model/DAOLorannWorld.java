@@ -64,8 +64,9 @@ class DAOLorannWorld extends DAOEntity<LorannWorld> {
 			call.setInt(1, level);
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.next()) {
-				lorannWorld.addElement(FactoryElement.getFromFileSymbol(resultSet.getString("nomElement").toCharArray()[0]), resultSet.getInt("x"), resultSet.getInt("y"));
+			while (resultSet.next()) {
+				System.out.print(resultSet.getString("NameElement").toCharArray()[0]);
+				lorannWorld.addElement(FactoryElement.getFromFileSymbol(resultSet.getString("NameElement").toCharArray()[0]), resultSet.getInt("PosX"), resultSet.getInt("PosY"));
 			}
 			return lorannWorld;
 		} catch (final SQLException e) {

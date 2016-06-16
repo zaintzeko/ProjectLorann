@@ -1,6 +1,6 @@
 package model.lorannWorld.element;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -12,7 +12,7 @@ public class SpriteTest {
 	private static Sprite testSprite;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		testSprite = new Sprite(null);
+		testSprite = new Sprite("Kneepcap.png");
 	}
 
 	@AfterClass
@@ -30,7 +30,7 @@ public class SpriteTest {
 	@SuppressWarnings("static-access")
 	@Test
 	public void testGetSprite() {
-		assertNotNull(this.testSprite.getSprite());
+		assertNotNull(this.testSprite.getImage());
 	}
 
 }

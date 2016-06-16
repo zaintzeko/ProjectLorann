@@ -25,4 +25,6 @@ public interface ILorannWorld {
 	Observable getObservable();
 
 	int getWidth();
+
+	public void play();
 }

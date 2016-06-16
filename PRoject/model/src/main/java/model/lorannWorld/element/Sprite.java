@@ -11,20 +11,21 @@ import contract.ISprite;
 public class Sprite implements ISprite{
 
 	private Image image;
-	
-	
+
+
 	public Sprite(final String string){
 		try {
-			this.image = ImageIO.read(new File("images/" + image));
+			System.out.println("Image/" + string);
+			this.image = ImageIO.read(new File("Image/" + string));
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public Image getImage(){
 		return this.image;
 	}
-	
-	
-	
+
+
+
 }

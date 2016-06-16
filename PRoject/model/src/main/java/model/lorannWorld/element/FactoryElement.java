@@ -13,8 +13,8 @@ import model.lorannWorld.element.motionless.MotionlessElement;
 
 public abstract class  FactoryElement {
 
-	public static MotionlessElement HORIZONTALBONE = new MotionlessElement(new Sprite("HorizontalBone.png"), Permeability.BLOCKING, 'l');
-	public static MotionlessElement VERTICALBONE = new MotionlessElement(new Sprite("VerticalBone.png"), Permeability.BLOCKING, '-');
+	public static MotionlessElement HORIZONTALBONE = new MotionlessElement(new Sprite("HorizontalBone.png"), Permeability.BLOCKING, '-');
+	public static MotionlessElement VERTICALBONE = new MotionlessElement(new Sprite("VerticalBone.png"), Permeability.BLOCKING, 'l');
 	public static MotionlessElement KNEEPCAP = new MotionlessElement(new Sprite("Kneepcap.png"), Permeability.BLOCKING, 'o');
 
 	private static MotionElement MONSTERGOLD = new Mobile(new Sprite("MonsterGold.png"), Permeability.BLOCKING, 'T', new BehaviorMonsterGold());
