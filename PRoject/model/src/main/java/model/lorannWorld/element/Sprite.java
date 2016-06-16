@@ -6,7 +6,9 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Sprite {
+import contract.ISprite;
+
+public class Sprite implements ISprite{
 
 	private Image image;
 	
@@ -19,9 +21,11 @@ public class Sprite {
 		}
 	}
 	
-	public Image getSprite(){
+	public Image getImage(){
 		return this.image;
 	}
+
+
 	
 	
 	

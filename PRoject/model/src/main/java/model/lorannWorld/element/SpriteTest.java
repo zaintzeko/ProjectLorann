@@ -30,7 +30,7 @@ public class SpriteTest {
 	@SuppressWarnings("static-access")
 	@Test
 	public void testGetSprite() {
-		assertNotNull(this.testSprite.getSprite());
+		assertNotNull(this.testSprite.getImage());
 	}
 
 }
