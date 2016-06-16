@@ -21,7 +21,7 @@ public class Model implements IModel {
 	 * @throws SQLException
 	 */
 	public Model() throws SQLException {
-		this.dao = new DAOLorannWorld(new DBConnection().getConnection());
+		this.dao = new DAOLorannWorld(DBConnection.getInstance().getConnection());
 
 		this.lorannWorld=this.dao.find(1);
 		//System.out.println(this.lorannWorld);

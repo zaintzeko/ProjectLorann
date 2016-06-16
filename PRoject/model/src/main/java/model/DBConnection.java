@@ -19,7 +19,7 @@ final class DBConnection {
 	/**
 	 * Instantiates a new DB connection.
 	 */
-	public DBConnection() {
+	private DBConnection() {
 		this.open();
 	}
 
