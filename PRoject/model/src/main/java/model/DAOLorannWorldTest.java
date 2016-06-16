@@ -1,0 +1,87 @@
+package model;
+
+import static org.junit.Assert.*;
+
+import java.sql.Connection;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import contract.ILorannWorld;
+import model.lorannWorld.LorannWorld;
+
+public class DAOLorannWorldTest {
+	private static DAOLorannWorld testDAO;
+	private static Connection connection;
+	private static LorannWorld testLorann;
+	private static ILorannWorld ItestLorann;
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		testDAO = new DAOLorannWorld(connection);
+		testLorann = new LorannWorld(20,12);
+	}
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@SuppressWarnings("static-access")
+	@Test
+	public void testCreateLorannWorld() {
+		assertTrue(this.testDAO.create(testLorann));
+	}
+
+	@SuppressWarnings("static-access")
+	@Test
+	public void testDeleteLorannWorld() {
+		assertTrue(this.testDAO.delete(testLorann));
+	}
+
+	@SuppressWarnings("static-access")
+	@Test
+	public void testUpdateLorannWorld() {
+		assertTrue(this.testDAO.update(testLorann));
+	}
+
+	@SuppressWarnings("static-access")
+	@Test
+	public void testFindInt() {
+		assertNotNull(this.testDAO.find(1));
+	}
+
+	@SuppressWarnings("static-access")
+	@Test
+	public void testFindString() {
+		assertNotNull(this.testDAO.find("test"));
+	}
+
+	@SuppressWarnings("static-access")
+	@Test
+	public void testCreateILorannWorld() {
+		assertTrue(this.testDAO.create(ItestLorann));
+	}
+
+	@SuppressWarnings("static-access")
+	@Test
+	public void testDeleteILorannWorld() {
+		assertTrue(this.testDAO.delete(ItestLorann));
+	}
+
+	@SuppressWarnings("static-access")
+	@Test
+	public void testUpdateILorannWorld() {
+		assertTrue(this.testDAO.update(ItestLorann));
+	}
+
+}
