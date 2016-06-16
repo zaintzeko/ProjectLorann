@@ -1,6 +1,8 @@
 package model.lorannWorld.element;
 
-import contract.IElement;
+import contract.IMotionElement;
+import contract.IMotionlessElement;
+import model.lorannWorld.element.motion.BehaviorDoor;
 import model.lorannWorld.element.motion.BehaviorKey;
 import model.lorannWorld.element.motion.BehaviorMonsterGhost;
 import model.lorannWorld.element.motion.BehaviorMonsterGold;
@@ -8,8 +10,8 @@ import model.lorannWorld.element.motion.BehaviorMonsterSkeleton;
 import model.lorannWorld.element.motion.BehaviorMonsterTotem;
 import model.lorannWorld.element.motion.BehaviorSpell;
 import model.lorannWorld.element.motion.BehaviorTreasure;
+import model.lorannWorld.element.motion.Lorann;
 import model.lorannWorld.element.motion.Mobile;
-import model.lorannWorld.element.motion.MotionElement;
 import model.lorannWorld.element.motionless.MotionlessElement;
 
 public abstract class  FactoryElement {
@@ -18,43 +20,52 @@ public abstract class  FactoryElement {
 	public static MotionlessElement VERTICALBONE = new MotionlessElement(new Sprite("VerticalBone.png"), Permeability.BLOCKING, 'l');
 	public static MotionlessElement KNEEPCAP = new MotionlessElement(new Sprite("Kneepcap.png"), Permeability.BLOCKING, 'o');
 
-	private static MotionElement MONSTERGOLD = new Mobile(new Sprite("MonsterGold.png"), Permeability.BLOCKING, 'G', new BehaviorMonsterGold());
-	private static MotionElement MONSTERSKELETON = new Mobile(new Sprite("MonsterSkeleton.png"), Permeability.BLOCKING, 'S', new BehaviorMonsterSkeleton());
-	private static MotionElement MONSTERGHOST = new Mobile(new Sprite("MonsterGhost.png"), Permeability.BLOCKING, 'g', new BehaviorMonsterTotem());
-	private static MotionElement MONSTERTOTEM = new Mobile(new Sprite("MonsterTotem.png"), Permeability.BLOCKING, 'T', new BehaviorMonsterGhost());
-	private static MotionElement SPELL = new Mobile(new Sprite("SpellCyan.png"), Permeability.BLOCKING, 's', new BehaviorSpell());
-	private static MotionElement TREASURE = new Mobile(new Sprite("Treasure.png"), Permeability.BLOCKING, 't', new BehaviorTreasure());
-	private static MotionElement KEY = new Mobile(new Sprite("Key.png"), Permeability.BLOCKING, 'k', new BehaviorKey());
-
 	private static MotionlessElement motionlessElements[] = { HORIZONTALBONE, VERTICALBONE, KNEEPCAP, };
-	private static MotionElement motionElelements[]={MONSTERGOLD,MONSTERSKELETON,MONSTERGHOST,MONSTERTOTEM,SPELL,TREASURE,KEY,};
 
-	public static IElement getFromFileSymbol(final char c) {
-		for (final MotionlessElement motionlessElement : motionlessElements) {
-			if (motionlessElement.getSymbole() == c) {
-				return motionlessElement;
-			}
+	public static IMotionElement getFromFileSymbolMotion(final char c) {
+		IMotionElement a = null;
+		switch(c){
+		case 'G':
+			a = new Mobile(new Sprite("MonsterGold.png"), Permeability.BLOCKING, c, new BehaviorMonsterGold());
+			break;
+		case 'S':
+			a = new Mobile(new Sprite("MonsterSkeleton.png"), Permeability.BLOCKING, c, new BehaviorMonsterSkeleton());
+			break;
+		case 'g':
+			a = new Mobile(new Sprite("MonsterGhost.png"), Permeability.BLOCKING, c, new BehaviorMonsterGhost());
+			break;
+		case 'T':
+			a = new Mobile(new Sprite("MonsterTotem.png"), Permeability.BLOCKING, c, new BehaviorMonsterTotem());
+			break;
+		case 't':
+			a = new Mobile(new Sprite("Treasure.png"), Permeability.BLOCKING, c, new BehaviorTreasure());
+			break;
+		case 'k':
+			a = new Mobile(new Sprite("Key.png"), Permeability.BLOCKING, c, new BehaviorKey());
+			break;
+		case 's':
+			a = new Mobile(new Sprite("Spell.png"), Permeability.BLOCKING, c, new BehaviorSpell());
+			break;
+		case 'L':
+			a = new Lorann(new Sprite("LorannUp.png"), Permeability.BLOCKING, c);
+			System.out.println(a);
+			break;
+		case 'd':
+			a = new Mobile(new Sprite("DoorClose.png"), Permeability.BLOCKING, c, new BehaviorDoor());
+			break;
+		default:
+			a=null;
+			break;
 		}
-		for (final MotionElement motionlessElement : motionElelements) {
+		return a;
+	}
+
+	public static IMotionlessElement getFromFileSymbolMotionless(final char c) {
+		for (final MotionlessElement motionlessElement : motionlessElements) {
 			if (motionlessElement.getSymbole() == c) {
 				return motionlessElement;
 			}
 		}
 		return null;
 	}
-
-	public static IElement getFromStringName(final String c) {
-		for (final MotionlessElement motionlessElement : motionlessElements) {
-			if (motionlessElement.toString() == c) {
-				return motionlessElement;
-			}
-		}
-		for (final MotionElement motionlessElement : motionElelements) {
-			if (motionlessElement.toString() == c) {
-				return motionlessElement;
-			}
-		}
-		return null;
-	}
-
 }

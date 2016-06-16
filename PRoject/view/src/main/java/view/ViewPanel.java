@@ -59,7 +59,7 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.width, this.height);
-		System.out.println("lalalal");
+		//System.out.println("lalalal");
 		for(int y = 0; y < 12; y++)
 		{
 			for(int x = 0; x < 20; x++)

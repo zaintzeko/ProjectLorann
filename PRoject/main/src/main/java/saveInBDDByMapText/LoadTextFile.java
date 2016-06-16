@@ -30,7 +30,12 @@ public class LoadTextFile {
 		int numLine = 0;
 		while ((line = buffer.readLine()) != null) {
 			for (int x = 0; x < line.toCharArray().length; x++) {
-				this.elements[numLine][x] = FactoryElement.getFromFileSymbol(line.toCharArray()[x]);
+				if(FactoryElement.getFromFileSymbolMotion(line.toCharArray()[x])!=null) {
+					this.elements[numLine][x] = FactoryElement.getFromFileSymbolMotion(line.toCharArray()[x]);
+				}
+				else if(FactoryElement.getFromFileSymbolMotionless(line.toCharArray()[x])!=null) {
+					this.elements[numLine][x] = FactoryElement.getFromFileSymbolMotionless(line.toCharArray()[x]);
+				}
 				if(this.elements[numLine][x]!= null) {
 					System.out.print(this.elements[numLine][x].getSymbole());
 				} else {
