@@ -1,6 +1,6 @@
 package model.lorannWorld.element.motion;
 
-import model.lorannWorld.element.ISprite;
+import contract.ISprite;
 
 public class Spell extends MotionElement implements IStrategy{
 	public Spell(ISprite sprite) {

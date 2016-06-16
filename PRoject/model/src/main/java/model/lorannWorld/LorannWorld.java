@@ -6,12 +6,13 @@ import java.util.Observable;
 import contract.IElement;
 import contract.ILorannWorld;
 import contract.IMotionElement;
+import contract.IMotionlessElement;
 import model.lorannWorld.element.motionless.MotionlessElement;
 
 public class LorannWorld extends Observable implements ILorannWorld {
 	private final int width;
 	private final int height;
-	private IElement elements[][];
+	private MotionlessElement elements[][];
 	public ArrayList<IMotionElement> motionElements;
 
 	public LorannWorld() {
@@ -39,7 +40,7 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	/* (non-Javadoc)
 	 * @see model.ILorannWorld#addElement(model.Element, int, int)
 	 */
-	public void addMotionlessElement(final IMotionElement motionlessElement, final int x, final int y){
+	public void addMotionlessElement(final IMotionlessElement motionlessElement, final int x, final int y){
 		this.elements[x][y] = motionlessElement;
 		//if (motionElement != null) {motionElement.setLorannWorld(this);}
 	}
