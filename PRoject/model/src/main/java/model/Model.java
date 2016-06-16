@@ -25,7 +25,6 @@ public class Model implements IModel {
 
 		this.lorannWorld=this.dao.find(1);
 		//System.out.println(this.lorannWorld);
-		this.lorannWorld.play();
 
 	}
 

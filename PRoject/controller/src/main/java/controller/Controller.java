@@ -28,23 +28,36 @@ public class Controller implements IController {
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
+		this.model.getLorannWorld().play();
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see contract.IController#control()
 	 */
 
 
-	/**
-	 * Sets the view.
+	/*
+	 * (non-Javadoc)
 	 *
-	 * @param view
-	 *          the new view
+	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	private void setView(final IView view) {
-		this.view = view;
+	public void orderPerform(final ControllerOrder controllerOrder) {
+		switch (controllerOrder) {
+		case English:
+
+			break;
+		case Francais:
+			break;
+		case Deutsch:
+			break;
+		case Indonesia:
+			break;
+
+		default:
+			break;
+		}
 	}
 
 	/**
@@ -57,26 +70,14 @@ public class Controller implements IController {
 		this.model = model;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Sets the view.
 	 *
-	 * @see contract.IController#orderPerform(contract.ControllerOrder)
+	 * @param view
+	 *          the new view
 	 */
-	public void orderPerform(final ControllerOrder controllerOrder) {
-		switch (controllerOrder) {
-			case English:
-				
-				break;
-			case Francais:
-				break;
-			case Deutsch:
-				break;
-			case Indonesia:
-				break;
-
-			default:
-				break;
-		}
+	private void setView(final IView view) {
+		this.view = view;
 	}
 
 }
