@@ -1,10 +1,11 @@
 package main;
 
-import java.io.IOException;
+
+import java.sql.SQLException;
 
 import controller.Controller;
 import model.Model;
-import saveInBDDByMapText.LoadTextFile;
+
 import view.View;
 
 /**
@@ -19,18 +20,20 @@ public abstract class Main {
 	 *
 	 * @param args
 	 *          the arguments
+	 * @throws SQLException 
 	 */
-	public static void main(final  String[] args) {
-		/*final Model model = new Model();
+	public static void main(final  String[] args) throws SQLException {
+		final Model model = new Model();
 		final View view = new View(model);
 		final Controller controller = new Controller(view, model);
 		view.setController(controller);
-		controller.control();*/
-		try {
+		
+		
+		/*try {
 			new LoadTextFile().loadFile("lvl1.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 }
