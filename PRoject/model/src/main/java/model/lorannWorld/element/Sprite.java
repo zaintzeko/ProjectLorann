@@ -34,13 +34,18 @@ public class Sprite implements ISprite{
 	{
 		if(x < this.ListImage.length) {
 			this.currentImage = this.ListImage[x];
-			this.currentImageStep++;
+			this.currentImageStep = x;
 		}
 	}
 
 	public void changeToNextImage()
 	{
 		this.currentImage = this.ListImage[(this.currentImageStep++)%this.ListImage.length];
+	}
+
+	public int getCurrentStep()
+	{
+		return this.currentImageStep;
 	}
 
 	public Image getImage(){

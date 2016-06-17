@@ -4,9 +4,11 @@ import java.awt.Image;
 
 public interface ISprite {
 
-	void changecurentImage(final int x);
+	public void changecurentImage(final int x);
 
-	void changeToNextImage();
+	public void changeToNextImage();
 
 	Image getImage();
+
+	public int getCurrentStep();
 }

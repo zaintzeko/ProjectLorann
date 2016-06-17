@@ -1,6 +1,7 @@
 package model.lorannWorld.element.motion;
 
 import contract.ILorannWorld;
+import contract.IMobile;
 import contract.IMotionElement;
 import contract.IStrategy;
 
@@ -13,8 +14,19 @@ public class BehaviorDoor implements IStrategy{
 	/* (non-Javadoc)
 	 * @see model.IBehaviorMonsterSkeleton#animate()
 	 */
-	public void animate(IMotionElement motionElement,ILorannWorld lorannWorld) {
-		//nothing here
+	public void animate(final IMotionElement motionElement,final ILorannWorld lorannWorld) {
+		boolean isKeyExist = false;
+		for(final IMobile mobile : lorannWorld.getMotionElements())
+		{
+			if(mobile.getSymbole() == 'k')
+			{
+				isKeyExist = true;
+			}
+		}
+		if(!isKeyExist)
+		{
+			motionElement.getSprite().changecurentImage(1);
+		}
 	}
 
 }

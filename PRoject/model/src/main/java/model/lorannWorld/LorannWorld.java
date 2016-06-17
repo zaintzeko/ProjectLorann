@@ -99,6 +99,11 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		return this.lorann;
 	}
 
+	public IMobile getMobileX(final int x)
+	{
+		return this.motionElements.get(x);
+	}
+
 	public ArrayList<IMobile> getMotionElements() {
 
 		return this.motionElements;
@@ -114,7 +119,6 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	public int getWidth() {
 		return this.width;
 	}
-
 	public void play()
 	{
 
