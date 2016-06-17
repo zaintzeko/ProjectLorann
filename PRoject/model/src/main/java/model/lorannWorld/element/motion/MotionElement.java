@@ -16,10 +16,16 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		this.direction = Direction.NONE;
 	}
 
-	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole, final int x, final int y)
+	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole, final int x, final int y) throws Exception
 	{
 		super(sprite, permeability, symbole);
+		if(x<0 || x>20) {
+			throw new Exception("X must be between 0 and 20");
+		}
 		this.x = x;
+		if(y<0 || y>12) {
+			throw new Exception("Y must be between 0 and 12");
+		}
 		this.y = y;
 	}
 

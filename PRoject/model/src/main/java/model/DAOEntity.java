@@ -52,8 +52,9 @@ abstract class DAOEntity<E> {
 	 * @param level
 	 *          the leve
 	 * @return the e
+	 * @throws Exception 
 	 */
-	public abstract E find(int level);
+	public abstract E find(int level) throws Exception;
 
 	/**
 	 * Gets the connection.
