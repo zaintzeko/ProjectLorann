@@ -19,10 +19,10 @@ public class Model implements IModel {
 	 * Instantiates a new model.
 	 * @throws Exception
 	 */
-	public Model() throws Exception {
+	public Model(final int level) throws Exception {
 		this.dao = new DAOLorannWorld(DBConnection.getInstance().getConnection());
 
-		this.lorannWorld=this.dao.find(1);
+		this.lorannWorld=this.dao.find(level);
 		//System.out.println(this.lorannWorld);
 
 	}

@@ -33,7 +33,7 @@ public class DAO {
 		try {
 			final ResultSet resultSet = this.statement.getGeneratedKeys();
 			if (resultSet.next()) {
-				return resultSet.getInt(1);
+				return resultSet.getInt(2);
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();

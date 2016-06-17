@@ -14,6 +14,7 @@ public abstract class Query {
 	}
 
 	public static String getQueryInsert2(final int level) {
+		System.out.println(level);
 		return "INSERT INTO Map(numberlevel) VALUES (" + level + ")";
 	}
 }

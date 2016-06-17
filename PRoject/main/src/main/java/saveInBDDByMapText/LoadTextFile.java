@@ -13,12 +13,13 @@ import model.lorannWorld.element.motionless.MotionlessElement;
 public class LoadTextFile {
 	private final DAO dao;
 	IElement[][] elements;
+	private final int level;
 
-
-	public LoadTextFile()
+	public LoadTextFile(final int level)
 	{
 		this.dao = new DAO();
 		this.elements = new Element[12][20];
+		this.level = level;
 	}
 	public IElement[][] getElements() {
 		return this.elements;
@@ -29,12 +30,15 @@ public class LoadTextFile {
 		String line;
 		int numLine = 0;
 		while ((line = buffer.readLine()) != null) {
-			for (int x = 0; x < line.toCharArray().length; x++) {
+			for (int x = 0; (x < line.toCharArray().length) && (x<20); x++) {
 				if(FactoryElement.getFromFileSymbolMotion(line.toCharArray()[x], null)!=null) {
 					this.elements[numLine][x] = FactoryElement.getFromFileSymbolMotion(line.toCharArray()[x], null);
 				}
 				else if(FactoryElement.getFromFileSymbolMotionless(line.toCharArray()[x])!=null) {
 					this.elements[numLine][x] = FactoryElement.getFromFileSymbolMotionless(line.toCharArray()[x]);
+				}
+				else if(FactoryElement.getfromFileSymbolLorann(line.toCharArray()[x], null)!=null) {
+					this.elements[numLine][x] = FactoryElement.getfromFileSymbolLorann(line.toCharArray()[x], null);
 				}
 				if(this.elements[numLine][x]!= null) {
 					System.out.print(this.elements[numLine][x].getSymbole());
@@ -51,7 +55,7 @@ public class LoadTextFile {
 
 	public void save() {
 		this.dao.open();
-		this.dao.insertNettleWorld(this.elements, 3);
+		this.dao.insertNettleWorld(this.elements, this.level);
 		this.dao.close();
 	}
 	public void setElements(final MotionlessElement[][] elements) {
