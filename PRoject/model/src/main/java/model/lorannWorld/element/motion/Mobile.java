@@ -11,7 +11,7 @@ public class Mobile extends MotionElement{
 		this.strategy = strategy;
 	}
 
-	public Mobile(final ISprite sprite, final Permeability permeability, final char symbole, final IStrategy strategy, final int x, final int y)
+	public Mobile(final ISprite sprite, final Permeability permeability, final char symbole, final IStrategy strategy, final int x, final int y) throws Exception
 	{
 		super(sprite, permeability, symbole, x, y);
 		this.strategy = strategy;

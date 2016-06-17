@@ -55,7 +55,7 @@ class DAOLorannWorld extends DAOEntity<LorannWorld> {
 	 * @see model.DAOEntity#find(int)
 	 */
 	@Override
-	public LorannWorld find(final int level) {
+	public LorannWorld find(final int level) throws Exception {
 		final LorannWorld lorannWorld = new LorannWorld();
 
 		try {
