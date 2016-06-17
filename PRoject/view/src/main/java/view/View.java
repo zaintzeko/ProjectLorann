@@ -16,6 +16,31 @@ import contract.IView;
  */
 public class View implements IView, Runnable {
 
+	/**
+	 * Key code to controller order.
+	 *ControllerOrder.
+	 * @param keyCode
+	 *          the key code
+	 * @return the controller order
+	 */
+	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
+		System.out.println(keyCode);
+		System.out.println();
+		switch (keyCode) {
+		case KeyEvent.VK_G:
+			return ControllerOrder.English;
+		case KeyEvent.VK_F:
+			return ControllerOrder.Francais;
+		case KeyEvent.VK_D:
+			return ControllerOrder.Deutsch;
+		case KeyEvent.VK_I:
+			return ControllerOrder.Indonesia;
+		default:
+			System.out.println("");
+			return ControllerOrder.English;
+		}
+	}
+
 	/** The frame. */
 	private final ViewFrame viewFrame;
 
@@ -28,30 +53,6 @@ public class View implements IView, Runnable {
 	public View(final IModel model) {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
-	}
-
-	/**
-	 * Key code to controller order.
-	 *ControllerOrder.
-	 * @param keyCode
-	 *          the key code
-	 * @return the controller order
-	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
-		System.out.println(keyCode);
-		System.out.println();
-		switch (keyCode) {
-			case KeyEvent.VK_G:
-				return ControllerOrder.English;
-			case KeyEvent.VK_F:
-				return ControllerOrder.Francais;
-			case KeyEvent.VK_D:
-				return ControllerOrder.Deutsch;
-			case KeyEvent.VK_I:
-				return ControllerOrder.Indonesia;
-			default:
-				return ControllerOrder.English;
-		}
 	}
 
 	/*
