@@ -55,5 +55,72 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		this.y = y;
 	}
 
+	public void moveDown(){
+		this.saveX = x;
+		this.saveY =y;
+		this.y++;
+	}
+public void moveUp(){
+	this.saveX = x;
+	this.saveY =y;
+	this.y--;
+	}
+	
+public void moveLeft(){
+	this.saveX = x;
+	this.saveY =y;
+	this.x--;
+}
 
+public void moveRight(){
+	this.saveX = x;
+	this.saveY =y;
+	this.x++;
+	
+}
+
+public void moveLeftDown(){
+	this.saveX = x;
+	this.saveY =y;
+	this.y++;
+	this.x--;
+}
+
+public void moveLeftUp(){
+	this.saveX = x;
+	this.saveY =y;
+	this.y--;
+	this.x--;
+}
+
+public void moveRightUp(){
+	this.saveX = x;
+	this.saveY =y;
+	this.y--;
+	this.x++;
+}
+public void moveRightDown(){
+	this.saveX = x;
+	this.saveY =y;
+	this.y++;
+	this.x++;
+}
+
+
+
+private Boolean ExecuteMoveIfPossible( final int x, final int y){
+	if {elementPos(x,y)==null)
+{
+	this.setchange();
+	this.verify.Observer();
+	return true;
+	
+}
+else
+{
+	this.x=this.saveX;
+	this.y=this.saveY;
+	return false;
+	
+}
 }

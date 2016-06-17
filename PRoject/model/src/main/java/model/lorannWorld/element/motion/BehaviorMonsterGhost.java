@@ -9,30 +9,30 @@ public class BehaviorMonsterGhost extends Monster implements IStrategy{
 	/* (non-Javadoc)
 	 * @see model.IBehaviorMonsterSkeleton#animate()
 	 */
-	public void animate(IMotionElement motionElement,ILorannWorld lorannWorld) {
+	public void animate(MotionElement motionElement,ILorannWorld lorannWorld) {
 
-		if(motionElement.MoveUp()){
+		if(motionElement.moveUp();()){
 			
 		}
-		else if (motionElement.MoveLeft()){
+		else if (motionElement.moveLeft()){
 			
 		}
-		else if (motionElement.MoveDown()){
+		else if (motionElement.moveDown()){
 			
 		}
-		else if (motionElement.MoveRight()){
+		else if (motionElement.moveRight()){
 	
 		}
-		else if (motionElement.MoveLeftUp()){
+		else if (motionElement.moveLeftUp()){
 	
 		}
-		else if (motionElement.MoveRightUp()){
+		else if (motionElement.moveRightUp()){
 			
 		}
-		else if (motionElement.MoveLeftDown()){
+		else if (motionElement.moveLeftDown()){
 	
 		}
-		else if (motionElement.MoveRightDown()){
+		else if (motionElement.moveRightDown()){
 	
 		}
 
