@@ -50,7 +50,7 @@ public abstract class  FactoryElement {
 		case 'G':
 			a = new Mobile(new Sprite(FIlE_NAME_MONSTER_GOlD), Permeability.BLOCKING, c, new BehaviorMonsterGold(), lorannWorld);
 			break;
-		case 'S':
+		case 's':
 			a = new Mobile(new Sprite(FIlE_NAME_SKELETON), Permeability.BLOCKING, c, new BehaviorMonsterSkeleton(), lorannWorld);
 			break;
 		case 'g':
@@ -65,7 +65,7 @@ public abstract class  FactoryElement {
 		case 'k':
 			a = new Mobile(new Sprite(FIlE_NAME_KEY), Permeability.BLOCKING, c, new BehaviorKey(), lorannWorld);
 			break;
-		case 's':
+		case 'S':
 			a = new Mobile(new Sprite(FIlE_NAME_SPELL), Permeability.BLOCKING, c, new BehaviorSpell(), lorannWorld);
 			break;
 		case 'd':
