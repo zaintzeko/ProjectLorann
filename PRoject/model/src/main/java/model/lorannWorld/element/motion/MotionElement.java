@@ -9,6 +9,8 @@ public abstract class MotionElement extends Element implements IMotionElement{
 	private int x;
 	private int y;
 	private Direction direction;
+	private int saveX;
+	private int saveY;
 
 	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole)
 	{
@@ -54,6 +56,57 @@ public abstract class MotionElement extends Element implements IMotionElement{
 	public void setY(final int y) {
 		this.y = y;
 	}
+	public void moveDown(){
+		this.saveX = x;
+		this.saveY =y;
+		this.y++;
+	}
+public void moveUp(){
+	this.saveX = x;
+	this.saveY =y;
+	this.y--;
+	}
+	
+public void moveLeft(){
+	this.saveX = x;
+	this.saveY =y;
+	this.x--;
+}
+
+public void moveRight(){
+	this.saveX = x;
+	this.saveY =y;
+	this.x++;
+	
+}
+
+public void moveLeftDown(){
+	this.saveX = x;
+	this.saveY =y;
+	this.y++;
+	this.x--;
+}
+
+public void moveLeftUp(){
+	this.saveX = x;
+	this.saveY =y;
+	this.y--;
+	this.x--;
+}
+
+public void moveRightUp(){
+	this.saveX = x;
+	this.saveY =y;
+	this.y--;
+	this.x++;
+}
+public void moveRightDown(){
+	this.saveX = x;
+	this.saveY =y;
+	this.y++;
+	this.x++;
+}
+
 
 
 }
