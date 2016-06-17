@@ -14,6 +14,29 @@ public class BehaviorMonsterGhost extends Monster implements IStrategy{
 		if(motionElement.MoveUp()){
 			
 		}
-	}
+		else if (motionElement.MoveLeft()){
+			
+		}
+		else if (motionElement.MoveDown()){
+			
+		}
+		else if (motionElement.MoveRight()){
+	
+		}
+		else if (motionElement.MoveLeftUp()){
+	
+		}
+		else if (motionElement.MoveRightUp()){
+			
+		}
+		else if (motionElement.MoveLeftDown()){
+	
+		}
+		else if (motionElement.MoveRightDown()){
+	
+		}
+
+}
+	
 
 }
