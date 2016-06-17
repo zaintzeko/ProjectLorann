@@ -1,8 +1,6 @@
 package main;
 
 
-import java.sql.SQLException;
-
 import controller.Controller;
 import model.Model;
 import view.View;
