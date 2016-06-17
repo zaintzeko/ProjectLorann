@@ -32,7 +32,7 @@ public abstract class  FactoryElement {
 			a = new Mobile(new Sprite("MonsterSkeleton.png"), Permeability.BLOCKING, c, new BehaviorMonsterSkeleton());
 			break;
 		case 'g':
-			a = new Mobile(new Sprite("MonsterGhost.png"), Permeability.BLOCKING, c, new BehaviorMonsterGhost());
+			a = new Mobile(new Sprite("MonsterGhost.png"), Permeability.BLOCKING, c, new BehaviorMonsterGhost(motionElement,lorannWorld));
 			break;
 		case 'T':
 			a = new Mobile(new Sprite("MonsterTotem.png"), Permeability.BLOCKING, c, new BehaviorMonsterTotem());
