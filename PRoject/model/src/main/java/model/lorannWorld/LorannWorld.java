@@ -93,9 +93,9 @@ public class LorannWorld extends Observable implements ILorannWorld {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		this.elements[0][3] = null;
-		this.setChanged();
-		this.notifyObservers();
+		//this.elements[0][3] = null;
+		//this.setChanged();
+		//this.notifyObservers();
 		for(;;)
 		{
 			//
