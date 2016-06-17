@@ -17,20 +17,22 @@ public abstract class Main {
 	 *
 	 * @param args
 	 *          the arguments
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public static void main(final  String[] args) throws Exception {
-		final Model model = new Model();
-		final View view = new View(model);
-		final Controller controller = new Controller(view, model);
-		view.setController(controller);
+
 
 
 		/*try {
-			new LoadTextFile().loadFile("level/lvl1.txt");
+			new LoadTextFile().loadFile("level/lvl3.txt");
 		} catch (final IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
+
+		final Model model = new Model();
+		final View view = new View(model);
+		final Controller controller = new Controller(view, model);
+		view.setController(controller);
 	}
 }

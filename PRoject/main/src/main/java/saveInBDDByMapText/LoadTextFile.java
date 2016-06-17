@@ -51,7 +51,7 @@ public class LoadTextFile {
 
 	public void save() {
 		this.dao.open();
-		this.dao.insertNettleWorld(this.elements, 1);
+		this.dao.insertNettleWorld(this.elements, 3);
 		this.dao.close();
 	}
 	public void setElements(final MotionlessElement[][] elements) {

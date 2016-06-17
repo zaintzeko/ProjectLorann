@@ -1,6 +1,5 @@
 package model;
 
-import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.ILorannWorld;
@@ -18,7 +17,7 @@ public class Model implements IModel {
 	private final ILorannWorld lorannWorld;
 	/**
 	 * Instantiates a new model.
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public Model() throws Exception {
 		this.dao = new DAOLorannWorld(DBConnection.getInstance().getConnection());
