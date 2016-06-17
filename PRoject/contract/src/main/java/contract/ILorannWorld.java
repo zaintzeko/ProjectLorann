@@ -10,18 +10,17 @@ public interface ILorannWorld {
 	public void addElement(IMotionlessElement motionlessElement, int x, int y);
 
 	public void addElementForDisplay(IMotionElement motionElement, int x, int y);
+	
 
 	public ArrayList<IMotionElement> getArrayForDisplay();
 
-	public IElement getElement(int x, int y);
+	public IMotionlessElement getElement(int x, int y);
 
-	public IElement[][] getElements();
+	public IMotionlessElement[][] getElements();
 
 	int getHeight();
 
 	public ArrayList<IMobile> getMotionElements();
-
-	public IElement[][] getMotionlessElements();
 
 	/**
 	 * Gets the observable.

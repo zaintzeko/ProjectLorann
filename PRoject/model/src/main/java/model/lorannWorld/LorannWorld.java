@@ -3,7 +3,6 @@ package model.lorannWorld;
 import java.util.ArrayList;
 import java.util.Observable;
 
-import contract.IElement;
 import contract.ILorann;
 import contract.ILorannWorld;
 import contract.IMobile;
@@ -13,7 +12,7 @@ import contract.IMotionlessElement;
 public class LorannWorld extends Observable implements ILorannWorld {
 	private final int width;
 	private final int height;
-	private final IElement elements[][];
+	private final IMotionlessElement elements[][];
 	private final ArrayList<IMobile> motionElements;
 	private final ArrayList<IMotionElement> arrayForDisplay;
 	private ILorann lorann;
@@ -24,7 +23,7 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	}
 
 	public LorannWorld(final int width, final int height) throws Exception {
-		this.elements = new IElement[width][height];
+		this.elements = new IMotionlessElement[width][height];
 		this.motionElements = new ArrayList<IMobile>();
 		this.arrayForDisplay = new ArrayList<IMotionElement>();
 		if(width != 20) { throw new Exception("Width must be 20");}
@@ -41,6 +40,11 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		lorann.setX(x);
 		lorann.setY(y);
 		this.addElementForDisplay(lorann, x, y);
+	}
+	
+	public IMotionlessElement getElementByPos(int x, int y)
+	{
+		return this.elements[x][y];
 	}
 
 	public void addElement(final IMobile motionElement, final int x, final int y) {
@@ -76,11 +80,11 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	/* (non-Javadoc)
 	 * @see model.ILorannWorld#getElement(int, int)
 	 */
-	public IElement getElement( final int x, final int y){
+	public IMotionlessElement getElement( final int x, final int y){
 		return this.elements[x][y];
 
 	}
-	public IElement[][] getElements() {
+	public IMotionlessElement[][] getElements() {
 		return this.elements;
 	}
 
@@ -100,10 +104,6 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		return this.motionElements;
 	}
 
-	public IElement[][] getMotionlessElements() {
-		return this.elements;
-	}
-
 	public Observable getObservable() {
 		return this;
 	}
@@ -117,16 +117,19 @@ public class LorannWorld extends Observable implements ILorannWorld {
 
 	public void play()
 	{
-		try {
-			Thread.sleep(1000);
-		} catch (final InterruptedException e) {
-			e.printStackTrace();
-		}
+		
 		this.elements[0][3] = null;
-		this.setChanged();
-		this.notifyObservers();
+		
+		
 		for(;;)
 		{
+			this.setChanged();
+			this.notifyObservers();
+			try {
+				Thread.sleep(125);
+			} catch (final InterruptedException e) {
+				e.printStackTrace();
+			}
 			//
 			//
 		}
