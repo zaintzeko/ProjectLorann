@@ -57,7 +57,7 @@ public class LorannWorldTest {
 	public void testGetMotionlessElements() {
 		for(int i =0; i < this.testLoran.getWidth(); i++){
 			for( int y = 0; y < this.testLoran.getHeight(); y++){
-				assertNotNull(this.testLoran.getMotionlessElements());
+				assertNotNull(this.testLoran.getElements());
 			}
 		}
 	}
