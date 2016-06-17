@@ -72,7 +72,7 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		return this.executeMoveIfPossible(this.x, this.y);
 	}
 
-	public Boolean moveLeft(){
+	public boolean moveLeft(){
 		this.saveX = this.x;
 		this.saveY =this.y;
 		this.x--;
