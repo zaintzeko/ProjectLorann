@@ -18,9 +18,9 @@ public class Model implements IModel {
 	private final ILorannWorld lorannWorld;
 	/**
 	 * Instantiates a new model.
-	 * @throws SQLException
+	 * @throws Exception 
 	 */
-	public Model() throws SQLException {
+	public Model() throws Exception {
 		this.dao = new DAOLorannWorld(DBConnection.getInstance().getConnection());
 
 		this.lorannWorld=this.dao.find(1);

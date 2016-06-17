@@ -14,15 +14,17 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	private final IElement elements[][];
 	public ArrayList<IMotionElement> motionElements;
 
-	public LorannWorld() {
+	public LorannWorld() throws Exception {
 		this(20, 12);
 
 	}
 
-	public LorannWorld(final int width, final int height) {
+	public LorannWorld(final int width, final int height) throws Exception {
 		this.elements = new IElement[width][height];
 		this.motionElements = new ArrayList<IMotionElement>();
+		if(width != 20) { throw new Exception("Width must be 20");}
 		this.width = width;
+		if(height != 12) { throw new Exception("Height must be 20");}
 		this.height = height;
 
 

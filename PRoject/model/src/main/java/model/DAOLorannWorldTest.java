@@ -56,32 +56,8 @@ public class DAOLorannWorldTest {
 
 	@SuppressWarnings("static-access")
 	@Test
-	public void testFindInt() {
+	public void testFindInt() throws Exception {
 		assertNotNull(this.testDAO.find(1));
-	}
-
-	@SuppressWarnings("static-access")
-	@Test
-	public void testFindString() {
-		assertNotNull(this.testDAO.find("test"));
-	}
-
-	@SuppressWarnings("static-access")
-	@Test
-	public void testCreateILorannWorld() {
-		assertTrue(this.testDAO.create(ItestLorann));
-	}
-
-	@SuppressWarnings("static-access")
-	@Test
-	public void testDeleteILorannWorld() {
-		assertTrue(this.testDAO.delete(ItestLorann));
-	}
-
-	@SuppressWarnings("static-access")
-	@Test
-	public void testUpdateILorannWorld() {
-		assertTrue(this.testDAO.update(ItestLorann));
 	}
 
 }
