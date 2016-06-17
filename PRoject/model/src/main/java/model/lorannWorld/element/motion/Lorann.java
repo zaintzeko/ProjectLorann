@@ -4,7 +4,6 @@ import java.awt.event.KeyEvent;
 
 import contract.ILorann;
 import contract.ILorannWorld;
-import contract.IMotionElement;
 import contract.ISprite;
 import model.lorannWorld.element.Permeability;
 
@@ -15,16 +14,14 @@ public class Lorann extends MotionElement implements ILorann{
 
 	}
 
-	public void setKeyCode(int keyCode){
-		this.keyCode = keyCode;
-	}
+	public void animate() {
+		if((this.keyCode == KeyEvent.VK_UP) || (this.keyCode == KeyEvent.VK_DOWN) || (this.keyCode == KeyEvent.VK_RIGHT) || (this.keyCode == KeyEvent.VK_LEFT)){
 
-	public void animate(IMotionElement motionElement,ILorannWorld lorannWorld) {
-		if(keyCode == KeyEvent.VK_UP || keyCode == KeyEvent.VK_DOWN || keyCode == KeyEvent.VK_RIGHT || keyCode == KeyEvent.VK_LEFT){
-			
 		}
 	}
 
-
+	public void setKeyCode(final int keyCode){
+		this.keyCode = keyCode;
+	}
 
 }
