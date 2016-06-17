@@ -9,5 +9,8 @@ public class BehaviorMonsterTotem extends Monster implements IStrategy{
 	 * @see model.IBehaviorMonsterSkeleton#animate()
 	 */
 	public void animate(IMotionElement motionElement,ILorannWorld lorannWorld) {
+		
+		
+		
 	}
 }

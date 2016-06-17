@@ -21,6 +21,8 @@ public interface ILorannWorld {
 	int getHeight();
 
 	public ArrayList<IMobile> getMotionElements();
+	
+	public ILorann getLorann();
 
 	/**
 	 * Gets the observable.

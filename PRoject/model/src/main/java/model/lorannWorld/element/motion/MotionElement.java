@@ -37,17 +37,13 @@ public abstract class MotionElement extends Element implements IMotionElement{
 	private Boolean executeMoveIfPossible( final int x, final int y){
 		if (this.lorannWorld.getElement(x, y)==null)
 		{
-			//this.lorannWorld.getObservable().setChanged();
-			//this.lorannWorld.getObservable().notifyObservers();;
 			return true;
-
 		}
 		else
 		{
 			this.x=this.saveX;
 			this.y=this.saveY;
 			return false;
-
 		}
 	}
 
@@ -56,12 +52,10 @@ public abstract class MotionElement extends Element implements IMotionElement{
 	}
 
 	public int getX() {
-		// TODO Auto-generated method stub
 		return this.x;
 	}
 
 	public int getY() {
-		// TODO Auto-generated method stub
 		return this.y;
 	}
 
@@ -127,11 +121,10 @@ public abstract class MotionElement extends Element implements IMotionElement{
 	public void setDirection(final Direction direction) {
 		this.direction = direction;
 	}
+	
 	public void setX(final int x) {
 		this.x = x;
 	}
-
-
 
 	public void setY(final int y) {
 		this.y = y;

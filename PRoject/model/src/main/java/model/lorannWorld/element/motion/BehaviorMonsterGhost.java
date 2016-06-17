@@ -10,31 +10,34 @@ public class BehaviorMonsterGhost extends Monster implements IStrategy{
 	 * @see model.IBehaviorMonsterSkeleton#animate()
 	 */
 	public void animate(IMotionElement motionElement,ILorannWorld lorannWorld) {
-
-		if(motionElement.moveUp()){
-			
+		
+		boolean a = false;
+		
+		
+		if(lorannWorld.getLorann().getY()<motionElement.getY()){
+			a = motionElement.moveUp();
 		}
-		else if (motionElement.moveLeft()){
-			
+		if (lorannWorld.getLorann().getX()<motionElement.getX()){
+			a = motionElement.moveLeft();
 		}
-		else if (motionElement.moveDown()){
-			
+		if (lorannWorld.getLorann().getX()>motionElement.getX()){
+			a = motionElement.moveRight();
 		}
-		else if (motionElement.moveRight()){
-	
+		if (lorannWorld.getLorann().getY()>motionElement.getY()){
+			a = motionElement.moveDown();
 		}
-		else if (motionElement.moveLeftUp()){
-	
+		
+		if (lorannWorld.getLorann().getY()<motionElement.getY() && lorannWorld.getLorann().getX()<motionElement.getX() && !a){
+			a = motionElement.moveLeftUp();
 		}
-		else if (motionElement.moveRightUp()){
-			
+		if (lorannWorld.getLorann().getY()<motionElement.getY() && lorannWorld.getLorann().getX()>motionElement.getX() && !a){
+			a = motionElement.moveRightUp();
 		}
-		else if (motionElement.moveLeftDown()){
-	
+		if (lorannWorld.getLorann().getY()>motionElement.getY() && lorannWorld.getLorann().getX()<motionElement.getX() && !a){
+			a = motionElement.moveLeftDown();
 		}
-		else if (motionElement.moveRightDown()){
-	
+		if (lorannWorld.getLorann().getY()>motionElement.getY() && lorannWorld.getLorann().getX()>motionElement.getX() && !a){
+			a = motionElement.moveRightDown();
 		}
-
-}
+	}
 }
