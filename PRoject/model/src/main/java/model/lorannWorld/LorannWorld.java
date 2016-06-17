@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 import contract.IElement;
+import contract.ILorann;
 import contract.ILorannWorld;
+import contract.IMobile;
 import contract.IMotionElement;
 import contract.IMotionlessElement;
 
@@ -12,7 +14,9 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	private final int width;
 	private final int height;
 	private final IElement elements[][];
-	public ArrayList<IMotionElement> motionElements;
+	private final ArrayList<IMobile> motionElements;
+	private final ArrayList<IMotionElement> arrayForDisplay;
+	private ILorann lorann;
 
 	public LorannWorld() throws Exception {
 		this(20, 12);
@@ -21,7 +25,8 @@ public class LorannWorld extends Observable implements ILorannWorld {
 
 	public LorannWorld(final int width, final int height) throws Exception {
 		this.elements = new IElement[width][height];
-		this.motionElements = new ArrayList<IMotionElement>();
+		this.motionElements = new ArrayList<IMobile>();
+		this.arrayForDisplay = new ArrayList<IMotionElement>();
 		if(width != 20) { throw new Exception("Width must be 20");}
 		this.width = width;
 		if(height != 12) { throw new Exception("Height must be 20");}
@@ -30,18 +35,35 @@ public class LorannWorld extends Observable implements ILorannWorld {
 
 	}
 
-	public void addElement(final IMotionElement motionELement, final int x, final int y) {
-		motionELement.setX(x);
-		motionELement.setY(y);
-		this.motionElements.add(motionELement);
-		this.setChanged();
-
+	public void addElement(final ILorann lorann, final int x, final int y)
+	{
+		this.setLorann(lorann);
+		lorann.setX(x);
+		lorann.setY(y);
+		this.addElementForDisplay(lorann, x, y);
 	}
+
+	public void addElement(final IMobile motionElement, final int x, final int y) {
+		motionElement.setX(x);
+		motionElement.setY(y);
+		this.motionElements.add(motionElement);
+		this.addElementForDisplay(motionElement, x, y);
+		this.setChanged();
+	}
+
 	public void addElement(final IMotionlessElement motionlessElement, final int x, final int y) {
 
 		//System.out.println(motionlessElement.getSymbole());
 		this.elements[x][y] = motionlessElement;
 		this.setChanged();
+	}
+	public void addElementForDisplay(final IMotionElement motionElement, final int x, final int y)
+	{
+		this.arrayForDisplay.add(motionElement);
+	}
+
+	public ArrayList<IMotionElement> getArrayForDisplay() {
+		return this.arrayForDisplay;
 	}
 
 	/* (non-Javadoc)
@@ -58,6 +80,10 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		return this.elements[x][y];
 
 	}
+	public IElement[][] getElements() {
+		return this.elements;
+	}
+
 	/* (non-Javadoc)
 	 * @see model.ILorannWorld#getHeight()
 	 */
@@ -65,7 +91,11 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		return this.height;
 	}
 
-	public ArrayList<IMotionElement> getMotionElements() {
+	public ILorann getLorann() {
+		return this.lorann;
+	}
+
+	public ArrayList<IMobile> getMotionElements() {
 
 		return this.motionElements;
 	}
@@ -90,7 +120,6 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		try {
 			Thread.sleep(1000);
 		} catch (final InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.elements[0][3] = null;
@@ -103,4 +132,7 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		}
 	}
 
+	public void setLorann(final ILorann lorann) {
+		this.lorann = lorann;
+	}
 }

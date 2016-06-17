@@ -1,5 +1,7 @@
 package model.lorannWorld.element.motion;
 
+import contract.IStrategy;
+
 public class BehaviorMonsterGold extends Monster implements IStrategy{
 
 	/* (non-Javadoc)

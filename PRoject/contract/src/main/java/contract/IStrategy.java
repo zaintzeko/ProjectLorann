@@ -1,4 +1,4 @@
-package model.lorannWorld.element.motion;
+package contract;
 
 public interface IStrategy {
 	public void actionOnHit();

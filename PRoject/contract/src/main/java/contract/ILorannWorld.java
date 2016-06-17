@@ -5,15 +5,21 @@ import java.util.Observable;
 
 public interface ILorannWorld {
 
-	public void addElement(IMotionElement motionElement, int x , int y);
+	public void addElement(IMobile motionElement, int x , int y);
 
 	public void addElement(IMotionlessElement motionlessElement, int x, int y);
 
+	public void addElementForDisplay(IMotionElement motionElement, int x, int y);
+
+	public ArrayList<IMotionElement> getArrayForDisplay();
+
 	public IElement getElement(int x, int y);
+
+	public IElement[][] getElements();
 
 	int getHeight();
 
-	public ArrayList<IMotionElement> getMotionElements();
+	public ArrayList<IMobile> getMotionElements();
 
 	public IElement[][] getMotionlessElements();
 
