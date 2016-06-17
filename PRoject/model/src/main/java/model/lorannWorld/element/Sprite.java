@@ -10,22 +10,39 @@ import contract.ISprite;
 
 public class Sprite implements ISprite{
 
-	private Image image;
+	private final Image ListImage[];
+	private Image currentImage;
+	private int currentImageStep;
 
 
-	public Sprite(final String string){
-		try {
-			//System.out.println("Image/" + string);
-			this.image = ImageIO.read(new File("Image/" + string));
-		} catch (final IOException e) {
-			e.printStackTrace();
+	public Sprite(final String string[]){
+		this.ListImage = new Image[string.length];
+		int i = 0;
+		for(final String path : string){
+			try {
+				this.ListImage[i] = ImageIO.read(new File("Image/" + path));
+			} catch (final IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			i++;
+		}
+		this.changecurentImage(0);
+	}
+
+	public void changecurentImage(final int x)
+	{
+		if(x < this.ListImage.length) {
+			this.currentImage = this.ListImage[x];
 		}
 	}
 
-	public Image getImage(){
-		return this.image;
+	public void changeToNextImage()
+	{
+		this.currentImage = this.ListImage[(this.currentImageStep+1)%this.ListImage.length];
 	}
 
-
-
+	public Image getImage(){
+		return this.currentImage;
+	}
 }

@@ -17,17 +17,29 @@ import model.lorannWorld.element.motion.Mobile;
 import model.lorannWorld.element.motionless.MotionlessElement;
 
 public abstract class  FactoryElement {
+	public static String FIlE_NAME_KNEEPCAP[] = {"Kneepcap.png"};
+	public static String FIlE_NAME_HORIZONTALBONE[] = {"HorizontalBone.png"};
+	public static String FIlE_NAME_VERTICALBONE[] = {"VerticalBone.png"};
+	public static String FIlE_NAME_MONSTER_GOlD[] = {"MonsterGold.png"};
+	public static String FIlE_NAME_LORANN[] = {"LorannUp.png", "LorannRightUp.png", "LorannRight.png", "LorannRightDown.png", "LorannDown.png", "LorannLeftDown.png", "LorannLeft.png", "LorannLeftUp.png"};
+	public static String FIlE_NAME_SKELETON[] = {"MonsterSkeleton.png"};
+	public static String FIlE_NAME_GHOST[] = {"MonsterGhost.png"};
+	public static String FIlE_NAME_TOTEM[] = {"MonsterTotem.png"};
+	public static String FIlE_NAME_Treasure[] = {"Treasure.png"};
+	public static String FIlE_NAME_KEY[] = {"Key.png"};
+	public static String FIlE_NAME_SPELL[] = {"SpellCyan.png", "SpellGreen.png", "SpellMagenta.png", "SpellRed.png", "SpellYellow.png"};
+	public static String FIlE_NAME_DOOR[] = {"DoorClose.png", "DoorOpen.png"};
 
-	public static MotionlessElement HORIZONTALBONE = new MotionlessElement(new Sprite("HorizontalBone.png"), Permeability.BLOCKING, '-');
-	public static MotionlessElement VERTICALBONE = new MotionlessElement(new Sprite("VerticalBone.png"), Permeability.BLOCKING, 'l');
-	public static MotionlessElement KNEEPCAP = new MotionlessElement(new Sprite("Kneepcap.png"), Permeability.BLOCKING, 'o');
+	public static MotionlessElement HORIZONTALBONE = new MotionlessElement(new Sprite(FIlE_NAME_HORIZONTALBONE), Permeability.BLOCKING, '-');
+	public static MotionlessElement VERTICALBONE = new MotionlessElement(new Sprite(FIlE_NAME_VERTICALBONE), Permeability.BLOCKING, 'l');
+	public static MotionlessElement KNEEPCAP = new MotionlessElement(new Sprite(FIlE_NAME_KNEEPCAP), Permeability.BLOCKING, 'o');
 
 	private static MotionlessElement motionlessElements[] = { HORIZONTALBONE, VERTICALBONE, KNEEPCAP, };
 
 	public static ILorann getfromFileSymbolLorann(final char c, final ILorannWorld lorannWorld)
 	{
 		if(c == 'L') {
-			return new Lorann(new Sprite("LorannUp.png"), Permeability.BLOCKING, c, lorannWorld);
+			return new Lorann(new Sprite(FIlE_NAME_LORANN), Permeability.BLOCKING, c, lorannWorld);
 		}
 		return null;
 	}
@@ -36,28 +48,28 @@ public abstract class  FactoryElement {
 		IMobile a = null;
 		switch(c){
 		case 'G':
-			a = new Mobile(new Sprite("MonsterGold.png"), Permeability.BLOCKING, c, new BehaviorMonsterGold(), lorannWorld);
+			a = new Mobile(new Sprite(FIlE_NAME_MONSTER_GOlD), Permeability.BLOCKING, c, new BehaviorMonsterGold(), lorannWorld);
 			break;
 		case 'S':
-			a = new Mobile(new Sprite("MonsterSkeleton.png"), Permeability.BLOCKING, c, new BehaviorMonsterSkeleton(), lorannWorld);
+			a = new Mobile(new Sprite(FIlE_NAME_SKELETON), Permeability.BLOCKING, c, new BehaviorMonsterSkeleton(), lorannWorld);
 			break;
 		case 'g':
-			a = new Mobile(new Sprite("MonsterGhost.png"), Permeability.BLOCKING, c, new BehaviorMonsterGhost(), lorannWorld);
+			a = new Mobile(new Sprite(FIlE_NAME_GHOST), Permeability.BLOCKING, c, new BehaviorMonsterGhost(), lorannWorld);
 			break;
 		case 'T':
-			a = new Mobile(new Sprite("MonsterTotem.png"), Permeability.BLOCKING, c, new BehaviorMonsterTotem(), lorannWorld);
+			a = new Mobile(new Sprite(FIlE_NAME_TOTEM), Permeability.BLOCKING, c, new BehaviorMonsterTotem(), lorannWorld);
 			break;
 		case 't':
-			a = new Mobile(new Sprite("Treasure.png"), Permeability.BLOCKING, c, new BehaviorTreasure(), lorannWorld);
+			a = new Mobile(new Sprite(FIlE_NAME_Treasure), Permeability.BLOCKING, c, new BehaviorTreasure(), lorannWorld);
 			break;
 		case 'k':
-			a = new Mobile(new Sprite("Key.png"), Permeability.BLOCKING, c, new BehaviorKey(), lorannWorld);
+			a = new Mobile(new Sprite(FIlE_NAME_KEY), Permeability.BLOCKING, c, new BehaviorKey(), lorannWorld);
 			break;
 		case 's':
-			a = new Mobile(new Sprite("Spell.png"), Permeability.BLOCKING, c, new BehaviorSpell(), lorannWorld);
+			a = new Mobile(new Sprite(FIlE_NAME_SPELL), Permeability.BLOCKING, c, new BehaviorSpell(), lorannWorld);
 			break;
 		case 'd':
-			a = new Mobile(new Sprite("DoorClose.png"), Permeability.BLOCKING, c, new BehaviorDoor(), lorannWorld);
+			a = new Mobile(new Sprite(FIlE_NAME_DOOR), Permeability.BLOCKING, c, new BehaviorDoor(), lorannWorld);
 			break;
 		default:
 			a=null;

@@ -12,7 +12,8 @@ public class SpriteTest {
 	private static Sprite testSprite;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		testSprite = new Sprite("Kneepcap.png");
+		final String nameImage[] = {"Kneepcap.png"};
+		testSprite = new Sprite(nameImage);
 	}
 
 	@AfterClass
