@@ -27,7 +27,7 @@ public abstract class Main {
 		final Controller controller = new Controller(view, model);
 		view.setController(controller);
 
-
+eeee
 		/*try {
 			new LoadTextFile().loadFile("level/lvl1.txt");
 		} catch (final IOException e) {
