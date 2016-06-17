@@ -1,6 +1,7 @@
 package model.lorannWorld.element;
 
-import contract.IMotionElement;
+import contract.ILorann;
+import contract.IMobile;
 import contract.IMotionlessElement;
 import model.lorannWorld.element.motion.BehaviorDoor;
 import model.lorannWorld.element.motion.BehaviorKey;
@@ -22,8 +23,16 @@ public abstract class  FactoryElement {
 
 	private static MotionlessElement motionlessElements[] = { HORIZONTALBONE, VERTICALBONE, KNEEPCAP, };
 
-	public static IMotionElement getFromFileSymbolMotion(final char c) {
-		IMotionElement a = null;
+	public static ILorann getfromFileSymbolLorann(final char c)
+	{
+		if(c == 'L') {
+			return new Lorann(new Sprite("LorannUp.png"), Permeability.BLOCKING, c);
+		}
+		return null;
+	}
+
+	public static IMobile getFromFileSymbolMotion(final char c) {
+		IMobile a = null;
 		switch(c){
 		case 'G':
 			a = new Mobile(new Sprite("MonsterGold.png"), Permeability.BLOCKING, c, new BehaviorMonsterGold());
@@ -45,9 +54,6 @@ public abstract class  FactoryElement {
 			break;
 		case 's':
 			a = new Mobile(new Sprite("Spell.png"), Permeability.BLOCKING, c, new BehaviorSpell());
-			break;
-		case 'L':
-			a = new Lorann(new Sprite("LorannUp.png"), Permeability.BLOCKING, c);
 			break;
 		case 'd':
 			a = new Mobile(new Sprite("DoorClose.png"), Permeability.BLOCKING, c, new BehaviorDoor());
