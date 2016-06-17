@@ -21,7 +21,7 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		this.lorannWorld = lorannWorld;
 	}
 
-	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole, final int x, final int y) throws Exception
+	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole, final int x, final int y, final ILorannWorld lorannWorld) throws Exception
 	{
 		super(sprite, permeability, symbole);
 		if((x<0) || (x>20)) {

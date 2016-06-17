@@ -68,12 +68,12 @@ class DAOLorannWorld extends DAOEntity<LorannWorld> {
 				if(FactoryElement.getFromFileSymbolMotionless(resultSet.getString("NameElement").toCharArray()[0]) != null) {
 					lorannWorld.addElement(FactoryElement.getFromFileSymbolMotionless(resultSet.getString("NameElement").toCharArray()[0]), resultSet.getInt("PosX"), resultSet.getInt("PosY"));
 				}
-				else if(FactoryElement.getFromFileSymbolMotion(resultSet.getString("NameElement").toCharArray()[0]) != null) {
-					lorannWorld.addElement(FactoryElement.getFromFileSymbolMotion(resultSet.getString("NameElement").toCharArray()[0]), resultSet.getInt("PosX"), resultSet.getInt("PosY"));
+				else if(FactoryElement.getFromFileSymbolMotion(resultSet.getString("NameElement").toCharArray()[0], lorannWorld) != null) {
+					lorannWorld.addElement(FactoryElement.getFromFileSymbolMotion(resultSet.getString("NameElement").toCharArray()[0], lorannWorld), resultSet.getInt("PosX"), resultSet.getInt("PosY"));
 				}
-				else if(FactoryElement.getfromFileSymbolLorann(resultSet.getString("NameElement").toCharArray()[0]) != null)
+				else if(FactoryElement.getfromFileSymbolLorann(resultSet.getString("NameElement").toCharArray()[0], lorannWorld) != null)
 				{
-					lorannWorld.addElement(FactoryElement.getfromFileSymbolLorann(resultSet.getString("NameElement").toCharArray()[0]), resultSet.getInt("PosX"), resultSet.getInt("PosY"));
+					lorannWorld.addElement(FactoryElement.getfromFileSymbolLorann(resultSet.getString("NameElement").toCharArray()[0], lorannWorld), resultSet.getInt("PosX"), resultSet.getInt("PosY"));
 				}
 			}
 			return lorannWorld;
