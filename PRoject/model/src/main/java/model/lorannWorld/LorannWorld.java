@@ -41,11 +41,6 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		lorann.setY(y);
 		this.addElementForDisplay(lorann, x, y);
 	}
-	
-	public IMotionlessElement getElementByPos(int x, int y)
-	{
-		return this.elements[x][y];
-	}
 
 	public void addElement(final IMobile motionElement, final int x, final int y) {
 		motionElement.setX(x);
@@ -61,11 +56,11 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		this.elements[x][y] = motionlessElement;
 		this.setChanged();
 	}
+
 	public void addElementForDisplay(final IMotionElement motionElement, final int x, final int y)
 	{
 		this.arrayForDisplay.add(motionElement);
 	}
-
 	public ArrayList<IMotionElement> getArrayForDisplay() {
 		return this.arrayForDisplay;
 	}
@@ -83,6 +78,11 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	public IMotionlessElement getElement( final int x, final int y){
 		return this.elements[x][y];
 
+	}
+
+	public IMotionlessElement getElementByPos(final int x, final int y)
+	{
+		return this.elements[x][y];
 	}
 	public IMotionlessElement[][] getElements() {
 		return this.elements;
@@ -117,10 +117,10 @@ public class LorannWorld extends Observable implements ILorannWorld {
 
 	public void play()
 	{
-		
+
 		this.elements[0][3] = null;
-		
-		
+
+
 		for(;;)
 		{
 			this.setChanged();
@@ -130,6 +130,11 @@ public class LorannWorld extends Observable implements ILorannWorld {
 			} catch (final InterruptedException e) {
 				e.printStackTrace();
 			}
+			for(final IMobile mobile : this.motionElements)
+			{
+				mobile.getStrategy().animate(mobile, this);
+			}
+			this.lorann.animate();
 			//
 			//
 		}
