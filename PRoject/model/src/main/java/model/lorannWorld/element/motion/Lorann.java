@@ -3,6 +3,7 @@ package model.lorannWorld.element.motion;
 import contract.ControllerOrder;
 import contract.ILorann;
 import contract.ILorannWorld;
+import contract.IMobile;
 import contract.ISprite;
 import model.lorannWorld.element.Permeability;
 
@@ -12,6 +13,7 @@ public class Lorann extends MotionElement implements ILorann{
 		super(sprite, permeability, symbole, lorannWorld);
 	}
 	public void animate() {
+
 		if((this.keyCode == ControllerOrder.UP)){
 			this.moveUp();
 			this.getSprite().changecurentImage(0);
@@ -54,43 +56,49 @@ public class Lorann extends MotionElement implements ILorann{
 		else {
 			this.getSprite().changeToNextImage();
 		}
-		
+		//System.out.println(this.getLorannWorld());
+		for(final IMobile i : this.getLorannWorld().getMotionElements()){
+			if((i.getX() == this.getX()) && (i.getY() == this.getY())){
+				i.getStrategy().actionOnHit(this, this.getLorannWorld());
+			}
+		}
+		this.getLorannWorld().removeMobile(this.getX(), this.getY());
 	}
-	
+
 	private void pickUp(){
 		if((this.keyCode == ControllerOrder.UP )){
-			
+
 		}
 		else  if (this.keyCode == ControllerOrder.DOWN)
 		{
-			
+
 		}
 		else if (this.keyCode == ControllerOrder.RIGHT)
 		{
-			
+
 		}
 		else if (this.keyCode == ControllerOrder.LEFT)
 		{
-			
+
 		}
 
 		else if((this.keyCode == ControllerOrder.RIGHTUP)){
-			
+
 		}
 		else  if (this.keyCode == ControllerOrder.RIGHTDOWN)
 		{
-		
+
 		}
 		else if (this.keyCode == ControllerOrder.LEFTUP)
 		{
-		
+
 		}
 		else if (this.keyCode == ControllerOrder.LEFTDOWN)
 		{
-			
+
 		}
 		else {
-			
+
 		}
 	}
 

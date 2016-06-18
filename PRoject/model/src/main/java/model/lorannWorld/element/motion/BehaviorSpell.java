@@ -5,7 +5,7 @@ import contract.IMotionElement;
 import contract.IStrategy;
 
 public class BehaviorSpell implements IStrategy{
-	public void actionOnHit() {
+	public void actionOnHit(final IMotionElement motionElement, final ILorannWorld lorannWorld) {
 		// TODO Auto-generated method stub
 
 	}
@@ -13,6 +13,6 @@ public class BehaviorSpell implements IStrategy{
 	/* (non-Javadoc)
 	 * @see model.IBehaviorMonsterSkeleton#animate()
 	 */
-	public void animate(IMotionElement motionElement,ILorannWorld lorannWorld) {
+	public void animate(final IMotionElement motionElement,final ILorannWorld lorannWorld) {
 	}
 }

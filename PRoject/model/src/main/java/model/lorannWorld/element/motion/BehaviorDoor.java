@@ -6,7 +6,7 @@ import contract.IMotionElement;
 import contract.IStrategy;
 
 public class BehaviorDoor implements IStrategy{
-	public void actionOnHit() {
+	public void actionOnHit(final IMotionElement motionElement, final ILorannWorld lorannWorld) {
 		// TODO Auto-generated method stub
 
 	}

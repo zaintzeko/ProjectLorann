@@ -9,6 +9,7 @@ import java.util.Observer;
 import javax.swing.JPanel;
 
 import contract.IElement;
+import contract.ILorann;
 import contract.IMotionElement;
 
 /**
@@ -24,6 +25,7 @@ class ViewPanel extends JPanel implements Observer {
 	private ViewFrame					viewFrame;
 	private final ArrayList<? extends IMotionElement> motionElements;
 	private final IElement motionlessElements[][];
+	private final ILorann lorann;
 	private final int width;
 	private final int height;
 
@@ -33,13 +35,14 @@ class ViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *          the view frame
 	 */
-	public ViewPanel(final ViewFrame viewFrame, final ArrayList<? extends IMotionElement> motionElements, final IElement motionlessElements[][], final int width, final int height) {
+	public ViewPanel(final ViewFrame viewFrame, final ArrayList<? extends IMotionElement> motionElements, final ILorann lorann, final IElement motionlessElements[][], final int width, final int height) {
 		this.setViewFrame(viewFrame);
 		this.motionElements = motionElements;
 		this.motionlessElements = motionlessElements;
 		viewFrame.getModel().getObservable().addObserver(this);
 		this.width = width;
 		this.height = height;
+		this.lorann = lorann;
 	}
 
 	/**
@@ -76,6 +79,7 @@ class ViewPanel extends JPanel implements Observer {
 		{
 			graphics.drawImage(h.getSprite().getImage(), h.getX()*32, h.getY()*32, null);
 		}
+		graphics.drawImage(this.lorann.getSprite().getImage(), this.lorann.getX()*32, this.lorann.getY()*32, null);
 		//graphics.drawImage()
 	}
 

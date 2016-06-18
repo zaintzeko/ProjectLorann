@@ -5,7 +5,7 @@ import contract.IMotionElement;
 import contract.IStrategy;
 
 public class BehaviorKey implements IStrategy{
-	public void actionOnHit() {
+	public void actionOnHit(final IMotionElement motionElement, final ILorannWorld lorannWorld) {
 
 
 	}

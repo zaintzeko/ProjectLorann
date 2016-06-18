@@ -9,10 +9,7 @@ public interface ILorannWorld {
 
 	public void addElement(IMotionlessElement motionlessElement, int x, int y);
 
-	public void addElementForDisplay(IMotionElement motionElement, int x, int y);
-
-
-	public ArrayList<IMotionElement> getArrayForDisplay();
+	public void addScore(int x);
 
 	public IMotionlessElement getElement(int x, int y);
 
@@ -26,14 +23,13 @@ public interface ILorannWorld {
 
 	public ArrayList<IMobile> getMotionElements();
 
-	/**
-	 * Gets the observable.
-	 *
-	 * @return the observable
-	 */
 	Observable getObservable();
+
+	public int getScore();
 
 	int getWidth();
 
 	public void play();
+
+	public void removeMobile(final int x, final int y);
 }

@@ -99,7 +99,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setResizable(false);
 		this.addKeyListener(this);
 		//System.out.println(model.getLorannWorld());
-		this.setContentPane(new ViewPanel(this, model.getLorannWorld().getArrayForDisplay(), model.getLorannWorld().getElements(), model.getLorannWorld().getWidth()*32, model.getLorannWorld().getHeight()*32));
+		this.setContentPane(new ViewPanel(this, model.getLorannWorld().getMotionElements(), model.getLorannWorld().getLorann(), model.getLorannWorld().getElements(), model.getLorannWorld().getWidth()*32, model.getLorannWorld().getHeight()*32));
 		//this.setSize(400 + this.getInsets().left + this.getInsets().right, 60 + this.getInsets().top + this.getInsets().bottom);
 		this.setSize(((model.getLorannWorld().getWidth())*32)+6, (model.getLorannWorld().getHeight()+1)*32);
 		this.setLocationRelativeTo(null);

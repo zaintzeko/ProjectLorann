@@ -1,12 +1,10 @@
 package model.lorannWorld.element;
 
 import contract.IElement;
-import contract.ILorannWorld;
 import contract.ISprite;
 
 public abstract class Element implements IElement{
 
-	private ILorannWorld lorannWorld;
 	private Permeability permeability;
 	private ISprite sprite;
 	private final char symbole;
@@ -15,12 +13,6 @@ public abstract class Element implements IElement{
 		this.sprite = sprite;
 		this.permeability = permeability;
 		this.symbole = symbole;
-	}
-
-	public ILorannWorld getLorannWorld(){
-
-		return this.lorannWorld;
-
 	}
 
 	public Permeability getPermeability(){
@@ -33,11 +25,6 @@ public abstract class Element implements IElement{
 
 	public char getSymbole() {
 		return this.symbole;
-	}
-
-	public ILorannWorld setLorannWorld(final ILorannWorld lorannWorld){
-		return this.lorannWorld = lorannWorld;
-
 	}
 
 	public Permeability setPermeability(final Permeability permeability){
