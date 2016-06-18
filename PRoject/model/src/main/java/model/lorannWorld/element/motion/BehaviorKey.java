@@ -6,14 +6,14 @@ import contract.IStrategy;
 
 public class BehaviorKey implements IStrategy{
 	public void actionOnHit() {
-		// TODO Auto-generated method stub
+
 
 	}
 
 	/* (non-Javadoc)
 	 * @see model.IBehaviorMonsterSkeleton#animate()
 	 */
-	public void animate(IMotionElement motionElement,ILorannWorld lorannWorld) {
+	public void animate(final IMotionElement motionElement,final ILorannWorld lorannWorld) {
 		//nothing here
 	}
 

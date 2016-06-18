@@ -122,7 +122,7 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	public void play()
 	{
 
-		//this.elements[0][3] = null;
+		//this.elements[18][6] = null;
 
 
 		for(;;)

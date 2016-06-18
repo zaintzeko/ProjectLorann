@@ -15,12 +15,29 @@ public class Lorann extends MotionElement implements ILorann{
 	}
 
 	public void animate() {
-		if((this.keyCode == KeyEvent.VK_UP) || (this.keyCode == KeyEvent.VK_DOWN) || (this.keyCode == KeyEvent.VK_RIGHT) || (this.keyCode == KeyEvent.VK_LEFT)){
-
+		if((this.keyCode == KeyEvent.VK_UP)){
+			this.moveUp();
+			this.getSprite().changecurentImage(0);
+		}
+		else  if (this.keyCode == KeyEvent.VK_DOWN)
+		{
+			this.moveDown();
+			this.getSprite().changecurentImage(4);
+		}
+		else if (this.keyCode == KeyEvent.VK_RIGHT)
+		{
+			this.moveRight();
+			this.getSprite().changecurentImage(2);
+		}
+		else if (this.keyCode == KeyEvent.VK_LEFT)
+		{
+			this.moveLeft();
+			this.getSprite().changecurentImage(6);
 		}
 		else {
 			this.getSprite().changeToNextImage();
 		}
+		this.keyCode = 0;
 	}
 
 	public void setKeyCode(final int keyCode){
