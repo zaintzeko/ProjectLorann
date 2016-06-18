@@ -18,6 +18,9 @@ public class Lorann extends MotionElement implements ILorann{
 		if((this.keyCode == KeyEvent.VK_UP) || (this.keyCode == KeyEvent.VK_DOWN) || (this.keyCode == KeyEvent.VK_RIGHT) || (this.keyCode == KeyEvent.VK_LEFT)){
 
 		}
+		else {
+			this.getSprite().changeToNextImage();
+		}
 	}
 
 	public void setKeyCode(final int keyCode){
