@@ -9,20 +9,20 @@ public class BehaviorMonsterGold extends Monster implements IStrategy{
 	/* (non-Javadoc)
 	 * @see model.IBehaviorMonsterSkeleton#animate()
 	 */
-	public void animate(IMotionElement motionElement,ILorannWorld lorannWorld) {
-		boolean a = false;
-		
+	public void animate(final IMotionElement motionElement,final ILorannWorld lorannWorld) {
+
 		if(lorannWorld.getLorann().getY()<motionElement.getY()){
-			a = motionElement.moveUp();
+			motionElement.moveUp();
 		}
-		if (lorannWorld.getLorann().getX()<motionElement.getX()){
-			a = motionElement.moveLeft();
+		else if (lorannWorld.getLorann().getX()<motionElement.getX()){
+			motionElement.moveLeft();
 		}
-		if (lorannWorld.getLorann().getX()>motionElement.getX()){
-			a = motionElement.moveRight();
+		else if (lorannWorld.getLorann().getX()>motionElement.getX()){
+			motionElement.moveRight();
 		}
-		if (lorannWorld.getLorann().getY()>motionElement.getY()){
-			a = motionElement.moveDown();
+		else if (lorannWorld.getLorann().getY()>motionElement.getY()){
+			motionElement.moveDown();
 		}
+		motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY());
 	}
 }

@@ -1,8 +1,8 @@
 package controller;
 
-import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
+import contract.IVecteurDirection;
 import contract.IView;
 
 // TODO: Auto-generated Javadoc
@@ -17,6 +17,8 @@ public class Controller implements IController {
 	/** The model. */
 	private IModel	model;
 
+	private final IVecteurDirection vecteurOrder;
+
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -28,7 +30,8 @@ public class Controller implements IController {
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
-		this.model.getLorannWorld().play();
+		this.vecteurOrder = new VecteurDirection();
+		this.model.getLorannWorld().getLorann().setVecteurOrder(this.vecteurOrder);
 	}
 
 	/*
@@ -38,14 +41,18 @@ public class Controller implements IController {
 	 */
 
 
+	public IVecteurDirection getVecteurOrder() {
+		return this.vecteurOrder;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	public void orderPerform(final ControllerOrder controllerOrder) {
-		// TODO Auto-generated method stub
-
+	public void orderPerform(final int vecteurX, final int vecteurY) {
+		this.vecteurOrder.setVecteurX(vecteurX);
+		this.vecteurOrder.setVecteurY(vecteurY);
 	}
 
 	/**

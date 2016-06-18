@@ -131,7 +131,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 */
 	public void keyPressed(final KeyEvent e) {
 		this.key.ActionOnKeyPressed(e.getKeyCode());
-		this.model.getLorannWorld().getLorann().setKeyCode((this.key.actionToDo()));
+		this.controller.orderPerform(this.key.getHorizontalKey(), this.key.getVerticalKey());
 	}
 
 	/*
@@ -141,7 +141,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 */
 	public void keyReleased(final KeyEvent e) {
 		this.key.ActionOnKeyRelease(e.getKeyCode());
-		this.model.getLorannWorld().getLorann().setKeyCode((this.key.actionToDo()));
+		this.controller.orderPerform(this.key.getHorizontalKey(), this.key.getVerticalKey());
 	}
 
 	/*

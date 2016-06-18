@@ -9,4 +9,6 @@ public interface ILorann extends IMotionElement{
 
 	public void setKeyCode(final ControllerOrder keyCode);
 
+	public void setVecteurOrder(final IVecteurDirection vecteurOrder);
+
 }

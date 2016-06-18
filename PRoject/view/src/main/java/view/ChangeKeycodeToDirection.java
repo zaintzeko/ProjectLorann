@@ -2,20 +2,14 @@ package view;
 
 import java.awt.event.KeyEvent;
 
-import contract.ControllerOrder;
-
 public class ChangeKeycodeToDirection {
-	private int upKey;
-	private int downKey;
-	private int rightKey;
-	private int leftKey;
+	private int horizontalKey;
+	private int verticalKey;
 
 	public ChangeKeycodeToDirection()
 	{
-		this.upKey = -1;
-		this.downKey = -1;
-		this.rightKey = -1;
-		this.leftKey = -1;
+		this.horizontalKey = 0;
+		this.verticalKey = 0;
 	}
 
 	/* (non-Javadoc)
@@ -33,63 +27,56 @@ public class ChangeKeycodeToDirection {
 		this.setKey(keyCode, -1);
 	}
 
-	/* (non-Javadoc)
-	 * @see view.IChangeKeyCodeToDirection#actionToDo()
-	 */
-	public ControllerOrder actionToDo()
-	{
-		if((this.upKey > this.downKey) && (this.rightKey > this.leftKey))
-		{
-			return ControllerOrder.RIGHTUP;
-		}
-		else if((this.upKey > this.downKey) && (this.rightKey < this.leftKey))
-		{
-			return ControllerOrder.LEFTUP;
-		}
-		else if((this.upKey < this.downKey) && (this.rightKey < this.leftKey))
-		{
-			return ControllerOrder.LEFTDOWN;
-		}
-		else if((this.upKey < this.downKey) && (this.rightKey > this.leftKey))
-		{
-			return ControllerOrder.RIGHTDOWN;
-		}
-		else if((this.upKey > this.downKey))
-		{
-			return ControllerOrder.UP;
-		}
-		else if((this.upKey < this.downKey))
-		{
-			return ControllerOrder.DOWN;
-		}
-		else if((this.rightKey > this.leftKey))
-		{
-			return ControllerOrder.RIGHT;
-		}
-		else if((this.leftKey > this.rightKey))
-		{
-			return ControllerOrder.LEFT;
-		}
-		return ControllerOrder.NOMOUVEMENT;
+	public int getHorizontalKey() {
+		return this.horizontalKey;
+	}
+
+	public int getVerticalKey() {
+		return this.verticalKey;
+	}
+
+	public void setHorizontalKey(final int horizontalKey) {
+		this.horizontalKey = horizontalKey;
 	}
 
 	private void setKey(final int keyCode, final int newValue)
 	{
 		if(keyCode == KeyEvent.VK_UP)
 		{
-			this.upKey = newValue;
+			this.verticalKey -= newValue;
 		}
 		else if(keyCode == KeyEvent.VK_RIGHT)
 		{
-			this.rightKey = newValue;
+			this.horizontalKey += newValue;
 		}
 		else if(keyCode == KeyEvent.VK_DOWN)
 		{
-			this.downKey = newValue;
+			this.verticalKey += newValue;
 		}
 		else if(keyCode == KeyEvent.VK_LEFT)
 		{
-			this.leftKey = newValue;
+			this.horizontalKey -= newValue;
+		}
+		this.verifyKey();
+	}
+
+	public void setVerticalKey(final int verticalKey) {
+		this.verticalKey = verticalKey;
+	}
+
+	private void verifyKey()
+	{
+		if(this.verticalKey < -1) {
+			this.verticalKey = -1;
+		}
+		if(this.verticalKey > 1) {
+			this.verticalKey = 1;
+		}
+		if(this.horizontalKey < -1) {
+			this.horizontalKey = -1;
+		}
+		if(this.horizontalKey > 1) {
+			this.horizontalKey = 1;
 		}
 	}
 }

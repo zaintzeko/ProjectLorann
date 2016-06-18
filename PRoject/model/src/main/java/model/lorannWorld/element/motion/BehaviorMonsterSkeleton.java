@@ -9,44 +9,39 @@ public class BehaviorMonsterSkeleton extends Monster implements IStrategy{
 	/* (non-Javadoc)
 	 * @see model.IBehaviorMonsterSkeleton#animate()
 	 */
-	public void animate(IMotionElement motionElement,ILorannWorld lorannWorld) {
-		 
-		boolean a = false;
-		
-		
-				if (lorannWorld.getLorann().getY()>motionElement.getY()){
-			a = motionElement.moveDown();
+	public void animate(final IMotionElement motionElement,final ILorannWorld lorannWorld) {
+
+		final boolean a = false;
+
+
+		if (lorannWorld.getLorann().getY()>motionElement.getY()){
+			motionElement.moveDown();
+			if(!motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY())) {
+				motionElement.moveDown();
+			}
 		}
-				if (lorannWorld.getLorann().getY()<motionElement.getY() && lorannWorld.getLorann().getX()>motionElement.getX() && !a){
-			a = motionElement.moveRightUp();
-		}
+
 		if(lorannWorld.getLorann().getY()<motionElement.getY()){
-			a = motionElement.moveUp();
+			motionElement.moveUp();
+			if(!motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY())) {
+				motionElement.moveUp();
+			}
 		}
-		
-		
-			if (lorannWorld.getLorann().getX()>motionElement.getX()){
-			a = motionElement.moveRight();
+
+		if (lorannWorld.getLorann().getX()>motionElement.getX()){
+			motionElement.moveRight();
+			if(!motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY())) {
+				motionElement.moveRight();
+			}
 		}
-			if (lorannWorld.getLorann().getY()>motionElement.getY() && lorannWorld.getLorann().getX()<motionElement.getX() && !a){
-			a = motionElement.moveLeftDown();
-		}	
-			if (lorannWorld.getLorann().getY()>motionElement.getY() && lorannWorld.getLorann().getX()>motionElement.getX() && !a){
-			a = motionElement.moveRightDown();
+
+		if (lorannWorld.getLorann().getX()<motionElement.getX()){
+			motionElement.moveLeft();
+			if(!motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY())) {
+				motionElement.moveLeft();
+			}
 		}
-		
-	
-			if (lorannWorld.getLorann().getY()<motionElement.getY() && lorannWorld.getLorann().getX()<motionElement.getX() && !a){
-			a = motionElement.moveLeftUp();
-		}		
-			if (lorannWorld.getLorann().getX()<motionElement.getX()){
-			a = motionElement.moveLeft();
-			a = motionElement.moveUp();
-		}
-		
-	
-		
-		
-		
+		motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY());
+
 	}
 }

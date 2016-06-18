@@ -5,58 +5,24 @@ import contract.ILorann;
 import contract.ILorannWorld;
 import contract.IMobile;
 import contract.ISprite;
+import contract.IVecteurDirection;
 import model.lorannWorld.element.Permeability;
 
 public class Lorann extends MotionElement implements ILorann{
-	private ControllerOrder keyCode;
+	private IVecteurDirection vecteurOrder;
 	public Lorann(final ISprite sprite, final Permeability permeability, final char symbole, final ILorannWorld lorannWorld) {
 		super(sprite, permeability, symbole, lorannWorld);
 	}
+
 	public void animate() {
+		this.setSaveX(this.getX());
+		this.setSaveY(this.getY());
 
-		if((this.keyCode == ControllerOrder.UP)){
-			this.moveUp();
-			this.getSprite().changecurentImage(0);
-		}
-		else  if (this.keyCode == ControllerOrder.DOWN)
-		{
-			this.moveDown();
-			this.getSprite().changecurentImage(4);
-		}
-		else if (this.keyCode == ControllerOrder.RIGHT)
-		{
-			this.moveRight();
-			this.getSprite().changecurentImage(2);
-		}
-		else if (this.keyCode == ControllerOrder.LEFT)
-		{
-			this.moveLeft();
-			this.getSprite().changecurentImage(6);
-		}
+		this.setX(this.getX()+this.vecteurOrder.getVecteurX());
+		this.setY(this.getY()+this.vecteurOrder.getVecteurY());
+		this.getSprite().changecurentImage(this.vecteurOrder.changeVecteurToImageNumber(this.vecteurOrder, this.getSprite().getCurrentStep()));
+		this.executeMoveIfPossible(this.getX(), this.getY());
 
-		else if((this.keyCode == ControllerOrder.RIGHTUP)){
-			this.moveRightUp();
-			this.getSprite().changecurentImage(1);
-		}
-		else  if (this.keyCode == ControllerOrder.RIGHTDOWN)
-		{
-			this.moveRightDown();
-			this.getSprite().changecurentImage(3);
-		}
-		else if (this.keyCode == ControllerOrder.LEFTUP)
-		{
-			this.moveLeftUp();
-			this.getSprite().changecurentImage(7);
-		}
-		else if (this.keyCode == ControllerOrder.LEFTDOWN)
-		{
-			this.moveLeftDown();
-			this.getSprite().changecurentImage(5);
-		}
-		else {
-			this.getSprite().changeToNextImage();
-		}
-		//System.out.println(this.getLorannWorld());
 		for(final IMobile i : this.getLorannWorld().getMotionElements()){
 			if((i.getX() == this.getX()) && (i.getY() == this.getY())){
 				i.getStrategy().actionOnHit(this, this.getLorannWorld());
@@ -65,7 +31,11 @@ public class Lorann extends MotionElement implements ILorann{
 		this.getLorannWorld().removeMobile(this.getX(), this.getY());
 	}
 
-	private void pickUp(){
+	public IVecteurDirection getVecteurOrder() {
+		return this.vecteurOrder;
+	}
+
+	/*private void pickUp(){
 		if((this.keyCode == ControllerOrder.UP )){
 
 		}
@@ -100,10 +70,14 @@ public class Lorann extends MotionElement implements ILorann{
 		else {
 
 		}
-	}
+	}*/
 
 	public void setKeyCode(final ControllerOrder keyCode){
-		this.keyCode = keyCode;
+		//this.keyCode = keyCode;
+	}
+
+	public void setVecteurOrder(final IVecteurDirection vecteurOrder) {
+		this.vecteurOrder = vecteurOrder;
 	}
 
 }

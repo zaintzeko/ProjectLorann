@@ -1,5 +1,6 @@
 package model.lorannWorld.element.motion;
 
+import contract.Direction;
 import contract.ILorannWorld;
 import contract.IMotionElement;
 import contract.ISprite;
@@ -35,7 +36,7 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		this.y = y;
 	}
 
-	private Boolean executeMoveIfPossible( final int x, final int y){
+	public Boolean executeMoveIfPossible( final int x, final int y){
 		if (this.lorannWorld.getElement(x, y)==null)
 		{
 			return true;
@@ -56,6 +57,15 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		return this.lorannWorld;
 	}
 
+	public int getSaveX() {
+		// TODO Auto-generated method stub
+		return this.saveX;
+	}
+
+	public int getSaveY() {
+		return this.saveY;
+	}
+
 	public int getX() {
 		return this.x;
 	}
@@ -63,7 +73,6 @@ public abstract class MotionElement extends Element implements IMotionElement{
 	public int getY() {
 		return this.y;
 	}
-
 	public void killElement(final IMotionElement deathMotionElement)
 	{
 		for(final IMotionElement motionElements : this.getLorannWorld().getMotionElements())
@@ -75,73 +84,73 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		}
 	}
 
-	public boolean moveDown(){
+	public void moveDown(){
 		this.saveX = this.x;
 		this.saveY =this.y;
 		this.y++;
-		return this.executeMoveIfPossible(this.x, this.y);
 	}
-	public boolean moveLeft(){
+
+	public void moveLeft(){
 		this.saveX = this.x;
 		this.saveY =this.y;
 		this.x--;
-		return this.executeMoveIfPossible(this.x, this.y);
 	}
 
-	public boolean moveLeftDown(){
+	public void moveLeftDown(){
 		this.saveX = this.x;
 		this.saveY =this.y;
 		this.y++;
 		this.x--;
-		return this.executeMoveIfPossible(this.x, this.y);
 	}
 
-	public boolean moveLeftUp(){
+	public void moveLeftUp(){
 		this.saveX = this.x;
 		this.saveY =this.y;
 		this.y--;
 		this.x--;
-		return this.executeMoveIfPossible(this.x, this.y);
 	}
 
-	public boolean moveRight(){
+	public void moveRight(){
 		this.saveX = this.x;
 		this.saveY =this.y;
 		this.x++;
-		return this.executeMoveIfPossible(this.x, this.y);
 	}
 
-	public boolean moveRightDown(){
+	public void moveRightDown(){
 		this.saveX = this.x;
 		this.saveY =this.y;
 		this.y++;
 		this.x++;
-		return this.executeMoveIfPossible(this.x, this.y);
 	}
 
-	public boolean moveRightUp(){
+	public void moveRightUp(){
 		this.saveX = this.x;
 		this.saveY =this.y;
 		this.y--;
 		this.x++;
-		return this.executeMoveIfPossible(this.x, this.y);
 	}
 
-	public boolean moveUp(){
+	public void moveUp(){
 		this.saveX = this.x;
 		this.saveY =this.y;
 		this.y--;
-		return this.executeMoveIfPossible(this.x, this.y);
 	}
 
 	public void setDirection(final Direction direction) {
 		this.direction = direction;
 	}
 
+	public void setSaveX(final int saveX) {
+		this.saveX = saveX;
+	}
+
+	public void setSaveY(final int saveY) {
+		this.saveY = saveY;
+	}
+
 	public void setX(final int x) {
 		this.x = x;
 	}
-
 	public void setY(final int y) {
 		this.y = y;
 	}
