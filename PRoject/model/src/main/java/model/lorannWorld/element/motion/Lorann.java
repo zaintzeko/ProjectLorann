@@ -10,9 +10,7 @@ public class Lorann extends MotionElement implements ILorann{
 	private ControllerOrder keyCode;
 	public Lorann(final ISprite sprite, final Permeability permeability, final char symbole, final ILorannWorld lorannWorld) {
 		super(sprite, permeability, symbole, lorannWorld);
-
 	}
-
 	public void animate() {
 		if((this.keyCode == ControllerOrder.UP)){
 			this.moveUp();
@@ -56,7 +54,44 @@ public class Lorann extends MotionElement implements ILorann{
 		else {
 			this.getSprite().changeToNextImage();
 		}
-		//this.keyCode = 0;
+		
+	}
+	
+	private void pickUp(){
+		if((this.keyCode == ControllerOrder.UP )){
+			
+		}
+		else  if (this.keyCode == ControllerOrder.DOWN)
+		{
+			
+		}
+		else if (this.keyCode == ControllerOrder.RIGHT)
+		{
+			
+		}
+		else if (this.keyCode == ControllerOrder.LEFT)
+		{
+			
+		}
+
+		else if((this.keyCode == ControllerOrder.RIGHTUP)){
+			
+		}
+		else  if (this.keyCode == ControllerOrder.RIGHTDOWN)
+		{
+		
+		}
+		else if (this.keyCode == ControllerOrder.LEFTUP)
+		{
+		
+		}
+		else if (this.keyCode == ControllerOrder.LEFTDOWN)
+		{
+			
+		}
+		else {
+			
+		}
 	}
 
 	public void setKeyCode(final ControllerOrder keyCode){
