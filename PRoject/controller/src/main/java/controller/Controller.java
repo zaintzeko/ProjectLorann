@@ -44,20 +44,8 @@ public class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
-		switch (controllerOrder) {
-		case English:
+		// TODO Auto-generated method stub
 
-			break;
-		case Francais:
-			break;
-		case Deutsch:
-			break;
-		case Indonesia:
-			break;
-
-		default:
-			break;
-		}
 	}
 
 	/**
@@ -79,5 +67,4 @@ public class Controller implements IController {
 	private void setView(final IView view) {
 		this.view = view;
 	}
-
 }
