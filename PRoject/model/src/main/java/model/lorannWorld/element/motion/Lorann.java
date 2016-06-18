@@ -37,7 +37,7 @@ public class Lorann extends MotionElement implements ILorann{
 		else {
 			this.getSprite().changeToNextImage();
 		}
-		this.keyCode = 0;
+		//this.keyCode = 0;
 	}
 
 	public void setKeyCode(final int keyCode){
