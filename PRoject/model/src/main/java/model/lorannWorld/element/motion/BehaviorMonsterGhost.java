@@ -12,13 +12,14 @@ public class BehaviorMonsterGhost extends Monster implements IStrategy{
 	public void animate(IMotionElement motionElement,ILorannWorld lorannWorld) {
 		
 		boolean a = false;
-		
+	
 		
 		if(lorannWorld.getLorann().getY()<motionElement.getY()){
 			a = motionElement.moveUp();
 		}
 		if (lorannWorld.getLorann().getX()<motionElement.getX()){
 			a = motionElement.moveLeft();
+			a = motionElement.moveUp();
 		}
 		if (lorannWorld.getLorann().getX()>motionElement.getX()){
 			a = motionElement.moveRight();
