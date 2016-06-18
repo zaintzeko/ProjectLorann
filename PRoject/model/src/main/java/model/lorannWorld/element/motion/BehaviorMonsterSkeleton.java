@@ -13,30 +13,40 @@ public class BehaviorMonsterSkeleton extends Monster implements IStrategy{
 		 
 		boolean a = false;
 		
-		if (lorannWorld.getLorann().getY()<motionElement.getY() && lorannWorld.getLorann().getX()<motionElement.getX() && !a){
-			a = motionElement.moveLeftUp();
+		
+				if (lorannWorld.getLorann().getY()>motionElement.getY()){
+			a = motionElement.moveDown();
 		}
-		if (lorannWorld.getLorann().getY()<motionElement.getY() && lorannWorld.getLorann().getX()>motionElement.getX() && !a){
+				if (lorannWorld.getLorann().getY()<motionElement.getY() && lorannWorld.getLorann().getX()>motionElement.getX() && !a){
 			a = motionElement.moveRightUp();
-		}
-		if (lorannWorld.getLorann().getY()>motionElement.getY() && lorannWorld.getLorann().getX()<motionElement.getX() && !a){
-			a = motionElement.moveLeftDown();
-		}
-		if (lorannWorld.getLorann().getY()>motionElement.getY() && lorannWorld.getLorann().getX()>motionElement.getX() && !a){
-			a = motionElement.moveRightDown();
 		}
 		if(lorannWorld.getLorann().getY()<motionElement.getY()){
 			a = motionElement.moveUp();
 		}
-		if (lorannWorld.getLorann().getX()<motionElement.getX()){
+		
+		
+			if (lorannWorld.getLorann().getX()>motionElement.getX()){
+			a = motionElement.moveRight();
+		}
+			if (lorannWorld.getLorann().getY()>motionElement.getY() && lorannWorld.getLorann().getX()<motionElement.getX() && !a){
+			a = motionElement.moveLeftDown();
+		}	
+			if (lorannWorld.getLorann().getY()>motionElement.getY() && lorannWorld.getLorann().getX()>motionElement.getX() && !a){
+			a = motionElement.moveRightDown();
+		}
+		
+	
+			if (lorannWorld.getLorann().getY()<motionElement.getY() && lorannWorld.getLorann().getX()<motionElement.getX() && !a){
+			a = motionElement.moveLeftUp();
+		}		
+			if (lorannWorld.getLorann().getX()<motionElement.getX()){
 			a = motionElement.moveLeft();
 			a = motionElement.moveUp();
 		}
-		if (lorannWorld.getLorann().getX()>motionElement.getX()){
-			a = motionElement.moveRight();
-		}
-		if (lorannWorld.getLorann().getY()>motionElement.getY()){
-			a = motionElement.moveDown();
-		}
+		
+	
+		
+		
+		
 	}
 }
