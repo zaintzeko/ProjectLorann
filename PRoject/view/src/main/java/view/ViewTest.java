@@ -1,6 +1,6 @@
 package view;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import java.awt.event.KeyEvent;
 
@@ -10,20 +10,19 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import contract.ControllerOrder;
 import contract.IModel;
 
 public class ViewTest {
-	private View testView;
-	private int key;
-	private IModel i;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
-
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
+	private View testView;
+	private int key;
+
+	private IModel i;
 
 	@Before
 	public void setUp() throws Exception {
@@ -35,9 +34,10 @@ public class ViewTest {
 
 	@Test
 	public void testKeyCodeToControllerOrder() {
-		int expected = 1 ;
-		key = KeyEvent.VK_E;
-		assertEquals(expected, this.testView.keyCodeToControllerOrder(key).ordinal());
+		final int expected = 1 ;
+		this.key = KeyEvent.VK_E;
+		fail("not implemented");
+		//assertEquals(expected, this.testView.keyCodeToControllerOrder(key).ordinal());
 	}
 
 }

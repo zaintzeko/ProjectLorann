@@ -1,10 +1,7 @@
 package view;
 
-import java.awt.event.KeyEvent;
-
 import javax.swing.SwingUtilities;
 
-import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
@@ -37,7 +34,7 @@ public class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
+	/*protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		System.out.println(keyCode);
 		System.out.println();
 		switch (keyCode) {
@@ -52,7 +49,7 @@ public class View implements IView, Runnable {
 			default:
 				return ControllerOrder.English;
 		}
-	}
+	}*/
 
 	/*
 	 * (non-Javadoc)

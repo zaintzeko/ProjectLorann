@@ -27,6 +27,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	/** The controller. */
 	private IController	controller;
 
+	private ChangeKeycodeToDirection key;
 	/**
 	 * Instantiates a new view frame.
 	 *
@@ -40,6 +41,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	}
 	public ViewFrame(final IModel model) throws HeadlessException {
 		this.buildViewFrame(model);
+		this.key = new ChangeKeycodeToDirection();
 	}
 
 	/**
@@ -128,7 +130,8 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(final KeyEvent e) {
-		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
+		this.key.ActionOnKeyPressed(e.getKeyCode());
+		this.model.getLorannWorld().getLorann().setKeyCode((this.key.actionToDo()));
 	}
 
 	/*
@@ -137,7 +140,8 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
 	public void keyReleased(final KeyEvent e) {
-
+		this.key.ActionOnKeyRelease(e.getKeyCode());
+		this.model.getLorannWorld().getLorann().setKeyCode((this.key.actionToDo()));
 	}
 
 	/*

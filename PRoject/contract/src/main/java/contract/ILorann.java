@@ -7,4 +7,6 @@ public interface ILorann extends IMotionElement{
 	 */
 	void animate();
 
+	public void setKeyCode(final ControllerOrder keyCode);
+
 }
