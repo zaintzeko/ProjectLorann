@@ -29,7 +29,7 @@ public class Spell extends Mobile implements ISpell{
 
 		for(final IMobile I : this.getLorannWorld().getMotionElements())
 		{
-			if((I.getX() == x) && (I.getY() == y) && (I != this) && !(I instanceof Monster))
+			if((I.getX() == x) && (I.getY() == y) && (I != this) && ((I.getSymbole() == 't') || (I.getSymbole() == 'k') || (I.getSymbole() == 'd')))
 			{
 				a = false;
 			}
