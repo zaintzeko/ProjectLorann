@@ -23,7 +23,7 @@ public class BehaviorMonsterSkeleton extends Monster implements IStrategy{
 		if(lorannWorld.getLorann().getY()<motionElement.getY()){
 			motionElement.setY(motionElement.getY()-1);
 			if(!motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY())) {
-				motionElement.moveUp();
+				motionElement.setY(motionElement.getY()-1);
 			} else {
 				motionElement.setY(motionElement.getY()-1);
 			}
@@ -32,7 +32,7 @@ public class BehaviorMonsterSkeleton extends Monster implements IStrategy{
 		if (lorannWorld.getLorann().getX()>motionElement.getX()){
 			motionElement.setX(motionElement.getX()+1);
 			if(!motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY())) {
-				motionElement.moveRight();
+				motionElement.setX(motionElement.getX()+1);
 			} else {
 				motionElement.setX(motionElement.getX()+1);
 			}
