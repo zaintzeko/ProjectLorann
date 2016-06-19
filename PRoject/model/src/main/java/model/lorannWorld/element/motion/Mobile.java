@@ -19,11 +19,36 @@ public class Mobile extends MotionElement implements IMobile{
 		super(sprite, permeability, symbole, x, y, lorannWorld);
 		this.strategy = strategy;
 	}
+	
+	@Override
+	public Boolean executeMoveIfPossible(final int x, final int y){
+		boolean a = false;
+		if (this.getLorannWorld().getElement(x, y)==null)
+		{
+			a = true;
+		} else {
+			a = false;
+		}
+
+		for(final IMobile I : this.getLorannWorld().getMotionElements())
+		{
+			if((I.getX() == x) && (I.getY() == y) && (I != this))
+			{
+				a = false;
+			}
+		}
+		if(a) {
+			return a;
+		}
+		this.setX(this.getSaveX());
+		this.setY(this.getSaveY());
+		return a;
+	}
+
 	/* (non-Javadoc)
 	 * @see model.lorannWorld.element.motion.IMotion#getStrategy()
 	 */
 	public IStrategy getStrategy() {
 		return this.strategy;
 	}
-
 }

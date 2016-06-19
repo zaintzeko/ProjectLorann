@@ -82,57 +82,6 @@ public abstract class MotionElement extends Element implements IMotionElement{
 			}
 		}
 	}
-	public void moveDown(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.y++;
-	}
-
-	public void moveLeft(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.x--;
-	}
-
-	public void moveLeftDown(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.y++;
-		this.x--;
-	}
-
-	public void moveLeftUp(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.y--;
-		this.x--;
-	}
-
-	public void moveRight(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.x++;
-	}
-
-	public void moveRightDown(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.y++;
-		this.x++;
-	}
-
-	public void moveRightUp(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.y--;
-		this.x++;
-	}
-
-	public void moveUp(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.y--;
-	}
 
 	public void savePosition()
 	{
