@@ -13,5 +13,6 @@ public interface IMotionElement extends IElement{
 	public boolean moveLeftDown();
 	public boolean moveRightUp();
 	public boolean moveRightDown();
+	Boolean executeMoveIfPossible(int x, int y);
 
 }

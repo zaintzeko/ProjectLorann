@@ -34,7 +34,7 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		this.y = y;
 	}
 
-	private Boolean executeMoveIfPossible( final int x, final int y){
+	public Boolean executeMoveIfPossible( final int x, final int y){
 		if (this.lorannWorld.getElement(x, y)==null)
 		{
 			return true;
@@ -86,6 +86,22 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		this.y--;
 		this.x--;
 		return this.executeMoveIfPossible(this.x, this.y);
+	}
+
+	public int getSaveX() {
+		return saveX;
+	}
+
+	public void setSaveX(int saveX) {
+		this.saveX = saveX;
+	}
+
+	public int getSaveY() {
+		return saveY;
+	}
+
+	public void setSaveY(int saveY) {
+		this.saveY = saveY;
 	}
 
 	public boolean moveRight(){

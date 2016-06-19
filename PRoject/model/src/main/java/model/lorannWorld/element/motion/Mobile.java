@@ -29,5 +29,29 @@ public class Mobile extends MotionElement implements IMobile{
 	public IStrategy getStrategy() {
 		return this.strategy;
 	}
+	 @Override
+	public Boolean executeMoveIfPossible(final int x, final int y){
+		  boolean a = false;
+		  if (this.lorannWorld.getElement(x, y)==null)
+		  {
+		   a = true;
+		  } else {
+		   a = false;
+		  }
+
+		  for(final IMobile I : this.lorannWorld.getMotionElements())
+		  {
+		   if((I.getX() == x) && (I.getY() == y) && (I != this))
+		   {
+		    a = false;
+		   }
+		  }
+		  if(a) {
+		   return a;
+		  }
+		  this.setX(this.getSaveX());
+		  this.setY(this.getSaveY());
+		  return a;
+		 }
 
 }

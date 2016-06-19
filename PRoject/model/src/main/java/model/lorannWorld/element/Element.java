@@ -49,5 +49,10 @@ public abstract class Element implements IElement{
 		return this.sprite = sprite;
 	}
 
+	public Boolean executeMoveIfPossible(int x, int y) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

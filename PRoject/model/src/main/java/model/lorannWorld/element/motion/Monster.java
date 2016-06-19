@@ -9,4 +9,6 @@ public abstract class Monster implements IStrategy{
 		// TODO Auto-generated method stub
 
 	}
+	
+
 }
