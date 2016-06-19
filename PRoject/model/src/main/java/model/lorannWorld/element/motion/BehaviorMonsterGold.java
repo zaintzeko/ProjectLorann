@@ -11,18 +11,23 @@ public class BehaviorMonsterGold extends Monster implements IStrategy{
 	 */
 	public void animate(final IMotionElement motionElement,final ILorannWorld lorannWorld) {
 
+		boolean a = false;
+		motionElement.savePosition();
 		if(lorannWorld.getLorann().getY()<motionElement.getY()){
-			motionElement.moveUp();
+			motionElement.setY(motionElement.getY()-1);
+			a = motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY());
 		}
-		else if (lorannWorld.getLorann().getX()<motionElement.getX()){
-			motionElement.moveLeft();
+		if ((lorannWorld.getLorann().getX()<motionElement.getX()) && !a){
+			motionElement.setX(motionElement.getX()-1);
+			a = motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY());
 		}
-		else if (lorannWorld.getLorann().getX()>motionElement.getX()){
-			motionElement.moveRight();
+		if ((lorannWorld.getLorann().getX()>motionElement.getX()) && !a){
+			motionElement.setX(motionElement.getX()+1);
+			a = motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY());
 		}
-		else if (lorannWorld.getLorann().getY()>motionElement.getY()){
-			motionElement.moveDown();
+		if ((lorannWorld.getLorann().getY()>motionElement.getY()) && !a){
+			motionElement.setY(motionElement.getY()+1);
+			a = motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY());
 		}
-		motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY());
 	}
 }

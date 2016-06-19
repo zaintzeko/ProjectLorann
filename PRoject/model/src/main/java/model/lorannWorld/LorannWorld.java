@@ -15,7 +15,7 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	private final ArrayList<IMobile> motionElements;
 	private ILorann lorann;
 	private int score;
-
+	private int win;
 	public LorannWorld() throws Exception {
 		this(20, 12);
 	}
@@ -27,6 +27,7 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		this.width = width;
 		if(height != 12) { throw new Exception("Height must be 20");}
 		this.height = height;
+		this.win = 0;
 	}
 
 	public void addElement(final ILorann lorann, final int x, final int y) {
@@ -73,14 +74,12 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	}
 
 	public ArrayList<IMobile> getMotionElements() {
-		//System.out.println(this.motionElements);
 		return this.motionElements;
 	}
 
 	public Observable getObservable() {
 		return this;
 	}
-
 	public int getScore() {
 		return this.score;
 	}
@@ -92,9 +91,14 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		return this.width;
 	}
 
+	private void loose()
+	{
+		System.out.println("You loose");
+	}
+
 	public void play()
 	{
-		for(;;)
+		for(;this.win == 0;)
 		{
 			this.setChanged();
 			this.notifyObservers();
@@ -107,6 +111,12 @@ public class LorannWorld extends Observable implements ILorannWorld {
 				mobile.getStrategy().animate(mobile, this);
 			}
 			this.lorann.animate();
+		}
+		if(this.win == 1) {
+			this.win();
+		}
+		if(this.win == 2) {
+			this.loose();
 		}
 	}
 
@@ -127,5 +137,13 @@ public class LorannWorld extends Observable implements ILorannWorld {
 
 	public void setLorann(final ILorann lorann) {
 		this.lorann = lorann;
+	}
+
+	public void setWin(final int win) {
+		this.win = win;
+	}
+
+	private void win() {
+		System.out.println("You win");
 	}
 }

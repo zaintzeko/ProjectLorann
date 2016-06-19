@@ -16,6 +16,7 @@ public interface IMotionElement extends IElement{
 	public void moveRightDown();
 	public void moveRightUp();
 	public void moveUp();
+	public void savePosition();
 	public void setSaveX(final int saveX);
 	public void setSaveY(final int saveX);
 	public void setX(int x);

@@ -15,17 +15,17 @@ public class Lorann extends MotionElement implements ILorann{
 	}
 
 	public void animate() {
-		this.setSaveX(this.getX());
-		this.setSaveY(this.getY());
+		this.savePosition();
 
 		this.setX(this.getX()+this.vecteurOrder.getVecteurX());
 		this.setY(this.getY()+this.vecteurOrder.getVecteurY());
+
 		this.getSprite().changecurentImage(this.vecteurOrder.changeVecteurToImageNumber(this.vecteurOrder, this.getSprite().getCurrentStep()));
 		this.executeMoveIfPossible(this.getX(), this.getY());
 
 		for(final IMobile i : this.getLorannWorld().getMotionElements()){
 			if((i.getX() == this.getX()) && (i.getY() == this.getY())){
-				i.getStrategy().actionOnHit(this, this.getLorannWorld());
+				i.getStrategy().actionOnHit(i, this.getLorannWorld());
 			}
 		}
 		this.getLorannWorld().removeMobile(this.getX(), this.getY());

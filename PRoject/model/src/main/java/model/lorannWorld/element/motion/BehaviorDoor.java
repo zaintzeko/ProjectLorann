@@ -7,8 +7,12 @@ import contract.IStrategy;
 
 public class BehaviorDoor implements IStrategy{
 	public void actionOnHit(final IMotionElement motionElement, final ILorannWorld lorannWorld) {
-		// TODO Auto-generated method stub
-
+		if(motionElement.getSprite().getCurrentStep() == 0){
+			lorannWorld.setWin(2);
+		}
+		else {
+			lorannWorld.setWin(1);
+		}
 	}
 
 	/* (non-Javadoc)

@@ -32,4 +32,6 @@ public interface ILorannWorld {
 	public void play();
 
 	public void removeMobile(final int x, final int y);
+
+	public void setWin(final int win);
 }

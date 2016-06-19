@@ -20,7 +20,6 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		super(sprite, permeability, symbole);
 		this.direction = Direction.NONE;
 		this.lorannWorld = lorannWorld;
-		System.out.println(lorannWorld);
 	}
 
 	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole, final int x, final int y, final ILorannWorld lorannWorld) throws Exception
@@ -48,7 +47,6 @@ public abstract class MotionElement extends Element implements IMotionElement{
 			return false;
 		}
 	}
-
 	public Direction getDirection() {
 		return this.direction;
 	}
@@ -73,6 +71,7 @@ public abstract class MotionElement extends Element implements IMotionElement{
 	public int getY() {
 		return this.y;
 	}
+
 	public void killElement(final IMotionElement deathMotionElement)
 	{
 		for(final IMotionElement motionElements : this.getLorannWorld().getMotionElements())
@@ -83,7 +82,6 @@ public abstract class MotionElement extends Element implements IMotionElement{
 			}
 		}
 	}
-
 	public void moveDown(){
 		this.saveX = this.x;
 		this.saveY =this.y;
@@ -134,6 +132,12 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		this.saveX = this.x;
 		this.saveY =this.y;
 		this.y--;
+	}
+
+	public void savePosition()
+	{
+		this.saveX =this.x;
+		this.saveY = this.y;
 	}
 
 	public void setDirection(final Direction direction) {

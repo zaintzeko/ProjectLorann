@@ -48,7 +48,6 @@ public abstract class  FactoryElement {
 	public static ILorann getfromFileSymbolLorann(final char c, final ILorannWorld lorannWorld)
 	{
 		if(c == 'L') {
-			System.out.println(lorannWorld);
 			return new Lorann(new Sprite(FIlE_NAME_LORANN), Permeability.BLOCKING, c, lorannWorld);
 		}
 		return null;
