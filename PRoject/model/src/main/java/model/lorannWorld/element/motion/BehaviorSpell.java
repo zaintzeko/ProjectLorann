@@ -35,7 +35,11 @@ public class BehaviorSpell implements IStrategy{
 		motionElement.getSprite().changeToNextImage();
 
 
-		lorannWorld.removeMobile(motionElement.getX(), motionElement.getY());
+		if(lorannWorld.removeMobile(motionElement.getX(), motionElement.getY()))
+		{
+			motionElement.setX(lorannWorld.getLorann().getX());
+			motionElement.setY(lorannWorld.getLorann().getY());
+		}
 	}
 	public IVecteurDirection getVecteurSpell() {
 		return this.VecteurSpell;
