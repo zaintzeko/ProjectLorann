@@ -22,7 +22,7 @@ public abstract class Main {
 	public static void main(final  String[] args) throws Exception {
 
 		//SaveMap.saveAllMap();
-		final int LEVEL = 1;
+		final int LEVEL = 3;
 
 		final Model model = new Model(LEVEL);
 		final View view = new View(model);

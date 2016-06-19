@@ -6,16 +6,35 @@ import contract.ILorannWorld;
 import contract.IMobile;
 import contract.ISprite;
 import contract.IVecteurDirection;
+import model.lorannWorld.element.FactoryElement;
 import model.lorannWorld.element.Permeability;
 
 public class Lorann extends MotionElement implements ILorann{
 	private IVecteurDirection vecteurOrder;
+	
+	//private IMobile Spell;
+
+	private int XSpell = 0;
+	private int YSpell = 0;
+
+	
+
+	
+
 	public Lorann(final ISprite sprite, final Permeability permeability, final char symbole, final ILorannWorld lorannWorld) {
 		super(sprite, permeability, symbole, lorannWorld);
 	}
 
 	public void animate() {
 		this.savePosition();
+		if(this.vecteurOrder.getNumberOfSpell() == 1){
+		
+			this.XSpell = this.vecteurOrder.getVecteurX()  ;
+			this.YSpell = this.vecteurOrder.getVecteurY()  ;
+			this.getLorannWorld().addElement(FactoryElement.getFromFileSymbolMotion('S',this.getLorannWorld()), -this.XSpell+this.getX(),-this.YSpell+this.getY());
+		//	this.vecteurOrder.setNumberOfSpell(0);
+			System.out.println("eeeee");
+		}
 
 		this.setX(this.getX()+this.vecteurOrder.getVecteurX());
 		this.setY(this.getY()+this.vecteurOrder.getVecteurY());
@@ -78,6 +97,21 @@ public class Lorann extends MotionElement implements ILorann{
 
 	public void setVecteurOrder(final IVecteurDirection vecteurOrder) {
 		this.vecteurOrder = vecteurOrder;
+	}
+	
+	public int getXSpell() {
+		return XSpell;
+	}
+	public int getYSpell() {
+		return YSpell;
+	}
+
+	public void setXSpell(int xSpell) {
+		XSpell = xSpell;
+	}
+
+	public void setYSpell(int ySpell) {
+		YSpell = ySpell;
 	}
 
 }

@@ -50,9 +50,10 @@ public class Controller implements IController {
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	public void orderPerform(final int vecteurX, final int vecteurY) {
+	public void orderPerform(final int vecteurX, final int vecteurY, final int numberOfSpell) {
 		this.vecteurOrder.setVecteurX(vecteurX);
 		this.vecteurOrder.setVecteurY(vecteurY);
+		this.vecteurOrder.setNumberOfSpell(numberOfSpell);
 	}
 
 	/**

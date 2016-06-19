@@ -18,5 +18,5 @@ public interface IController {
 	 * @param controllerOrder
 	 *          the controller order
 	 */
-	public void orderPerform(int vecteurX, int vecteurY);
+	public void orderPerform(int vecteurX, int vecteurY, int numberOfSpell);
 }

@@ -5,6 +5,7 @@ import contract.IVecteurDirection;
 public class VecteurDirection implements IVecteurDirection {
 	private int  vecteurX;
 	private int vecteurY;
+	private int numberOfSpell;
 
 	public VecteurDirection()
 	{
@@ -68,5 +69,14 @@ public class VecteurDirection implements IVecteurDirection {
 	 */
 	public void setVecteurY(final int vecteurY) {
 		this.vecteurY = vecteurY;
+	}
+
+	public int getNumberOfSpell() {
+		return this.numberOfSpell;
+	}
+
+	public void setNumberOfSpell(int numberOfSpell) {
+		this.numberOfSpell = numberOfSpell;
+		
 	}
 }

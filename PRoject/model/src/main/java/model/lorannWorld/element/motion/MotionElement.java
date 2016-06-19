@@ -79,7 +79,9 @@ public abstract class MotionElement extends Element implements IMotionElement{
 			if(motionElements == deathMotionElement)
 			{
 				this.getLorannWorld();
+				this.getLorannWorld().getLorann().getVecteurOrder().setNumberOfSpell(0);
 			}
+			
 		}
 	}
 	public void moveDown(){

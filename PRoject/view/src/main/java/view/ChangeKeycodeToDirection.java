@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 public class ChangeKeycodeToDirection {
 	private int horizontalKey;
 	private int verticalKey;
+	private int NumberOfSpell;
 
 	public ChangeKeycodeToDirection()
 	{
@@ -57,7 +58,19 @@ public class ChangeKeycodeToDirection {
 		{
 			this.horizontalKey -= newValue;
 		}
+		else if(keyCode == KeyEvent.VK_SPACE)
+		{
+			this.NumberOfSpell++;
+		}
 		this.verifyKey();
+	}
+
+	public int getNumberOfSpell() {
+		return NumberOfSpell;
+	}
+
+	public void setNumberOfSpell(int numberOfSpell) {
+		NumberOfSpell = numberOfSpell;
 	}
 
 	public void setVerticalKey(final int verticalKey) {

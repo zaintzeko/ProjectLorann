@@ -11,4 +11,8 @@ public interface IVecteurDirection {
 	void setVecteurX(int vecteurX);
 
 	void setVecteurY(int vecteurY);
+	
+	int getNumberOfSpell();
+	
+	void setNumberOfSpell(int numberOfSpell);
 }

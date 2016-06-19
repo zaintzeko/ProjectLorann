@@ -16,8 +16,10 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	private ILorann lorann;
 	private int score;
 	private int win;
+
 	public LorannWorld() throws Exception {
 		this(20, 12);
+		
 	}
 
 	public LorannWorld(final int width, final int height) throws Exception {
