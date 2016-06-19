@@ -12,7 +12,7 @@ public class BehaviorMonsterGold extends Monster implements IStrategy{
 	public void animate(IMotionElement motionElement,ILorannWorld lorannWorld) {
 		boolean a = false;
 		
-		if(lorannWorld.getLorann().getY()<motionElement.getY()){
+	/*	if(lorannWorld.getLorann().getY()<motionElement.getY()){
 			a = motionElement.moveUp();
 		}
 		if (lorannWorld.getLorann().getX()<motionElement.getX()){
@@ -23,6 +23,6 @@ public class BehaviorMonsterGold extends Monster implements IStrategy{
 		}
 		if (lorannWorld.getLorann().getY()>motionElement.getY()){
 			a = motionElement.moveDown();
-		}
+		}*/
 	}
 }
