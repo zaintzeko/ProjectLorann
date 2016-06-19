@@ -7,16 +7,20 @@ public interface ILorann extends IMotionElement{
 	 */
 	void animate();
 
+	public IMobile getSpell();
+
+	public IVecteurDirection getVecteurOrder();
+
+	public int getXSpell();
+
+	public int getYSpell();
 	public void setKeyCode(final ControllerOrder keyCode);
 
+	public void setSpell();
 	public void setVecteurOrder(final IVecteurDirection vecteurOrder);
-	
-	public IVecteurDirection getVecteurOrder();
-	
-	public int getYSpell();
-	public int getXSpell();
-	
+
 	public void setXSpell(int Xspell);
+
 	public void setYSpell(int YSpell);
 
 }

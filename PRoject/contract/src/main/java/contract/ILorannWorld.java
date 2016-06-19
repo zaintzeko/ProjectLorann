@@ -33,5 +33,7 @@ public interface ILorannWorld {
 
 	public void removeMobile(final int x, final int y);
 
+	public void removeMonster(final int x, final int y);
+
 	public void setWin(final int win);
 }

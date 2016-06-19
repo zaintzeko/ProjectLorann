@@ -14,6 +14,7 @@ import model.lorannWorld.element.motion.BehaviorSpell;
 import model.lorannWorld.element.motion.BehaviorTreasure;
 import model.lorannWorld.element.motion.Lorann;
 import model.lorannWorld.element.motion.Mobile;
+import model.lorannWorld.element.motion.Spell;
 import model.lorannWorld.element.motionless.MotionlessElement;
 
 public abstract class  FactoryElement {
@@ -75,7 +76,7 @@ public abstract class  FactoryElement {
 			a = new Mobile(SPRITE_KEY, Permeability.BLOCKING, c, new BehaviorKey(), lorannWorld);
 			break;
 		case 'S':
-			a = new Mobile(SPRITE_SPELL, Permeability.BLOCKING, c, new BehaviorSpell(), lorannWorld);
+			a = new Spell(SPRITE_SPELL, Permeability.BLOCKING, c, new BehaviorSpell(), lorannWorld);
 			break;
 		case 'd':
 			a = new Mobile(SPRITE_DOOR, Permeability.BLOCKING, c, new BehaviorDoor(), lorannWorld);

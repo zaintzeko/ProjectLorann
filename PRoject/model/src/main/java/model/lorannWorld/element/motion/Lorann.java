@@ -11,29 +11,38 @@ import model.lorannWorld.element.Permeability;
 
 public class Lorann extends MotionElement implements ILorann{
 	private IVecteurDirection vecteurOrder;
-	
+
 	//private IMobile Spell;
 
 	private int XSpell = 0;
 	private int YSpell = 0;
+	private boolean theSpellFollowYou;
 
-	
-
-	
-
+	private final IMobile spell;
 	public Lorann(final ISprite sprite, final Permeability permeability, final char symbole, final ILorannWorld lorannWorld) {
 		super(sprite, permeability, symbole, lorannWorld);
+		this.spell = FactoryElement.getFromFileSymbolMotion('S',this.getLorannWorld());
+		this.theSpellFollowYou = true;
 	}
 
 	public void animate() {
 		this.savePosition();
-		if(this.vecteurOrder.getNumberOfSpell() == 1){
-		
-			this.XSpell = this.vecteurOrder.getVecteurX()  ;
-			this.YSpell = this.vecteurOrder.getVecteurY()  ;
-			this.getLorannWorld().addElement(FactoryElement.getFromFileSymbolMotion('S',this.getLorannWorld()), -this.XSpell+this.getX(),-this.YSpell+this.getY());
-		//	this.vecteurOrder.setNumberOfSpell(0);
-			System.out.println("eeeee");
+		System.out.println(this.vecteurOrder.getNumberOfSpell());
+
+		this.theSpellFollowYou = (this.getX() == this.spell.getX())&& (this.getY() == this.spell.getY());
+
+		if(this.vecteurOrder.getNumberOfSpell() == 1) {
+			if(this.theSpellFollowYou){
+
+				this.XSpell = this.vecteurOrder.getVecteurX();
+				this.YSpell = this.vecteurOrder.getVecteurY();
+				this.theSpellFollowYou = false;
+
+			}
+			else {
+				this.XSpell = -this.vecteurOrder.getVecteurX();
+				this.YSpell = -this.vecteurOrder.getVecteurY();
+			}
 		}
 
 		this.setX(this.getX()+this.vecteurOrder.getVecteurX());
@@ -48,70 +57,48 @@ public class Lorann extends MotionElement implements ILorann{
 			}
 		}
 		this.getLorannWorld().removeMobile(this.getX(), this.getY());
+		this.spell.getStrategy().animate(this.spell, this.getLorannWorld());
+		if(this.theSpellFollowYou){
+			this.spell.setX(this.getX());
+			this.spell.setY(this.getY());
+		}
+	}
+
+	public IMobile getSpell(){
+		return this.spell;
 	}
 
 	public IVecteurDirection getVecteurOrder() {
 		return this.vecteurOrder;
 	}
 
-	/*private void pickUp(){
-		if((this.keyCode == ControllerOrder.UP )){
+	public int getXSpell() {
+		return this.XSpell;
+	}
 
-		}
-		else  if (this.keyCode == ControllerOrder.DOWN)
-		{
-
-		}
-		else if (this.keyCode == ControllerOrder.RIGHT)
-		{
-
-		}
-		else if (this.keyCode == ControllerOrder.LEFT)
-		{
-
-		}
-
-		else if((this.keyCode == ControllerOrder.RIGHTUP)){
-
-		}
-		else  if (this.keyCode == ControllerOrder.RIGHTDOWN)
-		{
-
-		}
-		else if (this.keyCode == ControllerOrder.LEFTUP)
-		{
-
-		}
-		else if (this.keyCode == ControllerOrder.LEFTDOWN)
-		{
-
-		}
-		else {
-
-		}
-	}*/
+	public int getYSpell() {
+		return this.YSpell;
+	}
 
 	public void setKeyCode(final ControllerOrder keyCode){
 		//this.keyCode = keyCode;
+	}
+	public void setSpell() {
+		this.spell.setX(this.getX());
+		this.spell.setY(this.getY());
 	}
 
 	public void setVecteurOrder(final IVecteurDirection vecteurOrder) {
 		this.vecteurOrder = vecteurOrder;
 	}
-	
-	public int getXSpell() {
-		return XSpell;
-	}
-	public int getYSpell() {
-		return YSpell;
+
+	public void setXSpell(final int xSpell) {
+		this.XSpell = xSpell;
 	}
 
-	public void setXSpell(int xSpell) {
-		XSpell = xSpell;
+	public void setYSpell(final int ySpell) {
+		this.YSpell = ySpell;
 	}
 
-	public void setYSpell(int ySpell) {
-		YSpell = ySpell;
-	}
 
 }

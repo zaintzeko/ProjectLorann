@@ -11,6 +11,7 @@ public class ChangeKeycodeToDirection {
 	{
 		this.horizontalKey = 0;
 		this.verticalKey = 0;
+		this.NumberOfSpell = 0;
 	}
 
 	/* (non-Javadoc)
@@ -30,6 +31,10 @@ public class ChangeKeycodeToDirection {
 
 	public int getHorizontalKey() {
 		return this.horizontalKey;
+	}
+
+	public int getNumberOfSpell() {
+		return this.NumberOfSpell;
 	}
 
 	public int getVerticalKey() {
@@ -58,19 +63,18 @@ public class ChangeKeycodeToDirection {
 		{
 			this.horizontalKey -= newValue;
 		}
-		else if(keyCode == KeyEvent.VK_SPACE)
+		else if((keyCode == KeyEvent.VK_SPACE) && (newValue == 1))
 		{
 			this.NumberOfSpell++;
+		}
+		else if((keyCode == KeyEvent.VK_SPACE) && (newValue == -1)){
+			this.NumberOfSpell = 0;
 		}
 		this.verifyKey();
 	}
 
-	public int getNumberOfSpell() {
-		return NumberOfSpell;
-	}
-
-	public void setNumberOfSpell(int numberOfSpell) {
-		NumberOfSpell = numberOfSpell;
+	public void setNumberOfSpell(final int numberOfSpell) {
+		this.NumberOfSpell = numberOfSpell;
 	}
 
 	public void setVerticalKey(final int verticalKey) {
@@ -90,6 +94,9 @@ public class ChangeKeycodeToDirection {
 		}
 		if(this.horizontalKey > 1) {
 			this.horizontalKey = 1;
+		}
+		if(this.NumberOfSpell > 1) {
+			this.NumberOfSpell = 1;
 		}
 	}
 }

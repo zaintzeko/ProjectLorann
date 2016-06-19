@@ -7,6 +7,7 @@ import contract.ILorann;
 import contract.ILorannWorld;
 import contract.IMobile;
 import contract.IMotionlessElement;
+import model.lorannWorld.element.motion.Monster;
 
 public class LorannWorld extends Observable implements ILorannWorld {
 	private final int width;
@@ -19,7 +20,7 @@ public class LorannWorld extends Observable implements ILorannWorld {
 
 	public LorannWorld() throws Exception {
 		this(20, 12);
-		
+
 	}
 
 	public LorannWorld(final int width, final int height) throws Exception {
@@ -36,6 +37,7 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		this.setLorann(lorann);
 		lorann.setX(x);
 		lorann.setY(y);
+		lorann.setSpell();
 	}
 
 	public void addElement(final IMobile motionElement, final int x, final int y) {
@@ -127,6 +129,21 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		int elementIndex = -1;
 		for(final IMobile mobile : this.getMotionElements()){
 			if((mobile.getX() == x) && (mobile.getY() == y)){
+				elementIndex = i;
+			}
+			i++;
+		}
+
+		if(elementIndex != -1){
+			this.motionElements.remove(elementIndex);
+		}
+	}
+
+	public void removeMonster(final int x, final int y) {
+		int i = 0;
+		int elementIndex = -1;
+		for(final IMobile mobile : this.getMotionElements()){
+			if((mobile.getX() == x) && (mobile.getY() == y) && (mobile instanceof Monster)){
 				elementIndex = i;
 			}
 			i++;
