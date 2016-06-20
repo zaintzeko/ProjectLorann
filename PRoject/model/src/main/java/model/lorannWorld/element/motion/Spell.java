@@ -34,6 +34,8 @@ public class Spell extends Mobile implements ISpell{
 			}
 		}
 		if(a) {
+			this.setX(x);
+			this.setY(y);
 			return a;
 		}
 		this.setX(this.getSaveX());
