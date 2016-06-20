@@ -9,30 +9,62 @@ import org.junit.Test;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class VecteurDirectionTest.
+ */
 public class VecteurDirectionTest {
+	
+	/** The test vector. */
 	private static VectorDirection testVector;
 	
+	/**
+	 * Sets the up before class.
+	 *
+	 * @throws Exception the exception
+	 */
 	public static void setUpBeforeClass() throws Exception {
 		testVector = new VectorDirection();
 	}
 
+	/**
+	 * Tear down after class.
+	 *
+	 * @throws Exception the exception
+	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
 
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 	}
 
+	/**
+	 * Tear down.
+	 *
+	 * @throws Exception the exception
+	 */
 	@After
 	public void tearDown() throws Exception {
 	}
 
+	/**
+	 * Test change vecteur to image number.
+	 */
 	@Test
 	public void testChangeVecteurToImageNumber() {
 		
 	}
 
+	/**
+	 * Test get vecteur X.
+	 */
 	@Test
 	public void testGetVecteurX() {
 		int expected = 1;
@@ -41,6 +73,9 @@ public class VecteurDirectionTest {
 		
 	}
 
+	/**
+	 * Test get vecteur Y.
+	 */
 	@Test
 	public void testGetVecteurY() {
 		int expected = 1;
@@ -48,6 +83,9 @@ public class VecteurDirectionTest {
 		assertEquals(expected, this.testVector.getVectorY());
 	}
 
+	/**
+	 * Test get number of spell.
+	 */
 	@Test
 	public void testGetNumberOfSpell() {
 		int expected = 1;

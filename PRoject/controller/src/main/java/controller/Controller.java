@@ -17,15 +17,14 @@ public class Controller implements IController {
 	/** The model. */
 	private IModel	model;
 
+	/** The vecteur order. */
 	private final IVectorDirection vecteurOrder;
 
 	/**
 	 * Instantiates a new controller.
 	 *
-	 * @param view
-	 *          the view
-	 * @param model
-	 *          the model
+	 * @param view the view
+	 * @param model the model
 	 */
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
@@ -41,6 +40,11 @@ public class Controller implements IController {
 	 */
 
 
+	/**
+	 * Gets the vecteur order.
+	 *
+	 * @return the vecteur order
+	 */
 	public IVectorDirection getVecteurOrder() {
 		return this.vecteurOrder;
 	}
@@ -59,8 +63,7 @@ public class Controller implements IController {
 	/**
 	 * Sets the model.
 	 *
-	 * @param model
-	 *          the new model
+	 * @param model the new model
 	 */
 	private void setModel(final IModel model) {
 		this.model = model;
@@ -69,8 +72,7 @@ public class Controller implements IController {
 	/**
 	 * Sets the view.
 	 *
-	 * @param view
-	 *          the new view
+	 * @param view the new view
 	 */
 	private void setView(final IView view) {
 		this.view = view;

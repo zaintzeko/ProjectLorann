@@ -3,13 +3,11 @@ package model;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class DAOEntity.
  *
- * @author Jean-Aymeric Diet
- *
- * @param <E>
- *          the element type
+ * @param <E> the element type
  */
 abstract class DAOEntity<E> {
 
@@ -19,10 +17,8 @@ abstract class DAOEntity<E> {
 	/**
 	 * Instantiates a new DAO entity.
 	 *
-	 * @param connection
-	 *          the connection
-	 * @throws SQLException
-	 *           the SQL exception
+	 * @param connection the connection
+	 * @throws SQLException the SQL exception
 	 */
 	public DAOEntity(final Connection connection) throws SQLException {
 		this.connection = connection;
@@ -31,8 +27,7 @@ abstract class DAOEntity<E> {
 	/**
 	 * Creates the.
 	 *
-	 * @param entity
-	 *          the entity
+	 * @param entity the entity
 	 * @return true, if successful
 	 */
 	public abstract boolean create(E entity);
@@ -40,8 +35,7 @@ abstract class DAOEntity<E> {
 	/**
 	 * Delete.
 	 *
-	 * @param entity
-	 *          the entity
+	 * @param entity the entity
 	 * @return true, if successful
 	 */
 	public abstract boolean delete(E entity);
@@ -49,10 +43,9 @@ abstract class DAOEntity<E> {
 	/**
 	 * Find.
 	 *
-	 * @param level
-	 *          the leve
+	 * @param level the level
 	 * @return the e
-	 * @throws Exception 
+	 * @throws Exception the exception
 	 */
 	public abstract E find(int level) throws Exception;
 
@@ -68,8 +61,7 @@ abstract class DAOEntity<E> {
 	/**
 	 * Update.
 	 *
-	 * @param entity
-	 *          the entity
+	 * @param entity the entity
 	 * @return true, if successful
 	 */
 	public abstract boolean update(E entity);

@@ -10,10 +10,20 @@ import contract.IStrategy;
 import model.lorannWorld.LorannWorld;
 import model.lorannWorld.element.Sprite;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BehaviorDoorTest.
+ */
 public class BehaviorDoorTest {
 
+	/** The l. */
 	ILorannWorld l;
 
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		this.l = new LorannWorld();
@@ -22,6 +32,9 @@ public class BehaviorDoorTest {
 		this.l.addElement(new Mobile(new Sprite(sprites), 'd', strat, this.l), 0, 0);
 	}
 
+	/**
+	 * Test.
+	 */
 	@Test
 	public void test() {
 		this.l.getMobileX(0).getStrategy().animate(this.l.getMobileX(0), this.l);

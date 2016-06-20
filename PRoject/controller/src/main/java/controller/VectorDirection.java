@@ -2,18 +2,34 @@ package controller;
 
 import contract.IVectorDirection;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class VectorDirection.
+ */
 public class VectorDirection implements IVectorDirection {
+	
+	/** The vector X. */
 	private int  vectorX;
+	
+	/** The vector Y. */
 	private int vectorY;
+	
+	/** The number of spell. */
 	private int numberOfSpell;
 
+	/**
+	 * Instantiates a new vector direction.
+	 */
 	public VectorDirection()
 	{
 		this.vectorX = 0;
 		this.vectorY = 0;
 	}
 
-	public int changeVecteurToImageNumber(final IVectorDirection vecteur, final int currentImage)
+	/* (non-Javadoc)
+	 * @see contract.IVectorDirection#changeVecteurToImageNumber(contract.IVectorDirection, int)
+	 */
+	public int changeVectorToImageNumber(final IVectorDirection vector, final int currentImage)
 	{
 		if((this.vectorX == 0) && (this.vectorY < 0)){
 			return 0;
@@ -43,6 +59,9 @@ public class VectorDirection implements IVectorDirection {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see contract.IVectorDirection#getNumberOfSpell()
+	 */
 	public int getNumberOfSpell() {
 		return this.numberOfSpell;
 	}
@@ -61,6 +80,9 @@ public class VectorDirection implements IVectorDirection {
 		return this.vectorY;
 	}
 
+	/* (non-Javadoc)
+	 * @see contract.IVectorDirection#setNumberOfSpell(int)
+	 */
 	public void setNumberOfSpell(final int numberOfSpell) {
 		this.numberOfSpell = numberOfSpell;
 

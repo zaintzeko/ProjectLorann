@@ -18,7 +18,13 @@ import contract.IMobile;
 import contract.IMotionlessElement;
 import contract.ISprite;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MotionElementTest.
+ */
 public class MotionElementTest {
+	
+	/** The test motion. */
 	// Seems like Decorator ? 
 	private MotionElement testMotion = new Lorann(new ISprite() {
 
@@ -126,31 +132,61 @@ public class MotionElementTest {
 		
 	});
 	
+	/**
+	 * Sets the up before class.
+	 *
+	 * @throws Exception the exception
+	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
 
+	/**
+	 * Tear down after class.
+	 *
+	 * @throws Exception the exception
+	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
 
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 	}
 
+	/**
+	 * Tear down.
+	 *
+	 * @throws Exception the exception
+	 */
 	@After
 	public void tearDown() throws Exception {
 	}
 
+	/**
+	 * Test execute move if possible.
+	 */
 	@Test
 	public void testExecuteMoveIfPossible() {
 		assertEquals(true, this.testMotion.executeMoveIfPossible(0, 0));
 	}
+	
+	/**
+	 * Test get lorann world.
+	 */
 	@Test
 	public void testGetLorannWorld() {
 		assertNotNull(this.testMotion.getLorannWorld());
 	}
 
+	/**
+	 * Test get save X.
+	 */
 	@Test
 	public void testGetSaveX() {
 		int expected = 1;
@@ -158,6 +194,9 @@ public class MotionElementTest {
 		assertEquals(1,this.testMotion.getSaveX());
 	}
 
+	/**
+	 * Test get save Y.
+	 */
 	@Test
 	public void testGetSaveY() {
 		int expected = 1;
@@ -165,6 +204,9 @@ public class MotionElementTest {
 		assertEquals(1,this.testMotion.getSaveY());
 	}
 
+	/**
+	 * Test get X.
+	 */
 	@Test
 	public void testGetX() {
 		int expected = 1;
@@ -172,6 +214,9 @@ public class MotionElementTest {
 		assertEquals(1,this.testMotion.getX());
 	}
 
+	/**
+	 * Test get Y.
+	 */
 	@Test
 	public void testGetY() {
 		int expected = 1;
@@ -179,6 +224,9 @@ public class MotionElementTest {
 		assertEquals(1,this.testMotion.getY());
 	}
 
+	/**
+	 * Test save position.
+	 */
 	@Test
 	public void testSavePosition() {
 		this.testMotion.setX(1);

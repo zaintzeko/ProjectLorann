@@ -6,17 +6,39 @@ import contract.ISpell;
 import contract.ISprite;
 import contract.IStrategy;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Spell.
+ */
 public class Spell extends Mobile implements ISpell{
+	
+	/** The spell fired. */
 	boolean spellFired = false;
 	
+	/**
+	 * Checks if is spell fired.
+	 *
+	 * @return true, if is spell fired
+	 */
 	public boolean isSpellFired() {
 		return spellFired;
 	}
 
+	/* (non-Javadoc)
+	 * @see contract.ISpell#setSpellFired(boolean)
+	 */
 	public void setSpellFired(boolean spellFired) {
 		this.spellFired = spellFired;
 	}
 
+	/**
+	 * Instantiates a new spell.
+	 *
+	 * @param sprite the sprite
+	 * @param symbole the symbole
+	 * @param strategy the strategy
+	 * @param lorannWorld the lorann world
+	 */
 	public Spell(final ISprite sprite, final char symbole, final IStrategy strategy,
 			final ILorannWorld lorannWorld) {
 		super(sprite, symbole, strategy, lorannWorld);

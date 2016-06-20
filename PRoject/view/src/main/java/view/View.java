@@ -6,50 +6,22 @@ import contract.IController;
 import contract.IModel;
 import contract.IView;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class View.
- *
- * @author Jean-Aymeric Diet
  */
 public class View implements IView, Runnable {
 
-	/** The frame. */
+	/** The view frame. */
 	private final ViewFrame viewFrame;
 
 	/**
-	 * Instantiates a new view.
-	 *
 	 * @param model
-	 *          the model
 	 */
 	public View(final IModel model) {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
 	}
-
-	/**
-	 * Key code to controller order.
-	 *ControllerOrder.
-	 * @param keyCode
-	 *          the key code
-	 * @return the controller order
-	 */
-	/*protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
-		System.out.println(keyCode);
-		System.out.println();
-		switch (keyCode) {
-			case KeyEvent.VK_G:
-				return ControllerOrder.English;
-			case KeyEvent.VK_F:
-				return ControllerOrder.Francais;
-			case KeyEvent.VK_D:
-				return ControllerOrder.Deutsch;
-			case KeyEvent.VK_I:
-				return ControllerOrder.Indonesia;
-			default:
-				return ControllerOrder.English;
-		}
-	}*/
 
 	/*
 	 * (non-Javadoc)
@@ -72,8 +44,7 @@ public class View implements IView, Runnable {
 	/**
 	 * Sets the controller.
 	 *
-	 * @param controller
-	 *          the new controller
+	 * @param controller the new controller
 	 */
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);

@@ -9,26 +9,60 @@ import java.sql.Statement;
 import contract.IElement;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DAO.
+ */
 public class DAO {
+	
+	/** The login. */
 	private static String LOGIN = "root";
+	
+	/** The password. */
 	private static String PASSWORD = "root";
+	
+	/** The url. */
 	private static String URL = "jdbc:mysql://localhost:8889/lorann?autoReconnect=true&useSSL=false";
+	
+	/** The connection. */
 	private Connection connection;
+	
+	/** The statement. */
 	private Statement statement;
 
+	/**
+	 * Instantiates a new dao.
+	 */
 	public DAO() {
 		this.connection = null;
 		this.statement = null;
 	}
 
+	/**
+	 * Close.
+	 *
+	 * @return true, if successful
+	 */
 	public boolean close() {
 		return true;
 	}
 
+	/**
+	 * Execute update.
+	 *
+	 * @param query the query
+	 * @return the int
+	 * @throws SQLException the SQL exception
+	 */
 	private int executeUpdate(final String query) throws SQLException {
 		return this.statement.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
 	}
 
+	/**
+	 * Gets the last id.
+	 *
+	 * @return the last id
+	 */
 	public int getLastId() {
 		try {
 			final ResultSet resultSet = this.statement.getGeneratedKeys();
@@ -41,10 +75,21 @@ public class DAO {
 		return 0;
 	}
 
+	/**
+	 * Gets the statement.
+	 *
+	 * @return the statement
+	 */
 	public Statement getStatement() {
 		return this.statement;
 	}
 
+	/**
+	 * Insert nettle world.
+	 *
+	 * @param elements the elements
+	 * @param level the level
+	 */
 	public void insertNettleWorld(final IElement elements[][], final int level) {
 		try {
 			this.executeUpdate(Query.getQueryInsert2(level));
@@ -65,6 +110,11 @@ public class DAO {
 
 	}
 
+	/**
+	 * Open.
+	 *
+	 * @return true, if successful
+	 */
 	public boolean open() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");

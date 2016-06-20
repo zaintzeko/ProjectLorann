@@ -19,8 +19,20 @@ import contract.IMotionlessElement;
 import contract.ISprite;
 import model.lorannWorld.element.motion.Lorann;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ElementTest.
+ */
 public class ElementTest {
+	
+	/** The test element. */
 	private static Element testElement;
+	
+	/**
+	 * Sets the up before class.
+	 *
+	 * @throws Exception the exception
+	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		 testElement = new Lorann(new ISprite() {
@@ -130,23 +142,44 @@ public class ElementTest {
 			});
 	}
 
+	/**
+	 * Tear down after class.
+	 *
+	 * @throws Exception the exception
+	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
 
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 	}
 
+	/**
+	 * Tear down.
+	 *
+	 * @throws Exception the exception
+	 */
 	@After
 	public void tearDown() throws Exception {
 	}
 
+	/**
+	 * Test get sprite.
+	 */
 	@Test
 	public void testGetSprite() {
 		assertNotNull(this.testElement.getSprite());
 	}
 
+	/**
+	 * Test get symbole.
+	 */
 	@Test
 	public void testGetSymbole() {
 		assertEquals('L', this.testElement.getSymbole());

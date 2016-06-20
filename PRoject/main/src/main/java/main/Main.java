@@ -5,19 +5,17 @@ import controller.Controller;
 import model.Model;
 import view.View;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Main.
- *
- * @author Jean-Aymeric Diet
  */
 public abstract class Main {
 
 	/**
-	 * The main method    .
+	 * The main method.
 	 *
-	 * @param args
-	 *          the arguments
-	 * @throws Exception
+	 * @param args the arguments
+	 * @throws Exception the exception
 	 */
 	public static void main(final  String[] args) throws Exception {
 

@@ -16,16 +16,34 @@ import contract.IMotionlessElement;
 import contract.IVectorDirection;
 import model.lorannWorld.element.Sprite;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LorannTest.
+ */
 public class LorannTest {
+	
+	/** The sprites. */
 	private static String sprites[] = {"LorannUp.png", "LorannRightUp.png", "LorannRight.png", "LorannRightDown.png", "LorannDown.png", "LorannLeftDown.png", "LorannLeft.png", "LorannLeftUp.png"};
+	
+	/** The test loran. */
 	private static ILorannWorld testLoran;
+	
+	/** The test lorann. */
 	private static Lorann testLorann;
+	
+	/** The test vector. */
 	private static IVectorDirection testVector;
+	
+	/**
+	 * Sets the up before class.
+	 *
+	 * @throws Exception the exception
+	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		testVector = new IVectorDirection(){
 
-			public int changeVecteurToImageNumber(IVectorDirection vecteur, int currentImage) {
+			public int changeVectorToImageNumber(IVectorDirection vector, int currentImage) {
 				// TODO Auto-generated method stub
 				return 0;
 			}
@@ -147,28 +165,45 @@ public class LorannTest {
 		testLorann = new Lorann(new Sprite(sprites), 'L', testLoran);
 	}
 
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 	}
 
+	/**
+	 * Test get spell.
+	 */
 	@Test
 	public void testGetSpell() {
 		this.testLorann.setSpell();
 		assertNotNull(this.testLorann);
 	}
 
+	/**
+	 * Test get vector order.
+	 */
 	@Test
 	public void testGetVectorOrder() {
 		testLorann.setVectorOrder(testVector);
 		assertNotNull(this.testLorann.getVectorOrder());
 	}
 
+	/**
+	 * Test get X spell.
+	 */
 	@Test
 	public void testGetXSpell() {
 		int expected = 0;
 		assertEquals(expected, this.testLorann.getSaveX());
 	}
 
+	/**
+	 * Test get Y spell.
+	 */
 	@Test
 	public void testGetYSpell() {
 		int expected = 0;

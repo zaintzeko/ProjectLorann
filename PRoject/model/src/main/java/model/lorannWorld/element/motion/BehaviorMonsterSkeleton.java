@@ -4,6 +4,10 @@ import contract.ILorannWorld;
 import contract.IMotionElement;
 import contract.IStrategy;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BehaviorMonsterSkeleton.
+ */
 public class BehaviorMonsterSkeleton extends Monster implements IStrategy{
 
 	/* (non-Javadoc)

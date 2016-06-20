@@ -10,25 +10,26 @@ import javax.swing.JPanel;
 import contract.ILorannWorld;
 import contract.IMotionElement;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class ViewPanel.
- *
- * @author Jean-Aymeric Diet
  */
 class ViewPanel extends JPanel implements Observer {
 
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
+	
 	/** The view frame. */
 	private ViewFrame					viewFrame;
 
+	/** The lorann world. */
 	private final ILorannWorld lorannWorld;
 
 	/**
 	 * Instantiates a new view panel.
 	 *
-	 * @param viewFrame
-	 *          the view frame
+	 * @param viewFrame the view frame
+	 * @param lorannWorld the lorann world
 	 */
 	public ViewPanel(final ViewFrame viewFrame, final ILorannWorld lorannWorld) {
 		this.setViewFrame(viewFrame);
@@ -83,8 +84,7 @@ class ViewPanel extends JPanel implements Observer {
 	/**
 	 * Sets the view frame.
 	 *
-	 * @param viewFrame
-	 *          the new view frame
+	 * @param viewFrame the new view frame
 	 */
 	private void setViewFrame(final ViewFrame viewFrame) {
 		this.viewFrame = viewFrame;

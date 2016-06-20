@@ -1,22 +1,17 @@
 package contract;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Interface IController.
- *
- * @author Jean-Aymeric Diet
  */
 public interface IController {
-
-	/**
-	 * Control.
-	 */
-
-
+	
 	/**
 	 * Order perform.
 	 *
-	 * @param controllerOrder
-	 *          the controller order
+	 * @param vecteurX the vecteur X
+	 * @param vecteurY the vecteur Y
+	 * @param numberOfSpell the number of spell
 	 */
 	public void orderPerform(int vecteurX, int vecteurY, int numberOfSpell);
 }

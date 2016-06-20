@@ -2,13 +2,17 @@ package contract;
 
 import java.util.Observable;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Interface IModel.
- *
- * @author
  */
 public interface IModel {
 
+	/**
+	 * Gets the lorann world.
+	 *
+	 * @return the lorann world
+	 */
 	public ILorannWorld getLorannWorld();
 
 	/**

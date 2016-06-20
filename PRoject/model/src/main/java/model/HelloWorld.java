@@ -1,9 +1,8 @@
 package model;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class HelloWorld.
- *
- * @author Jean-Aymeric Diet
  */
 class HelloWorld extends Entity {
 
@@ -19,12 +18,9 @@ class HelloWorld extends Entity {
 	/**
 	 * Instantiates a new hello world.
 	 *
-	 * @param id
-	 *          the id
-	 * @param key
-	 *          the key
-	 * @param message
-	 *          the message
+	 * @param id the id
+	 * @param key the key
+	 * @param message the message
 	 */
 	public HelloWorld(final int id, final String key, final String message) {
 		this.setId(id);
@@ -51,8 +47,7 @@ class HelloWorld extends Entity {
 	/**
 	 * Sets the id.
 	 *
-	 * @param id
-	 *          the new id
+	 * @param id the new id
 	 */
 	public void setId(final int id) {
 		this.id = id;
@@ -70,8 +65,7 @@ class HelloWorld extends Entity {
 	/**
 	 * Sets the key.
 	 *
-	 * @param key
-	 *          the new key
+	 * @param key the new key
 	 */
 	public void setKey(final String key) {
 		this.key = key;
@@ -89,8 +83,7 @@ class HelloWorld extends Entity {
 	/**
 	 * Sets the message.
 	 *
-	 * @param message
-	 *          the new message
+	 * @param message the new message
 	 */
 	public void setMessage(final String message) {
 		this.message = message;

@@ -7,23 +7,48 @@ import contract.ISprite;
 import contract.IVectorDirection;
 import model.lorannWorld.element.FactoryElement;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Lorann.
+ */
 public class Lorann extends MotionElement implements ILorann{
+	
+	/** The vector order. */
 	private IVectorDirection vectorOrder;
 
 	//private IMobile Spell;
 
+	/** The X spell. */
 	private int XSpell = 0;
+	
+	/** The Y spell. */
 	private int YSpell = 0;
+	
+	/** The spell follow you. */
 	private boolean theSpellFollowYou;
+	
+	/** The dont move again. */
 	private boolean dontMoveAgain = false;
 
+	/** The spell. */
 	private final IMobile spell;
+	
+	/**
+	 * Instantiates a new lorann.
+	 *
+	 * @param sprite the sprite
+	 * @param symbole the symbole
+	 * @param lorannWorld the lorann world
+	 */
 	public Lorann(final ISprite sprite, final char symbole, final ILorannWorld lorannWorld) {
 		super(sprite, symbole, lorannWorld);
 		this.spell = FactoryElement.getFromFileSymbolMotion('S',this.getLorannWorld());
 		this.theSpellFollowYou = true;
 	}
 
+	/* (non-Javadoc)
+	 * @see contract.ILorann#animate()
+	 */
 	public void animate() {
 		dontMoveAgain = false;
 		this.testIfTouchAnElement();
@@ -37,7 +62,7 @@ public class Lorann extends MotionElement implements ILorann{
 		this.setX(this.getX()+this.vectorOrder.getVectorX());
 		this.setY(this.getY()+this.vectorOrder.getVectorY());
 
-		this.getSprite().changecurentImage(this.vectorOrder.changeVecteurToImageNumber(this.vectorOrder, this.getSprite().getCurrentStep()));
+		this.getSprite().changecurentImage(this.vectorOrder.changeVectorToImageNumber(this.vectorOrder, this.getSprite().getCurrentStep()));
 		this.executeMoveIfPossible(this.getX(), this.getY());
 
 		this.testIfTouchAnElement();
@@ -53,29 +78,52 @@ public class Lorann extends MotionElement implements ILorann{
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see contract.ILorann#getSpell()
+	 */
 	public IMobile getSpell(){
 		return this.spell;
 	}
 
+	/* (non-Javadoc)
+	 * @see contract.ILorann#getVectorOrder()
+	 */
 	public IVectorDirection getVectorOrder() {
 		return this.vectorOrder;
 	}
+	
+	/* (non-Javadoc)
+	 * @see contract.ILorann#getXSpell()
+	 */
 	public int getXSpell() {
 		return this.XSpell;
 	}
 
+	/* (non-Javadoc)
+	 * @see contract.ILorann#getYSpell()
+	 */
 	public int getYSpell() {
 		return this.YSpell;
 	}
 
+	/* (non-Javadoc)
+	 * @see contract.ILorann#setSpell()
+	 */
 	public void setSpell() {
 		this.spell.setX(this.getX());
 		this.spell.setY(this.getY());
 	}
 
+	/* (non-Javadoc)
+	 * @see contract.ILorann#setVectorOrder(contract.IVectorDirection)
+	 */
 	public void setVectorOrder(final IVectorDirection vecteurOrder) {
 		this.vectorOrder = vecteurOrder;
 	}
+	
+	/**
+	 * Sets the vector spell.
+	 */
 	private void setVectorSpell()
 	{
 		if(this.vectorOrder.getNumberOfSpell() == 1) {
@@ -95,13 +143,23 @@ public class Lorann extends MotionElement implements ILorann{
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see contract.ILorann#setXSpell(int)
+	 */
 	public void setXSpell(final int xSpell) {
 		this.XSpell = xSpell;
 	}
+	
+	/* (non-Javadoc)
+	 * @see contract.ILorann#setYSpell(int)
+	 */
 	public void setYSpell(final int ySpell) {
 		this.YSpell = ySpell;
 	}
 
+	/**
+	 * Test if touch an element.
+	 */
 	private void testIfTouchAnElement()
 	{
 		for(final IMobile i : this.getLorannWorld().getMotionElements()){
@@ -112,6 +170,13 @@ public class Lorann extends MotionElement implements ILorann{
 		this.getLorannWorld().removeMobile(this.getX(), this.getY());
 	}
 
+	/**
+	 * Vector by position.
+	 *
+	 * @param positionSpell the position spell
+	 * @param positionLorann the position lorann
+	 * @return the int
+	 */
 	private int vectorByPosition(final int positionSpell, final int positionLorann) {
 		if(positionSpell > positionLorann) {
 			return 1;

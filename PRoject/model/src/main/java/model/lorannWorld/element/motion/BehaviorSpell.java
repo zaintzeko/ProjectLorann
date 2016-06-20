@@ -5,9 +5,18 @@ import contract.IMotionElement;
 import contract.IStrategy;
 import contract.IVectorDirection;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BehaviorSpell.
+ */
 public class BehaviorSpell implements IStrategy{
+	
+	/** The Vecteur spell. */
 	private IVectorDirection VecteurSpell;
 
+	/* (non-Javadoc)
+	 * @see contract.IStrategy#actionOnHit(contract.IMotionElement, contract.ILorannWorld)
+	 */
 	public void actionOnHit(final IMotionElement motionElement, final ILorannWorld lorannWorld) {
 		// TODO Auto-generated method stub
 
@@ -30,9 +39,22 @@ public class BehaviorSpell implements IStrategy{
 		this.killMobile(motionElement,lorannWorld);
 	}
 
+	/**
+	 * Gets the vecteur spell.
+	 *
+	 * @return the vecteur spell
+	 */
 	public IVectorDirection getVecteurSpell() {
 		return this.VecteurSpell;
 	}
+	
+	/**
+	 * Kill mobile.
+	 *
+	 * @param motionElement the motion element
+	 * @param lorannWorld the lorann world
+	 * @return true, if successful
+	 */
 	private boolean killMobile(final IMotionElement motionElement,final ILorannWorld lorannWorld)
 	{
 		if(lorannWorld.removeMobile(motionElement.getX(), motionElement.getY()))

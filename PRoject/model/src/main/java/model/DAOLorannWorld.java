@@ -8,20 +8,17 @@ import java.sql.SQLException;
 import model.lorannWorld.LorannWorld;
 import model.lorannWorld.element.FactoryElement;
 
+// TODO: Auto-generated Javadoc
 /**
- * The Class DAOHelloWorld.
- *
- * @author Jean-Aymeric Diet
+ * The Class DAOLorannWorld.
  */
 public class DAOLorannWorld extends DAOEntity<LorannWorld> {
 
 	/**
-	 * Instantiates a new DAO hello world.
+	 * Instantiates a new DAO lorann world.
 	 *
-	 * @param connection
-	 *          the connection
-	 * @throws SQLException
-	 *           the SQL exception
+	 * @param connection the connection
+	 * @throws SQLException the SQL exception
 	 */
 	public DAOLorannWorld(final Connection connection) throws SQLException {
 		super(connection);

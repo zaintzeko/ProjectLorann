@@ -20,9 +20,23 @@ import contract.ISprite;
 import contract.IVectorDirection;
 import contract.IVectorDirection;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LorannWorldTest.
+ */
 public class LorannWorldTest {
+	
+	/** The test loran. */
 	private static LorannWorld testLoran;
+	
+	/** The Lorann. */
 	private static ILorann Lorann;
+	
+	/**
+	 * Sets the up before class.
+	 *
+	 * @throws Exception the exception
+	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		testLoran = new LorannWorld(20,12);
@@ -190,18 +204,36 @@ public class LorannWorldTest {
 		};
 	}
 
+	/**
+	 * Tear down after class.
+	 *
+	 * @throws Exception the exception
+	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
 
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 	}
 
+	/**
+	 * Tear down.
+	 *
+	 * @throws Exception the exception
+	 */
 	@After
 	public void tearDown() throws Exception {
 	}
 
+	/**
+	 * Test get width.
+	 */
 	@SuppressWarnings("static-access")
 	@Test
 	public void testGetWidth() {
@@ -209,6 +241,9 @@ public class LorannWorldTest {
 		assertEquals(expected, this.testLoran.getWidth());
 	}
 
+	/**
+	 * Test get height.
+	 */
 	@SuppressWarnings("static-access")
 	@Test
 	public void testGetHeight() {
@@ -216,6 +251,9 @@ public class LorannWorldTest {
 		assertEquals(expected, this.testLoran.getHeight());
 	}
 
+	/**
+	 * Test get motionless elements.
+	 */
 	@SuppressWarnings("static-access")
 	@Test
 	public void testGetMotionlessElements() {
@@ -226,6 +264,9 @@ public class LorannWorldTest {
 		}
 	}
 
+	/**
+	 * Test get motion elements.
+	 */
 	@SuppressWarnings("static-access")
 	@Test
 	public void testGetMotionElements() {
@@ -236,20 +277,35 @@ public class LorannWorldTest {
 		}	
 	}
 	
+	/**
+	 * Test get observable.
+	 */
 	@Test
 	public void testGetObservable() {
 		assertNotNull(this.testLoran.getObservable());
 	}
+	
+	/**
+	 * Test get mobile X.
+	 */
 	@Test
 	public void testGetMobileX() {
 		for(int i =0 ; i < this.testLoran.getMotionElements().size(); i++)
 		assertNotNull(this.testLoran.getMobileX(i));
 	}
+	
+	/**
+	 * Test get lorann.
+	 */
 	@Test
 	public void testGetLorann() {
 		this.testLoran.setLorann(Lorann);
 		assertNotNull(this.testLoran.getLorann());
 	}
+	
+	/**
+	 * Test get score.
+	 */
 	@Test
 	public void testGetScore() {
 		this.testLoran.addScore(1);

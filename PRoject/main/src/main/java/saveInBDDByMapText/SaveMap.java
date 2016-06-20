@@ -2,7 +2,15 @@ package saveInBDDByMapText;
 
 import java.io.IOException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SaveMap.
+ */
 public abstract class SaveMap {
+	
+	/**
+	 * Save all map.
+	 */
 	public static void saveAllMap()
 	{
 		for(int i = 1; i<=5; i++) {
