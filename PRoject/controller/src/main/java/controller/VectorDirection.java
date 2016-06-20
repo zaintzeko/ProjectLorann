@@ -36,7 +36,7 @@ public class VectorDirection implements IVectorDirection {
 		else if((this.vectorX < 0) && (this.vectorY == 0)){
 			return 6;
 		}
-		else if((this.vectorX < 0) && (this.vectorY > 0)){
+		else if((this.vectorX < 0) && (this.vectorY < 0)){
 			return 7;
 		} else {
 			return (currentImage + 1)%8;
