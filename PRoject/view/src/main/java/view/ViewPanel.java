@@ -2,14 +2,12 @@ package view;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JPanel;
 
-import contract.IElement;
-import contract.ILorann;
+import contract.ILorannWorld;
 import contract.IMotionElement;
 
 /**
@@ -23,11 +21,8 @@ class ViewPanel extends JPanel implements Observer {
 	private static final long	serialVersionUID	= -998294702363713521L;
 	/** The view frame. */
 	private ViewFrame					viewFrame;
-	private final ArrayList<? extends IMotionElement> motionElements;
-	private final IElement motionlessElements[][];
-	private final ILorann lorann;
-	private final int width;
-	private final int height;
+
+	private final ILorannWorld lorannWorld;
 
 	/**
 	 * Instantiates a new view panel.
@@ -35,14 +30,10 @@ class ViewPanel extends JPanel implements Observer {
 	 * @param viewFrame
 	 *          the view frame
 	 */
-	public ViewPanel(final ViewFrame viewFrame, final ArrayList<? extends IMotionElement> motionElements, final ILorann lorann, final IElement motionlessElements[][], final int width, final int height) {
+	public ViewPanel(final ViewFrame viewFrame, final ILorannWorld lorannWorld) {
 		this.setViewFrame(viewFrame);
-		this.motionElements = motionElements;
-		this.motionlessElements = motionlessElements;
 		viewFrame.getModel().getObservable().addObserver(this);
-		this.width = width;
-		this.height = height;
-		this.lorann = lorann;
+		this.lorannWorld = lorannWorld;
 	}
 
 	/**
@@ -61,27 +52,32 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		graphics.clearRect(0, 0, this.width, this.height);
+		graphics.clearRect(0, 0, this.lorannWorld.getWidth(), this.lorannWorld.getHeight());
 		for(int y = 0; y < 12; y++)
 		{
 			for(int x = 0; x < 20; x++)
 			{
-				if(this.motionlessElements[x][y]!=null) {
+				if(this.lorannWorld.getElement(x, y)!=null) {
 					//System.out.println(this.motionlessElements[x][y].getSymbole());
-					graphics.drawImage(this.motionlessElements[x][y].getSprite().getImage(), x*32, y*32, null);
+					graphics.drawImage(this.lorannWorld.getElement(x, y).getSprite().getImage(), x*32, y*32, null);
 				} else {
 					graphics.setColor(new Color(0,0,0));
 					graphics.fillRect(x*32, y*32, 32, 32);
 				}
 			}
 		}
-		for(final IMotionElement h : this.motionElements)
+		for(int i = 0; i < 20; i++)	{
+			graphics.setColor(new Color(0,0,0));
+			graphics.fillRect(i*32, 12*32, 32, 32);
+		}
+		for(final IMotionElement h : this.lorannWorld.getMotionElements())
 		{
 			graphics.drawImage(h.getSprite().getImage(), h.getX()*32, h.getY()*32, null);
 		}
-		graphics.drawImage(this.lorann.getSpell().getSprite().getImage(), this.lorann.getSpell().getX()*32, this.lorann.getSpell().getY()*32, null);
-		graphics.drawImage(this.lorann.getSprite().getImage(), this.lorann.getX()*32, this.lorann.getY()*32, null);
-		//graphics.drawImage()
+		graphics.drawImage(this.lorannWorld.getLorann().getSpell().getSprite().getImage(), this.lorannWorld.getLorann().getSpell().getX()*32, this.lorannWorld.getLorann().getSpell().getY()*32, null);
+		graphics.drawImage(this.lorannWorld.getLorann().getSprite().getImage(), this.lorannWorld.getLorann().getX()*32, this.lorannWorld.getLorann().getY()*32, null);
+		graphics.setColor(new Color(255,0,0));
+		graphics.drawString("score : " + this.lorannWorld.getScore(), 0, (12*32)-10);
 	}
 
 	/**
