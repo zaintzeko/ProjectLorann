@@ -230,6 +230,21 @@ public class LorannWorldTest {
 	@After
 	public void tearDown() throws Exception {
 	}
+	
+	/**
+	 * Test LorannWorld.
+	 */
+	@SuppressWarnings("static-access")
+	@Test
+	public void testLorannWorld() {
+		try {
+			ILorannWorld LorannWorldtest = new LorannWorld(21,12);
+			
+		} catch (Exception e){
+			System.out.println("Error has been catched!");
+		}
+	}
+	
 
 	/**
 	 * Test get width.

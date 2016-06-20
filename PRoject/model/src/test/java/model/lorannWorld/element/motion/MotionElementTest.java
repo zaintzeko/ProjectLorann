@@ -23,10 +23,10 @@ import contract.ISprite;
  * The Class MotionElementTest.
  */
 public class MotionElementTest {
-	
+		
 	/** The test motion. */
-	// Seems like Decorator ? 
-	private MotionElement testMotion = new Lorann(new ISprite() {
+	
+	private static ISprite testSprite = new ISprite() {
 
 		public void changecurentImage(int x) {
 			// TODO Auto-generated method stub
@@ -48,8 +48,9 @@ public class MotionElementTest {
 			return 0;
 		}
 		
-	}, 'L', new ILorannWorld(){
-
+	};
+	private static ILorannWorld testLorann = new ILorannWorld(){
+	
 		public void addElement(IMobile motionElement, int x, int y) {
 			// TODO Auto-generated method stub
 			
@@ -130,7 +131,9 @@ public class MotionElementTest {
 			
 		}
 		
-	});
+	};
+	// Seems like Decorator ? 
+	private MotionElement testMotion = new Lorann(testSprite, 'L', testLorann);
 	
 	/**
 	 * Sets the up before class.
@@ -166,6 +169,14 @@ public class MotionElementTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+	}
+	
+	/**
+	 * Test element motion.
+	 */
+	@Test
+	public void testElementMotion() {
+		
 	}
 
 	/**
@@ -226,9 +237,10 @@ public class MotionElementTest {
 
 	/**
 	 * Test save position.
+	 * @throws Exception 
 	 */
 	@Test
-	public void testSavePosition() {
+	public void testSavePosition() throws Exception {
 		this.testMotion.setX(1);
 		this.testMotion.setY(1);
 		this.testMotion.setSaveX(2);
