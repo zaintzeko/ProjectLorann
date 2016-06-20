@@ -14,9 +14,9 @@ public interface ILorann extends IMotionElement{
 	public int getXSpell();
 
 	public int getYSpell();
-	public void setKeyCode(final ControllerOrder keyCode);
 
 	public void setSpell();
+
 	public void setVecteurOrder(final IVecteurDirection vecteurOrder);
 
 	public void setXSpell(int Xspell);

@@ -1,6 +1,5 @@
 package model.lorannWorld.element.motion;
 
-import contract.ControllerOrder;
 import contract.ILorann;
 import contract.ILorannWorld;
 import contract.IMobile;
@@ -66,10 +65,6 @@ public class Lorann extends MotionElement implements ILorann{
 
 	public int getYSpell() {
 		return this.YSpell;
-	}
-
-	public void setKeyCode(final ControllerOrder keyCode){
-		//this.keyCode = keyCode;
 	}
 
 	public void setSpell() {
