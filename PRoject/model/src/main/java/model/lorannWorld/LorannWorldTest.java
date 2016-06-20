@@ -12,7 +12,7 @@ public class LorannWorldTest {
 	private static LorannWorld testLoran;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		testLoran = new LorannWorld(1,10);
+		testLoran = new LorannWorld(20,12);
 	}
 
 	@AfterClass
@@ -30,14 +30,14 @@ public class LorannWorldTest {
 	@SuppressWarnings("static-access")
 	@Test
 	public void testGetWidth() {
-		final int expected = 1;
+		final int expected = 20;
 		assertEquals(expected, this.testLoran.getWidth());
 	}
 
 	@SuppressWarnings("static-access")
 	@Test
 	public void testGetHeight() {
-		final int expected = 10;
+		final int expected = 12;
 		assertEquals(expected, this.testLoran.getHeight());
 	}
 
