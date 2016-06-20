@@ -2,93 +2,211 @@ package controller;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import contract.ILorann;
 import contract.ILorannWorld;
+import contract.IMobile;
 import contract.IModel;
+import contract.IMotionElement;
+import contract.IMotionlessElement;
+import contract.ISprite;
+import contract.IVectorDirection;
 import contract.IView;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class ControllerTest.
- */
 public class ControllerTest {
-	
-	/** The test controller. */
 	private static Controller testController;
-	
-	/** The test view. */
 	private static IView testView;
-	
-	/** The test model. */
 	private static IModel testModel;
-	
-	/**
-	 * Sets the up before class.
-	 *
-	 * @throws Exception the exception
-	 */
+	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		testView= new IView(){
+		
+		testView = new IView() {
 			public void printMessage(String message) {
 			}
 		};
 		testModel = new IModel() {
 
 			public ILorannWorld getLorannWorld() {
-				// TODO Auto-generated method stub
-				return null;
+				return new ILorannWorld(){
+
+					public void addElement(IMobile motionElement, int x, int y) {	
+					}
+
+					public void addElement(IMotionlessElement motionlessElement, int x, int y) {	
+					}
+
+					public void addScore(int x) {
+
+					}
+
+					public IMotionlessElement getElement(int x, int y) {
+
+						return null;
+					}
+
+					public IMotionlessElement[][] getElements() {
+						return null;
+					}
+
+					public int getHeight() {
+						return 0;
+					}
+
+					public ILorann getLorann() {
+						return new ILorann(){
+
+							public Boolean executeMoveIfPossible(int x, int y) {
+								return null;
+							}
+
+							public ILorannWorld getLorannWorld() {
+								return null;
+							}
+
+							public int getSaveX() {
+								return 0;
+							}
+
+							public int getSaveY() {
+								return 0;
+							}
+
+							public int getX() {
+								return 0;
+							}
+
+							public int getY() {
+								return 0;
+							}
+
+							public void killElement(IMotionElement motionElement) {
+							}
+
+							public void savePosition() {
+							}
+
+							public void setSaveX(int saveX) {
+							}
+
+							public void setSaveY(int saveX) {
+							}
+
+							public void setX(int x) {
+							}
+
+							public void setY(int y) {
+							}
+
+							public ISprite getSprite() {
+								return null;
+							}
+
+							public char getSymbole() {
+								return 0;
+							}
+
+							public void animate() {
+								
+							}
+
+							public IMobile getSpell() {
+								return null;
+							}
+
+							public IVectorDirection getVectorOrder() {
+								return null;
+							}
+
+							public int getXSpell() {
+								return 0;
+							}
+
+							public int getYSpell() {
+								return 0;
+							}
+
+							public void setSpell() {
+								
+							}
+
+							public void setVectorOrder(IVectorDirection vectorOrder) {
+								
+							}
+
+							public void setXSpell(int Xspell) {
+							}
+
+							public void setYSpell(int YSpell) {
+							}
+							
+						};
+					}
+
+					public IMobile getMobileX(int x) {
+						return null;
+					}
+
+					public ArrayList<IMobile> getMotionElements() {
+						return null;
+					}
+
+					public Observable getObservable() {
+
+						return new Observable();
+					}
+
+					public int getScore() {
+
+						return 0;
+					}
+
+					public int getWidth() {
+						return 0;
+					}
+
+					public void play() {
+					}
+
+					public boolean removeMobile(int x, int y) {
+						return false;
+					}
+
+					public void setWin(int win) {
+						
+					}
+
+					public void addElement(ILorann lorann, int x, int y) {
+						
+					}
+					
+				};
 			}
+
 			public Observable getObservable() {
 				return new Observable();
 			}
+			
 		};
-		Controller testController = new Controller(testView, testModel);
+		testController = new Controller(testView, testModel);
+		
 	}
 
-	/**
-	 * Tear down after class.
-	 *
-	 * @throws Exception the exception
-	 */
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	/**
-	 * Sets the up.
-	 *
-	 * @throws Exception the exception
-	 */
 	@Before
 	public void setUp() throws Exception {
 	}
 
-	/**
-	 * Tear down.
-	 *
-	 * @throws Exception the exception
-	 */
-	@After
-	public void tearDown() throws Exception {
-	}
-	
-	/**
-	 * Test get vecteur order.
-	 */
 	@Test
 	public void testGetVecteurOrder() {
 		assertNotNull(this.testController);
+		
 	}
 
-	/**
-	 * Test order perform.
-	 */
 	@Test
 	public void testOrderPerform() {
 		this.testController.orderPerform(1, 2, 3);
