@@ -13,7 +13,7 @@ import model.lorannWorld.element.FactoryElement;
  *
  * @author Jean-Aymeric Diet
  */
-class DAOLorannWorld extends DAOEntity<LorannWorld> {
+public class DAOLorannWorld extends DAOEntity<LorannWorld> {
 
 	/**
 	 * Instantiates a new DAO hello world.

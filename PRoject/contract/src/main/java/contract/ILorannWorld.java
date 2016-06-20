@@ -34,4 +34,6 @@ public interface ILorannWorld {
 	public boolean removeMobile(final int x, final int y);
 
 	public void setWin(final int win);
+	
+	public void addElement(final ILorann lorann, final int x, final int y);
 }

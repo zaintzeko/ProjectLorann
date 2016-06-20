@@ -32,7 +32,7 @@ public class DBPropertiesTest {
 	@Test
 	public void testGetUrl() {
 	
-		String expected = "jdbc:mysql://localhost:8889/jpublankproject?autoReconnect=true&useSSL=false";
+		String expected = "jdbc:mysql://localhost:8889/lorann?autoReconnect=true&useSSL=false";
 		assertEquals(expected, DBPropertiesTest.testDB.getUrl());
 	}
 

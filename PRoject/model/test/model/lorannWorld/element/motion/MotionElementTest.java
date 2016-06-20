@@ -118,6 +118,11 @@ public class MotionElementTest {
 			// TODO Auto-generated method stub
 			
 		}
+
+		public void addElement(ILorann lorann, int x, int y) {
+			// TODO Auto-generated method stub
+			
+		}
 		
 	});
 	
