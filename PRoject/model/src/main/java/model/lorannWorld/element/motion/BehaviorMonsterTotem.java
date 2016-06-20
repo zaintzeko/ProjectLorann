@@ -19,41 +19,29 @@ public class BehaviorMonsterTotem extends Monster implements IStrategy{
 		switch(Nomber){
 		case 0:
 		
-			if(lorannWorld.getLorann().getY()<motionElement.getY()){
-				motionElement.setY(motionElement.getY()-1);}
+
 			break;
 		case 1:
-			if(!motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY())) {
-				motionElement.setY(motionElement.getY()-1);;
-			}
+	
 			break;
 		case 2:
-			if (lorannWorld.getLorann().getX()>motionElement.getX()){
-				motionElement.setX(motionElement.getX()+1);}
+
 			break;
 		case 3:
-			if(!motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY())) {
-				motionElement.setX(motionElement.getX()+1);
-			}
+		
 			break;
 		case 4:
-			if (lorannWorld.getLorann().getY()>motionElement.getY()){
-				motionElement.setY(motionElement.getY()+1);}
+	
 			break;
 		case 5:
-			if(!motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY())) {
-				motionElement.setY(motionElement.getY()+1);
-			}
+		
 			
 			break;
 		case 6:
-			if (lorannWorld.getLorann().getX()<motionElement.getX()){
-				motionElement.setX(motionElement.getX()-1);}
+	
 			break;
 		case 7:
-			if(!motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY())) {
-				motionElement.setX(motionElement.getX()-1);
-			}
+		
 			default:
 		}
 	}
