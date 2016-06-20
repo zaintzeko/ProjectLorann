@@ -10,10 +10,10 @@ import org.junit.Test;
 
 
 public class VecteurDirectionTest {
-	private static VecteurDirection testVecteur;
+	private static VectorDirection testVector;
 	
 	public static void setUpBeforeClass() throws Exception {
-		testVecteur = new VecteurDirection();
+		testVector = new VectorDirection();
 	}
 
 	@AfterClass
@@ -36,23 +36,23 @@ public class VecteurDirectionTest {
 	@Test
 	public void testGetVecteurX() {
 		int expected = 1;
-		this.testVecteur.setVecteurX(1);
-		assertEquals(expected, this.testVecteur.getVecteurX());
+		this.testVector.setVectorX(1);
+		assertEquals(expected, this.testVector.getVectorX());
 		
 	}
 
 	@Test
 	public void testGetVecteurY() {
 		int expected = 1;
-		this.testVecteur.setVecteurY(1);
-		assertEquals(expected, this.testVecteur.getVecteurY());
+		this.testVector.setVectorY(1);
+		assertEquals(expected, this.testVector.getVectorY());
 	}
 
 	@Test
 	public void testGetNumberOfSpell() {
 		int expected = 1;
-		this.testVecteur.setNumberOfSpell(1);
-		assertEquals(expected, this.testVecteur.getNumberOfSpell());
+		this.testVector.setNumberOfSpell(1);
+		assertEquals(expected, this.testVector.getNumberOfSpell());
 	}
 
 }
