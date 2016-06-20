@@ -26,24 +26,13 @@ public class Lorann extends MotionElement implements ILorann{
 	}
 
 	public void animate() {
+		this.testIfTouchAnElement();
+
 		this.savePosition();
-		System.out.println(this.vecteurOrder.getNumberOfSpell());
 
 		this.theSpellFollowYou = (this.getX() == this.spell.getX())&& (this.getY() == this.spell.getY());
 
-		if(this.vecteurOrder.getNumberOfSpell() == 1) {
-			if(this.theSpellFollowYou){
-
-				this.XSpell = this.vecteurOrder.getVecteurX();
-				this.YSpell = this.vecteurOrder.getVecteurY();
-				this.theSpellFollowYou = false;
-
-			}
-			else {
-				this.XSpell = -this.vecteurOrder.getVecteurX();
-				this.YSpell = -this.vecteurOrder.getVecteurY();
-			}
-		}
+		this.setVecteurSpell();
 
 		this.setX(this.getX()+this.vecteurOrder.getVecteurX());
 		this.setY(this.getY()+this.vecteurOrder.getVecteurY());
@@ -51,12 +40,8 @@ public class Lorann extends MotionElement implements ILorann{
 		this.getSprite().changecurentImage(this.vecteurOrder.changeVecteurToImageNumber(this.vecteurOrder, this.getSprite().getCurrentStep()));
 		this.executeMoveIfPossible(this.getX(), this.getY());
 
-		for(final IMobile i : this.getLorannWorld().getMotionElements()){
-			if((i.getX() == this.getX()) && (i.getY() == this.getY())){
-				i.getStrategy().actionOnHit(i, this.getLorannWorld());
-			}
-		}
-		this.getLorannWorld().removeMobile(this.getX(), this.getY());
+		this.testIfTouchAnElement();
+
 		this.spell.getStrategy().animate(this.spell, this.getLorannWorld());
 		if(this.theSpellFollowYou){
 			this.spell.setX(this.getX());
@@ -71,7 +56,6 @@ public class Lorann extends MotionElement implements ILorann{
 	public IVecteurDirection getVecteurOrder() {
 		return this.vecteurOrder;
 	}
-
 	public int getXSpell() {
 		return this.XSpell;
 	}
@@ -83,6 +67,7 @@ public class Lorann extends MotionElement implements ILorann{
 	public void setKeyCode(final ControllerOrder keyCode){
 		//this.keyCode = keyCode;
 	}
+
 	public void setSpell() {
 		this.spell.setX(this.getX());
 		this.spell.setY(this.getY());
@@ -91,6 +76,22 @@ public class Lorann extends MotionElement implements ILorann{
 	public void setVecteurOrder(final IVecteurDirection vecteurOrder) {
 		this.vecteurOrder = vecteurOrder;
 	}
+	private void setVecteurSpell()
+	{
+		if(this.vecteurOrder.getNumberOfSpell() == 1) {
+			if(this.theSpellFollowYou){
+
+				this.XSpell = this.vecteurOrder.getVecteurX();
+				this.YSpell = this.vecteurOrder.getVecteurY();
+				this.theSpellFollowYou = false;
+
+			}
+			else {
+				this.XSpell = -this.vecteurOrder.getVecteurX();
+				this.YSpell = -this.vecteurOrder.getVecteurY();
+			}
+		}
+	}
 
 	public void setXSpell(final int xSpell) {
 		this.XSpell = xSpell;
@@ -98,6 +99,16 @@ public class Lorann extends MotionElement implements ILorann{
 
 	public void setYSpell(final int ySpell) {
 		this.YSpell = ySpell;
+	}
+
+	private void testIfTouchAnElement()
+	{
+		for(final IMobile i : this.getLorannWorld().getMotionElements()){
+			if((i.getX() == this.getX()) && (i.getY() == this.getY())){
+				i.getStrategy().actionOnHit(i, this.getLorannWorld());
+			}
+		}
+		this.getLorannWorld().removeMobile(this.getX(), this.getY());
 	}
 
 
