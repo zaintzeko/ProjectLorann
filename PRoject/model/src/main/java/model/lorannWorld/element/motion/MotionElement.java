@@ -1,6 +1,5 @@
 package model.lorannWorld.element.motion;
 
-import contract.Direction;
 import contract.ILorannWorld;
 import contract.IMotionElement;
 import contract.ISprite;
@@ -10,20 +9,16 @@ import model.lorannWorld.element.Permeability;
 public abstract class MotionElement extends Element implements IMotionElement{
 	private int x;
 	private int y;
-	private Direction direction;
 	private int saveX;
 	private int saveY;
 	private ILorannWorld lorannWorld;
 
-	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole, final ILorannWorld lorannWorld)
-	{
+	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole, final ILorannWorld lorannWorld) {
 		super(sprite, permeability, symbole);
-		this.direction = Direction.NONE;
 		this.lorannWorld = lorannWorld;
 	}
 
-	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole, final int x, final int y, final ILorannWorld lorannWorld) throws Exception
-	{
+	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole, final int x, final int y, final ILorannWorld lorannWorld) throws Exception  {
 		super(sprite, permeability, symbole);
 		if((x<0) || (x>20)) {
 			throw new Exception("X must be between 0 and 20");
@@ -35,20 +30,15 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		this.y = y;
 	}
 
-	public Boolean executeMoveIfPossible( final int x, final int y){
-		if (this.lorannWorld.getElement(x, y)==null)
-		{
+	public Boolean executeMoveIfPossible( final int x, final int y) {
+		if (this.lorannWorld.getElement(x, y)==null) {
 			return true;
 		}
-		else
-		{
+		else {
 			this.x=this.saveX;
 			this.y=this.saveY;
 			return false;
 		}
-	}
-	public Direction getDirection() {
-		return this.direction;
 	}
 
 	public ILorannWorld getLorannWorld(){
@@ -72,8 +62,7 @@ public abstract class MotionElement extends Element implements IMotionElement{
 		return this.y;
 	}
 
-	public void killElement(final IMotionElement deathMotionElement)
-	{
+	public void killElement(final IMotionElement deathMotionElement) {
 		for(final IMotionElement motionElements : this.getLorannWorld().getMotionElements())
 		{
 			if(motionElements == deathMotionElement)
@@ -81,69 +70,13 @@ public abstract class MotionElement extends Element implements IMotionElement{
 				this.getLorannWorld();
 				this.getLorannWorld().getLorann().getVecteurOrder().setNumberOfSpell(0);
 			}
-			
+
 		}
 	}
-	public void moveDown(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.y++;
-	}
 
-	public void moveLeft(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.x--;
-	}
-
-	public void moveLeftDown(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.y++;
-		this.x--;
-	}
-
-	public void moveLeftUp(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.y--;
-		this.x--;
-	}
-
-	public void moveRight(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.x++;
-	}
-
-	public void moveRightDown(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.y++;
-		this.x++;
-	}
-
-	public void moveRightUp(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.y--;
-		this.x++;
-	}
-
-	public void moveUp(){
-		this.saveX = this.x;
-		this.saveY =this.y;
-		this.y--;
-	}
-
-	public void savePosition()
-	{
+	public void savePosition() {
 		this.saveX =this.x;
 		this.saveY = this.y;
-	}
-
-	public void setDirection(final Direction direction) {
-		this.direction = direction;
 	}
 
 	public void setSaveX(final int saveX) {
