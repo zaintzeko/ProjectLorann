@@ -39,6 +39,7 @@ public class BehaviorSpell implements IStrategy{
 		{
 			motionElement.setX(lorannWorld.getLorann().getX());
 			motionElement.setY(lorannWorld.getLorann().getY());
+			lorannWorld.addScore(100);
 			return true;
 		}
 		return false;
