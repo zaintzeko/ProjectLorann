@@ -17,8 +17,7 @@ public class ChangeKeycodeToDirection {
 	/* (non-Javadoc)
 	 * @see view.IChangeKeyCodeToDirection#ActionOnKeyPressed(int)
 	 */
-	public void ActionOnKeyPressed(final int keyCode)
-	{
+	public void ActionOnKeyPressed(final int keyCode) {
 		this.setKey(keyCode, 1);
 	}
 	/* (non-Javadoc)
