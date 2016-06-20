@@ -4,7 +4,6 @@ import contract.ILorannWorld;
 import contract.IMotionElement;
 import contract.ISprite;
 import model.lorannWorld.element.Element;
-import model.lorannWorld.element.Permeability;
 
 public abstract class MotionElement extends Element implements IMotionElement{
 	private int x;
@@ -13,13 +12,13 @@ public abstract class MotionElement extends Element implements IMotionElement{
 	private int saveY;
 	private ILorannWorld lorannWorld;
 
-	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole, final ILorannWorld lorannWorld) {
-		super(sprite, permeability, symbole);
+	public MotionElement(final ISprite sprite, final char symbole, final ILorannWorld lorannWorld) {
+		super(sprite, symbole);
 		this.lorannWorld = lorannWorld;
 	}
 
-	public MotionElement(final ISprite sprite, final Permeability permeability, final char symbole, final int x, final int y, final ILorannWorld lorannWorld) throws Exception  {
-		super(sprite, permeability, symbole);
+	public MotionElement(final ISprite sprite, final char symbole, final int x, final int y, final ILorannWorld lorannWorld) throws Exception  {
+		super(sprite, symbole);
 		if((x<0) || (x>20)) {
 			throw new Exception("X must be between 0 and 20");
 		}

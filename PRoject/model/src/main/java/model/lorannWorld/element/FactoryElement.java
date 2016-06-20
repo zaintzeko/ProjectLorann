@@ -40,16 +40,16 @@ public abstract class  FactoryElement {
 	public static Sprite SPRITE_SKELETON = new Sprite(FIlE_NAME_SKELETON);
 	public static Sprite SPRITE_GOLD = new Sprite(FIlE_NAME_MONSTER_GOlD);
 
-	public static MotionlessElement HORIZONTALBONE = new MotionlessElement(new Sprite(FIlE_NAME_HORIZONTALBONE), Permeability.BLOCKING, '-');
-	public static MotionlessElement VERTICALBONE = new MotionlessElement(new Sprite(FIlE_NAME_VERTICALBONE), Permeability.BLOCKING, 'l');
-	public static MotionlessElement KNEEPCAP = new MotionlessElement(new Sprite(FIlE_NAME_KNEEPCAP), Permeability.BLOCKING, 'o');
+	public static MotionlessElement HORIZONTALBONE = new MotionlessElement(new Sprite(FIlE_NAME_HORIZONTALBONE), '-');
+	public static MotionlessElement VERTICALBONE = new MotionlessElement(new Sprite(FIlE_NAME_VERTICALBONE), 'l');
+	public static MotionlessElement KNEEPCAP = new MotionlessElement(new Sprite(FIlE_NAME_KNEEPCAP), 'o');
 
 	private static MotionlessElement motionlessElements[] = { HORIZONTALBONE, VERTICALBONE, KNEEPCAP, };
 
 	public static ILorann getfromFileSymbolLorann(final char c, final ILorannWorld lorannWorld)
 	{
 		if(c == 'L') {
-			return new Lorann(new Sprite(FIlE_NAME_LORANN), Permeability.BLOCKING, c, lorannWorld);
+			return new Lorann(new Sprite(FIlE_NAME_LORANN), c, lorannWorld);
 		}
 		return null;
 	}
@@ -58,28 +58,28 @@ public abstract class  FactoryElement {
 		IMobile a = null;
 		switch(c){
 		case 'G':
-			a = new Mobile(SPRITE_GOLD, Permeability.BLOCKING, c, new BehaviorMonsterGold(), lorannWorld);
+			a = new Mobile(SPRITE_GOLD, c, new BehaviorMonsterGold(), lorannWorld);
 			break;
 		case 's':
-			a = new Mobile(SPRITE_SKELETON, Permeability.BLOCKING, c, new BehaviorMonsterSkeleton(), lorannWorld);
+			a = new Mobile(SPRITE_SKELETON, c, new BehaviorMonsterSkeleton(), lorannWorld);
 			break;
 		case 'g':
-			a = new Mobile(SPRITE_GHOST, Permeability.BLOCKING, c, new BehaviorMonsterGhost(), lorannWorld);
+			a = new Mobile(SPRITE_GHOST, c, new BehaviorMonsterGhost(), lorannWorld);
 			break;
 		case 'T':
-			a = new Mobile(SPRITE_TOTEM, Permeability.BLOCKING, c, new BehaviorMonsterTotem(), lorannWorld);
+			a = new Mobile(SPRITE_TOTEM, c, new BehaviorMonsterTotem(), lorannWorld);
 			break;
 		case 't':
-			a = new Mobile(SPRITE_TREASURE, Permeability.BLOCKING, c, new BehaviorTreasure(), lorannWorld);
+			a = new Mobile(SPRITE_TREASURE, c, new BehaviorTreasure(), lorannWorld);
 			break;
 		case 'k':
-			a = new Mobile(SPRITE_KEY, Permeability.BLOCKING, c, new BehaviorKey(), lorannWorld);
+			a = new Mobile(SPRITE_KEY, c, new BehaviorKey(), lorannWorld);
 			break;
 		case 'S':
-			a = new Spell(SPRITE_SPELL, Permeability.BLOCKING, c, new BehaviorSpell(), lorannWorld);
+			a = new Spell(SPRITE_SPELL, c, new BehaviorSpell(), lorannWorld);
 			break;
 		case 'd':
-			a = new Mobile(SPRITE_DOOR, Permeability.BLOCKING, c, new BehaviorDoor(), lorannWorld);
+			a = new Mobile(SPRITE_DOOR, c, new BehaviorDoor(), lorannWorld);
 			break;
 		default:
 			a=null;

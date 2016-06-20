@@ -6,7 +6,6 @@ import contract.IMobile;
 import contract.ISprite;
 import contract.IVecteurDirection;
 import model.lorannWorld.element.FactoryElement;
-import model.lorannWorld.element.Permeability;
 
 public class Lorann extends MotionElement implements ILorann{
 	private IVecteurDirection vecteurOrder;
@@ -18,8 +17,8 @@ public class Lorann extends MotionElement implements ILorann{
 	private boolean theSpellFollowYou;
 
 	private final IMobile spell;
-	public Lorann(final ISprite sprite, final Permeability permeability, final char symbole, final ILorannWorld lorannWorld) {
-		super(sprite, permeability, symbole, lorannWorld);
+	public Lorann(final ISprite sprite, final char symbole, final ILorannWorld lorannWorld) {
+		super(sprite, symbole, lorannWorld);
 		this.spell = FactoryElement.getFromFileSymbolMotion('S',this.getLorannWorld());
 		this.theSpellFollowYou = true;
 	}

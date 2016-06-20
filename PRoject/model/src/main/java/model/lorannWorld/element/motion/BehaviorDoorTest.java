@@ -8,7 +8,6 @@ import org.junit.Test;
 import contract.ILorannWorld;
 import contract.IStrategy;
 import model.lorannWorld.LorannWorld;
-import model.lorannWorld.element.Permeability;
 import model.lorannWorld.element.Sprite;
 
 public class BehaviorDoorTest {
@@ -20,7 +19,7 @@ public class BehaviorDoorTest {
 		this.l = new LorannWorld();
 		final IStrategy strat = new BehaviorDoor();
 		final String sprites[] = {"DoorOpen.png", "DoorClose.png"};
-		this.l.addElement(new Mobile(new Sprite(sprites), Permeability.BLOCKING, 'd', strat, this.l), 0, 0);
+		this.l.addElement(new Mobile(new Sprite(sprites), 'd', strat, this.l), 0, 0);
 	}
 
 	@Test

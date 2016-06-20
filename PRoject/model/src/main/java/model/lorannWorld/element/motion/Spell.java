@@ -5,12 +5,11 @@ import contract.IMobile;
 import contract.ISpell;
 import contract.ISprite;
 import contract.IStrategy;
-import model.lorannWorld.element.Permeability;
 
 public class Spell extends Mobile implements ISpell{
-	public Spell(final ISprite sprite, final Permeability permeability, final char symbole, final IStrategy strategy,
+	public Spell(final ISprite sprite, final char symbole, final IStrategy strategy,
 			final ILorannWorld lorannWorld) {
-		super(sprite, permeability, symbole, strategy, lorannWorld);
+		super(sprite, symbole, strategy, lorannWorld);
 		// TODO Auto-generated constructor stub
 	}
 
