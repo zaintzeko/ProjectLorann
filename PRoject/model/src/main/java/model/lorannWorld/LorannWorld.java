@@ -19,7 +19,6 @@ public class LorannWorld extends Observable implements ILorannWorld {
 
 	public LorannWorld() throws Exception {
 		this(20, 12);
-
 	}
 
 	public LorannWorld(final int width, final int height) throws Exception {
@@ -61,9 +60,7 @@ public class LorannWorld extends Observable implements ILorannWorld {
 	public IMotionlessElement[][] getElements() {
 		return this.elements;
 	}
-	/* (non-Javadoc)
-	 * @see model.ILorannWorld#getHeight()
-	 */
+
 	public int getHeight() {
 		return this.height;
 	}
@@ -87,9 +84,6 @@ public class LorannWorld extends Observable implements ILorannWorld {
 		return this.score;
 	}
 
-	/* (non-Javadoc)
-	 * @see model.ILorannWorld#getWidth()
-	 */
 	public int getWidth() {
 		return this.width;
 	}
@@ -132,7 +126,6 @@ public class LorannWorld extends Observable implements ILorannWorld {
 			}
 			i++;
 		}
-
 		if(elementIndex != -1){
 			this.motionElements.remove(elementIndex);
 			return true;
