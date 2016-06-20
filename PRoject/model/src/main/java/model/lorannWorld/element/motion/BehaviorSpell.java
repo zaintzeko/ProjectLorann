@@ -8,9 +8,6 @@ import contract.IVecteurDirection;
 public class BehaviorSpell implements IStrategy{
 	private IVecteurDirection VecteurSpell;
 
-
-	private int x;
-	private int y;
 	public void actionOnHit(final IMotionElement motionElement, final ILorannWorld lorannWorld) {
 		// TODO Auto-generated method stub
 
@@ -20,6 +17,8 @@ public class BehaviorSpell implements IStrategy{
 	 * @see model.IBehaviorMonsterSkeleton#animate()
 	 */
 	public void animate(final IMotionElement motionElement,final ILorannWorld lorannWorld) {
+
+		this.killMobile(motionElement,lorannWorld);
 
 		motionElement.savePosition();
 		if(motionElement.executeMoveIfPossible(motionElement.getX() - lorannWorld.getLorann().getXSpell(), motionElement.getY() - lorannWorld.getLorann().getYSpell())){
@@ -34,14 +33,18 @@ public class BehaviorSpell implements IStrategy{
 		}
 		motionElement.getSprite().changeToNextImage();
 
+		this.killMobile(motionElement,lorannWorld);
+	}
 
+	public IVecteurDirection getVecteurSpell() {
+		return this.VecteurSpell;
+	}
+	private void killMobile(final IMotionElement motionElement,final ILorannWorld lorannWorld)
+	{
 		if(lorannWorld.removeMobile(motionElement.getX(), motionElement.getY()))
 		{
 			motionElement.setX(lorannWorld.getLorann().getX());
 			motionElement.setY(lorannWorld.getLorann().getY());
 		}
-	}
-	public IVecteurDirection getVecteurSpell() {
-		return this.VecteurSpell;
 	}
 }
