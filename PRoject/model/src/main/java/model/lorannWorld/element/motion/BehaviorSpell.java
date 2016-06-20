@@ -18,16 +18,10 @@ public class BehaviorSpell implements IStrategy{
 	 */
 	public void animate(final IMotionElement motionElement,final ILorannWorld lorannWorld) {
 
-		this.killMobile(motionElement,lorannWorld);
-
 		motionElement.savePosition();
-		if(motionElement.executeMoveIfPossible(motionElement.getX() - lorannWorld.getLorann().getXSpell(), motionElement.getY() - lorannWorld.getLorann().getYSpell())){
-			motionElement.setX(motionElement.getX() - lorannWorld.getLorann().getXSpell());
-			motionElement.setY(motionElement.getY() - lorannWorld.getLorann().getYSpell());
-		}
-		else {
-			motionElement.setX(motionElement.getX()+ lorannWorld.getLorann().getXSpell());
-			motionElement.setY(motionElement.getY() + lorannWorld.getLorann().getYSpell());
+
+		this.killMobile(motionElement,lorannWorld);
+		if(!motionElement.executeMoveIfPossible(motionElement.getX() - lorannWorld.getLorann().getXSpell(), motionElement.getY() - lorannWorld.getLorann().getYSpell())){
 			lorannWorld.getLorann().setXSpell(-lorannWorld.getLorann().getXSpell());
 			lorannWorld.getLorann().setYSpell(-lorannWorld.getLorann().getYSpell());
 		}
@@ -39,12 +33,14 @@ public class BehaviorSpell implements IStrategy{
 	public IVectorDirection getVecteurSpell() {
 		return this.VecteurSpell;
 	}
-	private void killMobile(final IMotionElement motionElement,final ILorannWorld lorannWorld)
+	private boolean killMobile(final IMotionElement motionElement,final ILorannWorld lorannWorld)
 	{
 		if(lorannWorld.removeMobile(motionElement.getX(), motionElement.getY()))
 		{
 			motionElement.setX(lorannWorld.getLorann().getX());
 			motionElement.setY(lorannWorld.getLorann().getY());
+			return true;
 		}
+		return false;
 	}
 }

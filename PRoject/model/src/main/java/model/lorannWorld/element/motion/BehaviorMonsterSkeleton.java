@@ -25,7 +25,8 @@ public class BehaviorMonsterSkeleton extends Monster implements IStrategy{
 			if(!motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY())) {
 				motionElement.setY(motionElement.getY()-1);
 			} else {
-				motionElement.setY(motionElement.getY()-1);
+				motionElement.savePosition();
+
 			}
 		}
 
@@ -34,7 +35,8 @@ public class BehaviorMonsterSkeleton extends Monster implements IStrategy{
 			if(!motionElement.executeMoveIfPossible(motionElement.getX(), motionElement.getY())) {
 				motionElement.setX(motionElement.getX()+1);
 			} else {
-				motionElement.setX(motionElement.getX()+1);
+				motionElement.savePosition();
+
 			}
 		}
 

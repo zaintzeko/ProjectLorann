@@ -7,6 +7,16 @@ import contract.ISprite;
 import contract.IStrategy;
 
 public class Spell extends Mobile implements ISpell{
+	boolean spellFired = false;
+	
+	public boolean isSpellFired() {
+		return spellFired;
+	}
+
+	public void setSpellFired(boolean spellFired) {
+		this.spellFired = spellFired;
+	}
+
 	public Spell(final ISprite sprite, final char symbole, final IStrategy strategy,
 			final ILorannWorld lorannWorld) {
 		super(sprite, symbole, strategy, lorannWorld);
@@ -34,6 +44,8 @@ public class Spell extends Mobile implements ISpell{
 			}
 		}
 		if(a) {
+			this.setX(x);
+			this.setY(y);
 			return a;
 		}
 		this.setX(this.getSaveX());
