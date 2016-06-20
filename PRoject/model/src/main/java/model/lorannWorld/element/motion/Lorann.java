@@ -85,8 +85,8 @@ public class Lorann extends MotionElement implements ILorann{
 
 			}
 			else {
-				this.XSpell = -this.vectorOrder.getVectorX();
-				this.YSpell = -this.vectorOrder.getVectorY();
+				this.XSpell = this.vectorByPosition(this.spell.getX(), this.getX());
+				this.YSpell = this.vectorByPosition(this.spell.getY(), this.getY());
 			}
 		}
 	}
@@ -94,7 +94,6 @@ public class Lorann extends MotionElement implements ILorann{
 	public void setXSpell(final int xSpell) {
 		this.XSpell = xSpell;
 	}
-
 	public void setYSpell(final int ySpell) {
 		this.YSpell = ySpell;
 	}
@@ -107,5 +106,16 @@ public class Lorann extends MotionElement implements ILorann{
 			}
 		}
 		this.getLorannWorld().removeMobile(this.getX(), this.getY());
+	}
+
+	private int vectorByPosition(final int positionSpell, final int positionLorann) {
+		if(positionSpell > positionLorann) {
+			return 1;
+		}
+		else if(positionSpell < positionLorann)	{
+			return -1;
+		} else {
+			return 0;
+		}
 	}
 }
