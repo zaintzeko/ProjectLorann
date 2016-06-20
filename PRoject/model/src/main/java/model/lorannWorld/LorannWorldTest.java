@@ -11,13 +11,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import contract.ControllerOrder;
+
 import contract.ILorann;
 import contract.ILorannWorld;
 import contract.IMobile;
 import contract.IMotionElement;
 import contract.ISprite;
-import contract.IVecteurDirection;
+import contract.IVectorDirection;
+import contract.IVectorDirection;
 
 public class LorannWorldTest {
 	private static LorannWorld testLoran;
@@ -147,7 +148,7 @@ public class LorannWorldTest {
 				return null;
 			}
 
-			public IVecteurDirection getVecteurOrder() {
+			public IVectorDirection getVectorOrder() {
 				// TODO Auto-generated method stub
 				return null;
 			}
@@ -162,17 +163,14 @@ public class LorannWorldTest {
 				return 0;
 			}
 
-			public void setKeyCode(ControllerOrder keyCode) {
-				// TODO Auto-generated method stub
-				
-			}
+			
 
 			public void setSpell() {
 				// TODO Auto-generated method stub
 				
 			}
 
-			public void setVecteurOrder(IVecteurDirection vecteurOrder) {
+			public void setVecteurOrder(IVectorDirection vecteurOrder) {
 				// TODO Auto-generated method stub
 				
 			}
@@ -183,6 +181,11 @@ public class LorannWorldTest {
 			}
 			public void setYSpell(int YSpell) {
 
+			}
+
+			public void setVectorOrder(IVectorDirection vectorOrder) {
+				// TODO Auto-generated method stub
+				
 			}	
 		};
 	}

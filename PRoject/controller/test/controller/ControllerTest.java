@@ -57,8 +57,8 @@ public class ControllerTest {
 		int expected =1;
 		int expected2 = 2;
 		int expected3 = 3;
-		assertEquals(expected, this.testController.getVecteurOrder().getVecteurX());
-		assertEquals(expected2, this.testController.getVecteurOrder().getVecteurY());
+		assertEquals(expected, this.testController.getVecteurOrder().getVectorX());
+		assertEquals(expected2, this.testController.getVecteurOrder().getVectorY());
 		assertEquals(expected3, this.testController.getVecteurOrder().getNumberOfSpell());
 	}
 
