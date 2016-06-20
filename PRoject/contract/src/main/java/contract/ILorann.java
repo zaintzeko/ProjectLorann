@@ -9,7 +9,7 @@ public interface ILorann extends IMotionElement{
 
 	public IMobile getSpell();
 
-	public IVecteurDirection getVecteurOrder();
+	public IVectorDirection getVecteurOrder();
 
 	public int getXSpell();
 
@@ -17,7 +17,7 @@ public interface ILorann extends IMotionElement{
 
 	public void setSpell();
 
-	public void setVecteurOrder(final IVecteurDirection vecteurOrder);
+	public void setVecteurOrder(final IVectorDirection vecteurOrder);
 
 	public void setXSpell(int Xspell);
 

@@ -3,10 +3,10 @@ package model.lorannWorld.element.motion;
 import contract.ILorannWorld;
 import contract.IMotionElement;
 import contract.IStrategy;
-import contract.IVecteurDirection;
+import contract.IVectorDirection;
 
 public class BehaviorSpell implements IStrategy{
-	private IVecteurDirection VecteurSpell;
+	private IVectorDirection VecteurSpell;
 
 	public void actionOnHit(final IMotionElement motionElement, final ILorannWorld lorannWorld) {
 		// TODO Auto-generated method stub
@@ -36,7 +36,7 @@ public class BehaviorSpell implements IStrategy{
 		this.killMobile(motionElement,lorannWorld);
 	}
 
-	public IVecteurDirection getVecteurSpell() {
+	public IVectorDirection getVecteurSpell() {
 		return this.VecteurSpell;
 	}
 	private void killMobile(final IMotionElement motionElement,final ILorannWorld lorannWorld)

@@ -1,8 +1,8 @@
 package contract;
 
-public interface IVecteurDirection {
+public interface IVectorDirection {
 
-	public int changeVecteurToImageNumber(final IVecteurDirection vecteur, final int currentImage);
+	public int changeVecteurToImageNumber(final IVectorDirection vecteur, final int currentImage);
 
 	int getVecteurX();
 

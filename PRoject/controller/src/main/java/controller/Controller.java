@@ -2,7 +2,7 @@ package controller;
 
 import contract.IController;
 import contract.IModel;
-import contract.IVecteurDirection;
+import contract.IVectorDirection;
 import contract.IView;
 
 // TODO: Auto-generated Javadoc
@@ -17,7 +17,7 @@ public class Controller implements IController {
 	/** The model. */
 	private IModel	model;
 
-	private final IVecteurDirection vecteurOrder;
+	private final IVectorDirection vecteurOrder;
 
 	/**
 	 * Instantiates a new controller.
@@ -41,7 +41,7 @@ public class Controller implements IController {
 	 */
 
 
-	public IVecteurDirection getVecteurOrder() {
+	public IVectorDirection getVecteurOrder() {
 		return this.vecteurOrder;
 	}
 

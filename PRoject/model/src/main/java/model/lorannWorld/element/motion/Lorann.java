@@ -4,11 +4,11 @@ import contract.ILorann;
 import contract.ILorannWorld;
 import contract.IMobile;
 import contract.ISprite;
-import contract.IVecteurDirection;
+import contract.IVectorDirection;
 import model.lorannWorld.element.FactoryElement;
 
 public class Lorann extends MotionElement implements ILorann{
-	private IVecteurDirection vecteurOrder;
+	private IVectorDirection vecteurOrder;
 
 	//private IMobile Spell;
 
@@ -55,7 +55,7 @@ public class Lorann extends MotionElement implements ILorann{
 		return this.spell;
 	}
 
-	public IVecteurDirection getVecteurOrder() {
+	public IVectorDirection getVecteurOrder() {
 		return this.vecteurOrder;
 	}
 	public int getXSpell() {
@@ -71,7 +71,7 @@ public class Lorann extends MotionElement implements ILorann{
 		this.spell.setY(this.getY());
 	}
 
-	public void setVecteurOrder(final IVecteurDirection vecteurOrder) {
+	public void setVecteurOrder(final IVectorDirection vecteurOrder) {
 		this.vecteurOrder = vecteurOrder;
 	}
 	private void setVecteurSpell()

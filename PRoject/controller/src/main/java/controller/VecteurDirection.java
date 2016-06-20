@@ -1,8 +1,8 @@
 package controller;
 
-import contract.IVecteurDirection;
+import contract.IVectorDirection;
 
-public class VecteurDirection implements IVecteurDirection {
+public class VecteurDirection implements IVectorDirection {
 	private int  vecteurX;
 	private int vecteurY;
 	private int numberOfSpell;
@@ -13,7 +13,7 @@ public class VecteurDirection implements IVecteurDirection {
 		this.vecteurY = 0;
 	}
 
-	public int changeVecteurToImageNumber(final IVecteurDirection vecteur, final int currentImage)
+	public int changeVecteurToImageNumber(final IVectorDirection vecteur, final int currentImage)
 	{
 		if((this.vecteurX == 0) && (this.vecteurY < 0)){
 			return 0;
