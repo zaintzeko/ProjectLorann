@@ -8,7 +8,7 @@ import contract.IVectorDirection;
 import model.lorannWorld.element.FactoryElement;
 
 public class Lorann extends MotionElement implements ILorann{
-	private IVectorDirection vecteurOrder;
+	private IVectorDirection vectorOrder;
 
 	//private IMobile Spell;
 
@@ -30,12 +30,12 @@ public class Lorann extends MotionElement implements ILorann{
 
 		this.theSpellFollowYou = (this.getX() == this.spell.getX())&& (this.getY() == this.spell.getY());
 
-		this.setVecteurSpell();
+		this.setVectorSpell();
 
-		this.setX(this.getX()+this.vecteurOrder.getVecteurX());
-		this.setY(this.getY()+this.vecteurOrder.getVecteurY());
+		this.setX(this.getX()+this.vectorOrder.getVectorX());
+		this.setY(this.getY()+this.vectorOrder.getVectorY());
 
-		this.getSprite().changecurentImage(this.vecteurOrder.changeVecteurToImageNumber(this.vecteurOrder, this.getSprite().getCurrentStep()));
+		this.getSprite().changecurentImage(this.vectorOrder.changeVecteurToImageNumber(this.vectorOrder, this.getSprite().getCurrentStep()));
 		this.executeMoveIfPossible(this.getX(), this.getY());
 
 		this.testIfTouchAnElement();
@@ -55,8 +55,8 @@ public class Lorann extends MotionElement implements ILorann{
 		return this.spell;
 	}
 
-	public IVectorDirection getVecteurOrder() {
-		return this.vecteurOrder;
+	public IVectorDirection getVectorOrder() {
+		return this.vectorOrder;
 	}
 	public int getXSpell() {
 		return this.XSpell;
@@ -71,22 +71,22 @@ public class Lorann extends MotionElement implements ILorann{
 		this.spell.setY(this.getY());
 	}
 
-	public void setVecteurOrder(final IVectorDirection vecteurOrder) {
-		this.vecteurOrder = vecteurOrder;
+	public void setVectorOrder(final IVectorDirection vecteurOrder) {
+		this.vectorOrder = vecteurOrder;
 	}
-	private void setVecteurSpell()
+	private void setVectorSpell()
 	{
-		if(this.vecteurOrder.getNumberOfSpell() == 1) {
+		if(this.vectorOrder.getNumberOfSpell() == 1) {
 			if(this.theSpellFollowYou){
 
-				this.XSpell = this.vecteurOrder.getVecteurX();
-				this.YSpell = this.vecteurOrder.getVecteurY();
+				this.XSpell = this.vectorOrder.getVectorX();
+				this.YSpell = this.vectorOrder.getVectorY();
 				this.theSpellFollowYou = false;
 
 			}
 			else {
-				this.XSpell = -this.vecteurOrder.getVecteurX();
-				this.YSpell = -this.vecteurOrder.getVecteurY();
+				this.XSpell = -this.vectorOrder.getVectorX();
+				this.YSpell = -this.vectorOrder.getVectorY();
 			}
 		}
 	}
@@ -108,6 +108,4 @@ public class Lorann extends MotionElement implements ILorann{
 		}
 		this.getLorannWorld().removeMobile(this.getX(), this.getY());
 	}
-
-
 }

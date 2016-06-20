@@ -30,8 +30,8 @@ public class Controller implements IController {
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
-		this.vecteurOrder = new VecteurDirection();
-		this.model.getLorannWorld().getLorann().setVecteurOrder(this.vecteurOrder);
+		this.vecteurOrder = new VectorDirection();
+		this.model.getLorannWorld().getLorann().setVectorOrder(this.vecteurOrder);
 	}
 
 	/*
@@ -50,9 +50,9 @@ public class Controller implements IController {
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	public void orderPerform(final int vecteurX, final int vecteurY, final int numberOfSpell) {
-		this.vecteurOrder.setVecteurX(vecteurX);
-		this.vecteurOrder.setVecteurY(vecteurY);
+	public void orderPerform(final int vectorX, final int vectorY, final int numberOfSpell) {
+		this.vecteurOrder.setVectorX(vectorX);
+		this.vecteurOrder.setVectorY(vectorY);
 		this.vecteurOrder.setNumberOfSpell(numberOfSpell);
 	}
 
