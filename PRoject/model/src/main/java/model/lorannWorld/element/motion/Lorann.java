@@ -42,6 +42,10 @@ public class Lorann extends MotionElement implements ILorann{
 
 		this.testIfTouchAnElement();
 
+		if(!this.theSpellFollowYou) {
+			this.theSpellFollowYou = (this.getX() == this.spell.getX())&& (this.getY() == this.spell.getY());
+		}
+
 		this.spell.getStrategy().animate(this.spell, this.getLorannWorld());
 		if(this.theSpellFollowYou){
 			this.spell.setX(this.getX());
