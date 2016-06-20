@@ -15,6 +15,7 @@ public class Lorann extends MotionElement implements ILorann{
 	private int XSpell = 0;
 	private int YSpell = 0;
 	private boolean theSpellFollowYou;
+	private boolean dontMoveAgain = false;
 
 	private final IMobile spell;
 	public Lorann(final ISprite sprite, final char symbole, final ILorannWorld lorannWorld) {
@@ -24,6 +25,7 @@ public class Lorann extends MotionElement implements ILorann{
 	}
 
 	public void animate() {
+		dontMoveAgain = false;
 		this.testIfTouchAnElement();
 
 		this.savePosition();
@@ -44,7 +46,7 @@ public class Lorann extends MotionElement implements ILorann{
 			this.theSpellFollowYou = (this.getX() == this.spell.getX())&& (this.getY() == this.spell.getY());
 		}
 
-		this.spell.getStrategy().animate(this.spell, this.getLorannWorld());
+		if(!this.dontMoveAgain)this.spell.getStrategy().animate(this.spell, this.getLorannWorld());
 		if(this.theSpellFollowYou){
 			this.spell.setX(this.getX());
 			this.spell.setY(this.getY());
@@ -78,15 +80,17 @@ public class Lorann extends MotionElement implements ILorann{
 	{
 		if(this.vectorOrder.getNumberOfSpell() == 1) {
 			if(this.theSpellFollowYou){
-
+				this.spell.savePosition();
 				this.XSpell = this.vectorOrder.getVectorX();
 				this.YSpell = this.vectorOrder.getVectorY();
+				this.spell.executeMoveIfPossible(this.spell.getX()-this.XSpell, this.spell.getY()-this.YSpell);
 				this.theSpellFollowYou = false;
-
+				this.dontMoveAgain = true;
 			}
 			else {
 				this.XSpell = this.vectorByPosition(this.spell.getX(), this.getX());
 				this.YSpell = this.vectorByPosition(this.spell.getY(), this.getY());
+				this.dontMoveAgain = false;
 			}
 		}
 	}
