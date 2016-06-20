@@ -85,7 +85,7 @@
 				<configuration>
 					<aggregate>true</aggregate>
 					<reportsDirectories>
-						<reportsDirectory>${basedir}/target/surefire-reports</reportsDirectory>
+						<reportsDirectory>${basedir}\target\surefire-reports</reportsDirectory>
 					</reportsDirectories>
 				</configuration>
 				<reportSets>
@@ -104,7 +104,7 @@
 				<configuration>
 					<aggregate>true</aggregate>
 					<reportsDirectories>
-						<reportsDirectory>${basedir}/target/</reportsDirectory>
+						<reportsDirectory>${basedir}\target\</reportsDirectory>
 					</reportsDirectories>
 				</configuration>
 			</plugin>
