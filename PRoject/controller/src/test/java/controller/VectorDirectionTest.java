@@ -13,7 +13,7 @@ import org.junit.Test;
 /**
  * The Class VecteurDirectionTest.
  */
-public class VecteurDirectionTest {
+public class VectorDirectionTest {
 	
 	/** The test vector. */
 	private static VectorDirection testVector;
@@ -24,7 +24,6 @@ public class VecteurDirectionTest {
 	 * @throws Exception the exception
 	 */
 	public static void setUpBeforeClass() throws Exception {
-		testVector = new VectorDirection();
 	}
 
 	/**
@@ -43,6 +42,7 @@ public class VecteurDirectionTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		testVector = new VectorDirection();
 	}
 
 	/**
@@ -55,18 +55,10 @@ public class VecteurDirectionTest {
 	}
 
 	/**
-	 * Test change vecteur to image number.
-	 */
-	@Test
-	public void testChangeVecteurToImageNumber() {
-		
-	}
-
-	/**
 	 * Test get vecteur X.
 	 */
 	@Test
-	public void testGetVecteurX() {
+	public void testGetVectorX() {
 		int expected = 1;
 		this.testVector.setVectorX(1);
 		assertEquals(expected, this.testVector.getVectorX());
@@ -77,7 +69,7 @@ public class VecteurDirectionTest {
 	 * Test get vecteur Y.
 	 */
 	@Test
-	public void testGetVecteurY() {
+	public void testGetVectorY() {
 		int expected = 1;
 		this.testVector.setVectorY(1);
 		assertEquals(expected, this.testVector.getVectorY());
